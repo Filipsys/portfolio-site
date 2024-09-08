@@ -1,0 +1,174 @@
+---
+import { SmallGithubIcon, SmallLinkedinIcon, SmallGmailIcon, TinyStarIcon, InfoIcon } from '../icons/dev-icons';
+import { Separator } from './ui/separator';
+import { Card, CardContent } from './ui/card';
+import { HoverCard, HoverCardTrigger, HoverCardContent } from './ui/hover-card';
+
+const WHATIUSEDICT = {
+    languages: [
+      { type: "Python", link: "https://www.python.org/", stars: 5 },
+      { type: "JavaScript", link: "https://www.javascript.com/", stars: 3 },
+      {
+        type: "TypeScript",
+        link: "https://www.typescriptlang.org/",
+        stars: 2,
+      },
+      { type: "HTML + CSS", link: "https://www.w3.org/html/", stars: 4 },
+      { type: "SQL", link: "https://www.sql.org/", stars: 4 },
+    ],
+    libraries: [
+      { type: "TailwindCSS", link: "https://tailwindcss.com/", stars: 3 },
+      { type: "Drizzle", link: "https://orm.drizzle.team/", stars: 2 },
+      { type: "React", link: "https://reactjs.org/", stars: 3 },
+      {
+        type: "Framer motion",
+        link: "https://www.framer.com/motion/",
+        stars: 2,
+      },
+      {
+        type: "Discord.py",
+        link: "https://discordpy.readthedocs.io/en/stable/",
+        stars: 5,
+      },
+    ],
+    tools: [
+      { type: "Next.js", link: "https://nextjs.org/", stars: 3 },
+      { type: "Git", link: "https://git-scm.com/", stars: 4 },
+      { type: "Vite", link: "https://vitejs.dev/", stars: 3 },
+      { type: "Bun", link: "https://bun.sh/", stars: 4 },
+      { type: "Flask", link: "https://expressjs.com/", stars: 3 },
+    ],
+  };
+
+---
+
+<div>
+      <div class="px-2 py-6">
+        <h1 class="text-xl font-light tracking-wide xs:text-2xl sm:text-3xl">
+          Hi, I'm <span class="">Filip</span>, a self-taught front-end
+          developer from Poland. I mainly work with{" "}
+          <span class="text-green-500">React</span>,{" "}
+          <span class="text-pink-500">NextJS</span>,{" "}
+          <span class="text-blue-600">TypeScript</span>, and relational
+          databases like <span class="text-orange-400">SQLite</span> and{" "}
+          <span class="text-red-500">Drizzle</span>.
+        </h1>
+      </div>
+
+      <div class="px-2">
+        <Separator />
+      </div>
+
+      <div class="px-2 py-6">
+        <h2 class="py-2 text-lg underline underline-offset-4 xs:text-xl">
+          Links
+        </h2>
+
+        <div class="flex flex-col fill-white/50 font-mono text-white/50 *:flex *:cursor-pointer *:justify-between *:text-xs *:font-light *:tracking-wider *:xs:text-sm *:sm:text-base">
+          <div
+            class="group/github z-50 transition-colors duration-200 hover:text-white"
+          >
+            <a href="https://github.com/Filipsys" target="_blank">
+              github.com/Filipsys
+            </a>
+
+            <div class="flex items-center gap-2">
+              <p class="hidden xs:block">Github</p>
+              <div class="size-4 duration-200 group-hover/github:fill-white">
+                <SmallGithubIcon />
+              </div>
+            </div>
+          </div>
+          <div
+            class="group/linkedin z-50 py-1 transition-colors duration-200 hover:text-[#0A66C2] xs:p-0"
+          >
+            <a href="https://linkedin.com/in/filipsysak" target="_blank">
+              linkedin.com/in/filipsysak
+            </a>
+            <div class="flex items-center gap-2">
+              <p class="hidden xs:block">LinkedIn</p>
+              <div class="size-4 duration-200 group-hover/linkedin:fill-[#0A66C2]">
+                <SmallLinkedinIcon />
+              </div>
+            </div>
+          </div>
+          <div
+            class="group/email z-50 transition-colors duration-200 hover:text-[#EA4335]"
+          >
+            <a href="mailto:sysakfilip@gmail.com">sysakfilip@gmail.com</a>
+
+            <div class="flex items-center gap-2">
+              <p class="hidden xs:block">Email</p>
+              <div class="size-4 duration-200 group-hover/email:fill-[#EA4335]">
+                <SmallGmailIcon />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* <div class="px-2">
+        <Separator />
+      </div> */}
+
+      <div class="z-50 px-2">
+        <div class="flex items-center">
+          <h2 class="py-2 text-lg underline underline-offset-4 xs:text-xl">
+            Tech I know and use
+          </h2>
+          <div class="z-50 mb-auto px-1 py-2">
+            <!-- <HoverCard>
+              <HoverCardTrigger className="z-50 *:hidden *:size-4 *:sm:block">
+                <InfoIcon />
+              </HoverCardTrigger>
+              <HoverCardContent className="p-2">
+                <p class="text-xs text-white">
+                  The stars indicate my level of proficiency in each technology.
+                </p>
+              </HoverCardContent>
+            </HoverCard> -->
+          </div>
+        </div>
+
+        <div class="mb-8 grid w-full grid-cols-1 gap-3 text-white/50 sm:grid-cols-3 lg:mb-0">
+          {Object.entries(WHATIUSEDICT).map(([key, value]) => (
+            <div>
+              <p class="pl-2 pr-1 text-base font-light tracking-wider">
+                - {key}
+              </p>
+              <Card className="bg-gradient-to-tr from-gray-400/5 to-transparent duration-300 ease-in-out">
+                <CardContent className="p-3 text-sm font-light text-white/50 sm:text-base">
+                  {value.map((item) => (
+                    <div
+                      class="flex flex-row justify-between"
+                    >
+                      <a
+                        href={item.link}
+                        target="_blank"
+                        class="z-50 line-clamp-1 font-mono underline-offset-4 hover:underline"
+                      >
+                        {item.type}
+                      </a>
+                      <div class="flex items-center justify-center gap-[2px] *:size-3">
+                        {[...Array(5 - item.stars)].map((_, i) => (
+                          <TinyStarIcon />
+                        ))}
+                        {[...Array(item.stars)].map((_, i) => (
+                          <TinyStarIcon fill={true} />
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </CardContent>
+              </Card>
+            </div>
+          ))}
+        </div>
+
+        <div class="block sm:hidden">
+          <p class="p-3 text-center text-xs text-white/50">
+            * The stars indicate my level of proficiency in each technology.
+          </p>
+        </div>
+      </div>
+    </div>
