@@ -21,8 +21,8 @@ const WHATIUSEDICT = {
       { type: "Drizzle", link: "https://orm.drizzle.team/", stars: 2 },
       { type: "React", link: "https://reactjs.org/", stars: 3 },
       {
-        type: "Framer motion",
-        link: "https://www.framer.com/motion/",
+        type: "Astro",
+        link: "https://astro.build/",
         stars: 2,
       },
       {
@@ -55,7 +55,7 @@ const WHATIUSEDICT = {
         </h1>
       </div>
 
-      <div class="px-2">
+      <div class="px-2 *:opacity-15">
         <Separator />
       </div>
 
@@ -64,7 +64,7 @@ const WHATIUSEDICT = {
           Links
         </h2>
 
-        <div class="flex flex-col fill-white/50 font-mono text-white/50 *:flex *:cursor-pointer *:justify-between *:text-xs *:font-light *:tracking-wider *:xs:text-sm *:sm:text-base">
+        <div class="flex flex-col fill-white/50 font-custom3 text-white/50 *:flex *:cursor-pointer *:justify-between *:text-xs *:font-light *:tracking-wider *:xs:text-sm *:sm:text-base">
           <div
             class="group/github z-50 transition-colors duration-200 hover:text-white"
           >
@@ -107,10 +107,6 @@ const WHATIUSEDICT = {
         </div>
       </div>
 
-      {/* <div class="px-2">
-        <Separator />
-      </div> */}
-
       <div class="z-50 px-2">
         <div class="flex items-center">
           <h2 class="py-2 text-lg underline underline-offset-4 xs:text-xl">
@@ -136,7 +132,7 @@ const WHATIUSEDICT = {
               <p class="pl-2 pr-1 text-base font-light tracking-wider">
                 - {key}
               </p>
-              <Card className="bg-gradient-to-tr from-gray-400/5 to-transparent duration-300 ease-in-out">
+              <Card className="bg-gradient-to-tr from-gray-400/5 to-transparent duration-300 ease-in-out bg-transparent border-white/10">
                 <CardContent className="p-3 text-sm font-light text-white/50 sm:text-base">
                   {value.map((item) => (
                     <div

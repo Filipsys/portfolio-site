@@ -1,7 +1,38 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 @layer base {
+  @font-face {
+    font-family: "Overpass";
+    src: url("/fonts/Overpass-Regular.ttf");
+  }
+  @font-face {
+    font-family: "Overpass";
+    src: url("/fonts/Overpass-Bold.ttf");
+    font-weight: bold;
+  }
+  @font-face {
+    font-family: "Overpass";
+    src: url("/fonts/Overpass-Italic.ttf");
+    font-style: italic;
+  }
+  @font-face {
+    font-family: "Overpass";
+    src: url("/fonts/Overpass-BoldItalic.ttf");
+    font-weight: bold;
+    font-style: italic;
+  }
+  @font-face {
+    font-family: "Overpass Mono";
+    src: url("/fonts/OverpassMono-Regular.ttf");
+  }
+  @font-face {
+    font-family: "Overpass Mono";
+    src: url("/fonts/OverpassMono-Bold.ttf");
+    font-weight: bold;
+  }
+
   :root {
     --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;
@@ -27,7 +58,7 @@
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
-    --radius: 0.5rem
+    --radius: 0.5rem;
   }
   .dark {
     --background: 0 0% 3.9%;
@@ -53,7 +84,7 @@
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%
+    --chart-5: 340 75% 55%;
   }
 }
 @layer base {
