@@ -1,49 +1,49 @@
 ---
-import { SmallGithubIcon, SmallLinkedinIcon, SmallGmailIcon, TinyStarIcon, InfoIcon } from '../icons/dev-icons';
-import { Separator } from './ui/separator';
-import { Card, CardContent } from './ui/card';
-import { HoverCard, HoverCardTrigger, HoverCardContent } from './ui/hover-card';
+import { SmallGithubIcon, SmallLinkedinIcon, SmallGmailIcon, TinyStarIcon } from "@/icons/dev-icons";
+import { Card, CardContent } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
+import { HoverCardComponent } from "@/components/HoverCardComponent";
 
 const WHATIUSEDICT = {
-    languages: [
-      { type: "Python", link: "https://www.python.org/", stars: 5 },
-      { type: "JavaScript", link: "https://www.javascript.com/", stars: 3 },
-      {
-        type: "TypeScript",
-        link: "https://www.typescriptlang.org/",
-        stars: 2,
-      },
-      { type: "HTML + CSS", link: "https://www.w3.org/html/", stars: 4 },
-      { type: "SQL", link: "https://www.sql.org/", stars: 4 },
-    ],
-    libraries: [
-      { type: "TailwindCSS", link: "https://tailwindcss.com/", stars: 3 },
-      { type: "Drizzle", link: "https://orm.drizzle.team/", stars: 2 },
-      { type: "React", link: "https://reactjs.org/", stars: 3 },
-      {
-        type: "Astro",
-        link: "https://astro.build/",
-        stars: 2,
-      },
-      {
-        type: "Discord.py",
-        link: "https://discordpy.readthedocs.io/en/stable/",
-        stars: 5,
-      },
-    ],
-    tools: [
-      { type: "Next.js", link: "https://nextjs.org/", stars: 3 },
-      { type: "Git", link: "https://git-scm.com/", stars: 4 },
-      { type: "Vite", link: "https://vitejs.dev/", stars: 3 },
-      { type: "Bun", link: "https://bun.sh/", stars: 4 },
-      { type: "Flask", link: "https://expressjs.com/", stars: 3 },
-    ],
-  };
+  languages: [
+    { type: "Python", link: "https://www.python.org", stars: 5 },
+    { type: "JavaScript", link: "https://www.javascript.com", stars: 3 },
+    {
+      type: "TypeScript",
+      link: "https://www.typescriptlang.org",
+      stars: 2,
+    },
+    { type: "HTML + CSS", link: "https://www.w3.org/html", stars: 4 },
+    { type: "SQL", link: "https://www.sql.org", stars: 4 },
+  ],
+  libraries: [
+    { type: "TailwindCSS", link: "https://tailwindcss.com", stars: 3 },
+    { type: "Drizzle", link: "https://orm.drizzle.team", stars: 2 },
+    { type: "React", link: "https://reactjs.org", stars: 3 },
+    {
+      type: "Astro",
+      link: "https://astro.build",
+      stars: 2,
+    },
+    {
+      type: "Discord.py",
+      link: "https://discordpy.readthedocs.io/en/stable",
+      stars: 5,
+    },
+  ],
+  tools: [
+    { type: "Next.js", link: "https://nextjs.org", stars: 3 },
+    { type: "Git", link: "https://git-scm.com", stars: 4 },
+    { type: "Vite", link: "https://vitejs.dev", stars: 3 },
+    { type: "Bun", link: "https://bun.sh", stars: 4 },
+    { type: "Flask", link: "https://expressjs.com", stars: 3 },
+  ],
+};
 
 ---
 
 <div>
-      <div class="px-2 py-6">
+      <div class="px-2 py-6 select-none">
         <h1 class="text-xl font-light tracking-wide xs:text-2xl sm:text-3xl">
           Hi, I'm <span class="">Filip</span>, a self-taught front-end
           developer from Poland. I mainly work with{" "}
@@ -64,7 +64,7 @@ const WHATIUSEDICT = {
           Links
         </h2>
 
-        <div class="flex flex-col fill-white/50 font-custom3 text-white/50 *:flex *:cursor-pointer *:justify-between *:text-xs *:font-light *:tracking-wider *:xs:text-sm *:sm:text-base">
+        <div class="flex flex-col fill-white/50 font-custom3 text-white/50 *:flex *:cursor-pointer *:justify-between *:text-xs *:font-light *:tracking-wide *:xs:text-sm *:sm:text-base">
           <div
             class="group/github z-50 transition-colors duration-200 hover:text-white"
           >
@@ -112,17 +112,9 @@ const WHATIUSEDICT = {
           <h2 class="py-2 text-lg underline underline-offset-4 xs:text-xl">
             Tech I know and use
           </h2>
+
           <div class="z-50 mb-auto px-1 py-2">
-            <!-- <HoverCard>
-              <HoverCardTrigger className="z-50 *:hidden *:size-4 *:sm:block">
-                <InfoIcon />
-              </HoverCardTrigger>
-              <HoverCardContent className="p-2">
-                <p class="text-xs text-white">
-                  The stars indicate my level of proficiency in each technology.
-                </p>
-              </HoverCardContent>
-            </HoverCard> -->
+            <HoverCardComponent client:load />
           </div>
         </div>
 
@@ -132,7 +124,7 @@ const WHATIUSEDICT = {
               <p class="pl-2 pr-1 text-base font-light tracking-wider">
                 - {key}
               </p>
-              <Card className="bg-gradient-to-tr from-gray-400/5 to-transparent duration-300 ease-in-out bg-transparent border-white/10">
+              <Card className="bg-gradient-to-tr from-gray-400/5 to-transparent duration-300 ease-in-out bg-transparent border-white/10 z-50">
                 <CardContent className="p-3 text-sm font-light text-white/50 sm:text-base">
                   {value.map((item) => (
                     <div

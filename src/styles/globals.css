@@ -5,32 +5,11 @@
 @layer base {
   @font-face {
     font-family: "Overpass";
-    src: url("/fonts/Overpass-Regular.ttf");
-  }
-  @font-face {
-    font-family: "Overpass";
-    src: url("/fonts/Overpass-Bold.ttf");
-    font-weight: bold;
-  }
-  @font-face {
-    font-family: "Overpass";
-    src: url("/fonts/Overpass-Italic.ttf");
-    font-style: italic;
-  }
-  @font-face {
-    font-family: "Overpass";
-    src: url("/fonts/Overpass-BoldItalic.ttf");
-    font-weight: bold;
-    font-style: italic;
+    src: url("../fonts/Overpass/Overpass-VariableFont_wght.ttf");
   }
   @font-face {
     font-family: "Overpass Mono";
-    src: url("/fonts/OverpassMono-Regular.ttf");
-  }
-  @font-face {
-    font-family: "Overpass Mono";
-    src: url("/fonts/OverpassMono-Bold.ttf");
-    font-weight: bold;
+    src: url("../fonts/Overpass_Mono/OverpassMono-VariableFont_wght.ttf");
   }
 
   :root {

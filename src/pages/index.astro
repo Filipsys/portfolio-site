@@ -1,12 +1,14 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
 import { Separator } from "@/components/ui/separator";
-import HomeComponent from '@/components/HomeComponent.astro';
+import HomeComponent from "@/components/HomeComponent.astro";
 import "@/styles/globals.css";
+
+let mousePos = { x: 0, y: 0 };
 ---
 
 <Layout title="Welcome to Astro.">
-	<main class="bg-[#09090b] h-screen w-screen">
+	<main class="bg-[#09090b] h-screen w-screen" id="hover-div">
 		<div
         class="absolute left-0 top-0 z-10 h-screen w-screen"
       />
@@ -16,22 +18,22 @@ import "@/styles/globals.css";
             <li
               class="z-50 cursor-pointer"
             >
-              <a>Home</a>
+              <a href="/">Home</a>
             </li>
             <li
               class="line-through"
             >
-              <a>About</a>
+              <a href="/about">About</a>
             </li>
             <li
               class="line-through"
             >
-              <a>Notes</a>
+              <a href="/notes">Notes</a>
             </li>
             <li
               class="line-through"
             >
-              <a>
+              <a href="/projects">
                 Projects
               </a>
             </li>
@@ -43,33 +45,15 @@ import "@/styles/globals.css";
         </div>
 
         <main class="flex w-screen items-center justify-center p-6 font-custom2 text-xl lg:h-dvh lg:w-4/5">
-          <div class="w-full">
-            <div class="relative w-full">
-                <!-- {activePage === "Home" && (
-                  <div key="home">
-                    <HomeComponent />
-                  </div>
-                )} -->
-				<HomeComponent />
-                {/* {activePage === "About" && (
-                  <div key="about">
-                    <AboutComponent />
-                  </div>
-                )}
-                {activePage === "Projects" && (
-                  <div key="projects">
-                    <ProjectsComponent />
-                  </div>
-                )} */}
-            </div>
-          </div>
+          <HomeComponent />
         </main>
       </div>
 
-      <div class="absolute left-0 top-0 hidden h-screen w-screen select-none overflow-hidden lg:block">
+      <div class="absolute left-0 top-0" >
         <div class="relative h-screen w-screen">
           <div
             class="absolute left-0 top-0 h-screen w-screen"
+            id="mask-div"
             style={{
               backgroundImage: `radial-gradient(rgba(255, 255, 255, 0.7) 4%, transparent 4%)`,
               backgroundSize: "3vmin 3vmin",
@@ -77,9 +61,9 @@ import "@/styles/globals.css";
               maskImage: `url(radialmask.svg)`,
               maskPosition: "50% 50%",
               maskRepeat: "no-repeat",
-              maskSize: "100% 100%",
-              opacity: 0,
+              maskSize: "100vh 100vh",
               transition: "opacity 0.2s ease-in-out",
+              opacity: 0.2,
             }}
           />
           <div
@@ -94,5 +78,27 @@ import "@/styles/globals.css";
 	</main>
 </Layout>
 
-<!-- <style>
-</style> -->
+<script>
+  const hoverDiv = document.getElementById("hover-div");
+  const maskDiv = document.getElementById("mask-div");
+
+  hoverDiv?.addEventListener("mousemove", (event) => {
+    if (!maskDiv) return;
+
+    maskDiv.style.maskPosition = `${event.clientX - maskDiv.clientHeight / 2}px ${
+      event.clientY - maskDiv.clientHeight / 2
+    }px`;
+  });
+
+  hoverDiv?.addEventListener("mouseleave", () => {
+    if (!maskDiv) return;
+
+    maskDiv.style.opacity = "0";
+  });
+
+  hoverDiv?.addEventListener("mouseover", () => {
+    if (!maskDiv) return;
+
+    maskDiv.style.opacity = "0.2";
+  });
+</script>

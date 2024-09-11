@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1000" height="1000">
+  <filter id="filter">
+    <feGaussianBlur stdDeviation="15" />
+  </filter>
+
+  <ellipse cx="50%" cy="50%" rx="17%" ry="17%" fill="black" filter="url(#filter)" />
+</svg>
