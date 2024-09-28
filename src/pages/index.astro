@@ -6,11 +6,11 @@ import "@/styles/globals.css";
 ---
 
 <Layout title="filyys • Main site">
-	<main class="bg-[#09090b] h-screen w-screen" id="hover-div">
+	<main class="bg-[#09090b] w-screen" id="hover-div">
 		<div
         class="absolute left-0 top-0 z-10 h-screen w-screen"
       />
-      <div class="h-screen items-center justify-center font-custom2 text-white md:flex-col lg:mx-16 lg:flex lg:flex-row xl:mx-40 2xl:mx-80">
+      <div class="h-max items-center justify-center font-custom2 text-white md:flex-col lg:mx-16 lg:flex lg:flex-row xl:mx-40 2xl:mx-80">
         <nav class="block h-fit w-screen p-8 lg:w-1/5 2xl:w-2/5">
           <ul class="flex select-none justify-center gap-x-8 text-xl tracking-tight sm:gap-x-16 sm:text-2xl lg:flex-col lg:items-end lg:text-3xl">
             <li
@@ -42,7 +42,7 @@ import "@/styles/globals.css";
           <Separator orientation="vertical" className="h-1/5" />
         </div>
 
-        <main class="flex w-screen items-center justify-center p-6 font-custom2 text-xl lg:h-dvh lg:w-4/5">
+        <main class="flex h-max w-screen items-center justify-center p-6 font-custom2 text-xl lg:h-dvh lg:w-4/5">
           <HomeComponent />
         </main>
       </div>
