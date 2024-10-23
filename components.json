@@ -7,7 +7,7 @@
     "config": "tailwind.config.mjs",
     "css": "src/styles/globals.css",
     "baseColor": "neutral",
-    "cssVariables": true,
+    "cssVariables": false,
     "prefix": ""
   },
   "aliases": {

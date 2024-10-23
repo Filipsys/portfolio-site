@@ -11,8 +11,8 @@ export const HoverCardComponent = () => {
       <HoverCardTrigger className="z-50 *:hidden *:size-4 *:sm:block">
         <InfoIcon />
       </HoverCardTrigger>
-      <HoverCardContent className="p-2 bg-[#09090b] border-white/10">
-        <p className="text-xs text-white">
+      <HoverCardContent className="p-2 bg-white dark:bg-[#09090b] border-white/10">
+        <p className="text-xs text-black dark:text-white">
           The stars indicate my level of proficiency in each technology.
         </p>
       </HoverCardContent>

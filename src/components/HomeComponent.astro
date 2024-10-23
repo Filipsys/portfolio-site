@@ -46,7 +46,7 @@ const WHATIUSEDICT = {
       <div class="px-2 py-6 select-none">
         <h1 class="text-xl font-light tracking-wide xs:text-2xl sm:text-3xl">
           Hi, I'm <span class="">Filip</span>, a self-taught front-end
-          developer from Poland. I mainly work with <span class="text-green-500">React</span>, <span class="text-pink-500">NextJS</span>, <span class="text-blue-200">TailwindCSS</span>, <span class="text-blue-600">TypeScript</span>, and relational
+          developer from Poland. I mainly work with <span class="text-green-500">React</span>, <span class="text-pink-500">NextJS</span>, <span class="dark:text-blue-200 text-blue-500">TailwindCSS</span>, <span class="text-blue-600">TypeScript</span>, and relational
           databases like <span class="text-orange-400">SQLite</span>.
         </h1>
       </div>
@@ -60,9 +60,9 @@ const WHATIUSEDICT = {
           Links
         </h2>
 
-        <div class="flex flex-col fill-white/50 font-custom3 text-white/50 *:flex *:cursor-pointer *:justify-between *:text-xs *:font-light *:tracking-wide *:xs:text-sm *:sm:text-base">
+        <div class="flex flex-col fill-white/50 font-custom3 dark:text-white/50 *:flex *:cursor-pointer *:justify-between *:text-xs *:font-light *:tracking-wide *:xs:text-sm *:sm:text-base">
           <div
-            class="group/github z-50 transition-colors duration-200 hover:text-white"
+            class="group/github z-50 transition-colors duration-200 hover:text-black dark:hover:text-white"
           >
             <a href="https://github.com/Filipsys" target="_blank">
               github.com/Filipsys
@@ -70,7 +70,7 @@ const WHATIUSEDICT = {
 
             <div class="flex items-center gap-2">
               <p class="hidden xs:block">Github</p>
-              <div class="size-4 duration-200 group-hover/github:fill-white">
+              <div class="size-4 duration-200 dark:fill-white/50 dark:group-hover/github:fill-white fill-black">
                 <SmallGithubIcon />
               </div>
             </div>
@@ -83,7 +83,7 @@ const WHATIUSEDICT = {
             </a>
             <div class="flex items-center gap-2">
               <p class="hidden xs:block">LinkedIn</p>
-              <div class="size-4 duration-200 group-hover/linkedin:fill-[#0A66C2]">
+              <div class="size-4 duration-200 dark:fill-white/50 dark:group-hover/linkedin:fill-[#0A66C2] fill-black">
                 <SmallLinkedinIcon />
               </div>
             </div>
@@ -95,7 +95,7 @@ const WHATIUSEDICT = {
 
             <div class="flex items-center gap-2">
               <p class="hidden xs:block">Email</p>
-              <div class="size-4 duration-200 group-hover/email:fill-[#EA4335]">
+              <div class="size-4 duration-200 dark:fill-white/50 dark:group-hover/email:fill-[#EA4335] fill-black">
                 <SmallGmailIcon />
               </div>
             </div>
@@ -114,14 +114,14 @@ const WHATIUSEDICT = {
           </div>
         </div>
 
-        <div class="mb-8 grid w-full grid-cols-1 gap-3 text-white/50 sm:grid-cols-3 lg:mb-0">
+        <div class="mb-8 grid w-full grid-cols-1 gap-3 text-black/50 dark:text-white/50 sm:grid-cols-3 lg:mb-0">
           {Object.entries(WHATIUSEDICT).map(([key, value]) => (
             <div>
               <p class="pl-2 pr-1 text-base font-light tracking-wider">
                 - {key}
               </p>
-              <Card className="bg-gradient-to-tr from-gray-400/5 to-transparent duration-300 ease-in-out bg-transparent border-white/10 z-50">
-                <CardContent className="p-3 text-sm font-light text-white/50 sm:text-base">
+              <Card className="bg-gradient-to-tr dark:from-gray-400/5 from-gray-400/10 duration-300 ease-in-out bg-transparent border-white/10 z-50">
+                <CardContent className="p-3 text-sm font-light dark:text-white/50 text-black/50 sm:text-base">
                   {value.map((item) => (
                     <div
                       class="flex flex-row justify-between"
@@ -150,7 +150,7 @@ const WHATIUSEDICT = {
         </div>
 
         <div class="block sm:hidden">
-          <p class="p-3 text-center text-xs text-white/50">
+          <p class="p-3 text-center text-xs dark:text-white/50 text-black/50">
             * The stars indicate my level of proficiency in each technology.
           </p>
         </div>

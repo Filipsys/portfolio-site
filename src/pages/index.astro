@@ -1,16 +1,42 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import { Separator } from "@/components/ui/separator";
-import HomeComponent from "@/components/HomeComponent.astro";
 import "@/styles/globals.css";
+import Layout from "../layouts/Layout.astro";
+import HomeComponent from "@/components/HomeComponent.astro";
+import { Separator } from "@/components/ui/separator";
+// import { LanguageComponent } from "@/components/LanguageComponent";
+import { ModeToggle } from "@/components/ModeToggle";
+
 ---
 
-<Layout title="filyys • Main site">
-	<main class="bg-[#09090b] w-screen" id="hover-div">
-		<div
-        class="absolute left-0 top-0 z-10 h-screen w-screen"
-      />
-      <div class="h-max items-center justify-center font-custom2 text-white md:flex-col lg:mx-16 lg:flex lg:flex-row xl:mx-40 2xl:mx-80">
+<script is:inline>
+	const getThemePreference = () => {
+		if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+			return localStorage.getItem('theme');
+		}
+		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+	};
+	const isDark = getThemePreference() === 'dark';
+	document.documentElement.classList[isDark ? 'add' : 'remove']('dark');
+
+	if (typeof localStorage !== 'undefined') {
+		const observer = new MutationObserver(() => {
+			const isDark = document.documentElement.classList.contains('dark');
+			localStorage.setItem('theme', isDark ? 'dark' : 'light');
+		});
+		observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+	}
+</script>
+
+<Layout title="filyys • Main site" >
+	<main class="dark:bg-black bg-white text-black dark:text-white w-screen" id="hover-div">
+	   <div class="absolute left-0 top-0 z-10 h-screen w-screen" />
+
+        <div class="absolute top-0 right-0 z-50 p-2">
+            <ModeToggle client:load />
+            <!-- <LanguageComponent client:load /> -->
+        </div>
+
+      <div class="h-max items-center justify-center font-custom2 dark:text-white md:flex-col lg:mx-16 lg:flex lg:flex-row xl:mx-40 2xl:mx-80">
         <nav class="block h-fit w-screen p-8 lg:w-1/5 2xl:w-2/5">
           <ul class="flex select-none justify-center gap-x-8 text-xl tracking-tight sm:gap-x-16 sm:text-2xl lg:flex-col lg:items-end lg:text-3xl">
             <li
