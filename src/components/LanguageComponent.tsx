@@ -4,12 +4,18 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-  DropdownMenuCheckboxItem,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
 } from "@/components/ui/dropdown-menu";
 import { LangIcon } from "@/icons/dev-icons";
 import { Button } from "@/components/ui/button";
+import { useState } from "react";
+
+type Languages = "english" | "german" | "polish" | "russian";
 
 export const LanguageComponent = () => {
+  const [language, setLanguage] = useState<Languages>("english");
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -22,27 +28,17 @@ export const LanguageComponent = () => {
       </DropdownMenuTrigger>
 
       <DropdownMenuContent className="w-56">
-        <DropdownMenuLabel>Appearance</DropdownMenuLabel>
+        <DropdownMenuLabel>Language</DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <DropdownMenuCheckboxItem
-        // checked={showStatusBar}
-        // onCheckedChange={setShowStatusBar}
+
+        <DropdownMenuRadioGroup
+          value={language} /* onValueChange={setLanguage} */
         >
-          Status Bar
-        </DropdownMenuCheckboxItem>
-        <DropdownMenuCheckboxItem
-          // checked={showActivityBar}
-          // onCheckedChange={setShowActivityBar}
-          disabled
-        >
-          Activity Bar
-        </DropdownMenuCheckboxItem>
-        <DropdownMenuCheckboxItem
-        // checked={showPanel}
-        // onCheckedChange={setShowPanel}
-        >
-          Panel
-        </DropdownMenuCheckboxItem>
+          <DropdownMenuRadioItem value="english">English</DropdownMenuRadioItem>
+          <DropdownMenuRadioItem value="german">Deutsch</DropdownMenuRadioItem>
+          <DropdownMenuRadioItem value="polish">Polish</DropdownMenuRadioItem>
+          <DropdownMenuRadioItem value="russian">Русский</DropdownMenuRadioItem>
+        </DropdownMenuRadioGroup>
       </DropdownMenuContent>
     </DropdownMenu>
   );
