@@ -9,12 +9,24 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { LangIcon } from "@/icons/dev-icons";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import i18n from "@/i18n";
 
 type Languages = "english" | "german" | "polish" | "russian";
+const langsDict: Record<Languages, string> = {
+  english: "English",
+  german: "Deutsch",
+  polish: "Polski",
+  russian: "Русский",
+};
 
 export const LanguageComponent = () => {
-  const [language, setLanguage] = useState<Languages>("english");
+  const [language, setLanguage] = useState("english");
+
+  useEffect(() => {
+    const lng = langsDict[language as Languages];
+    i18n.changeLanguage(lng);
+  }, [language]);
 
   return (
     <DropdownMenu>
@@ -31,13 +43,11 @@ export const LanguageComponent = () => {
         <DropdownMenuLabel>Language</DropdownMenuLabel>
         <DropdownMenuSeparator />
 
-        <DropdownMenuRadioGroup
-          value={language} /* onValueChange={setLanguage} */
-        >
+        <DropdownMenuRadioGroup value={language} onValueChange={setLanguage}>
           <DropdownMenuRadioItem value="english">English</DropdownMenuRadioItem>
-          <DropdownMenuRadioItem value="german">Deutsch</DropdownMenuRadioItem>
+          <DropdownMenuRadioItem value="german">German</DropdownMenuRadioItem>
           <DropdownMenuRadioItem value="polish">Polish</DropdownMenuRadioItem>
-          <DropdownMenuRadioItem value="russian">Русский</DropdownMenuRadioItem>
+          <DropdownMenuRadioItem value="russian">Russian</DropdownMenuRadioItem>
         </DropdownMenuRadioGroup>
       </DropdownMenuContent>
     </DropdownMenu>

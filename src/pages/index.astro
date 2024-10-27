@@ -4,7 +4,9 @@ import Layout from "../layouts/Layout.astro";
 import HomeComponent from "@/components/HomeComponent.astro";
 import { Separator } from "@/components/ui/separator";
 import { LanguageComponent } from "@/components/LanguageComponent";
+import { LanguageProvider } from "@/components/LanguageProvider";
 import { ModeToggle } from "@/components/ModeToggle";
+import { getTranslation } from "@/i18n-helper";
 
 ---
 
@@ -27,80 +29,82 @@ import { ModeToggle } from "@/components/ModeToggle";
 	}
 </script>
 
-<Layout title="filyys • Main site" >
-	<main class="dark:bg-black bg-white text-black dark:text-white w-screen" id="hover-div">
-	   <div class="absolute left-0 top-0 z-10 h-screen w-screen" />
+<LanguageProvider>
+    <Layout title="filyys • Main site" >
+    	<main class="dark:bg-black bg-white text-black dark:text-white w-screen" id="hover-div">
+    	   <div class="absolute left-0 top-0 z-10 h-screen w-screen" />
 
-        <div class="absolute top-0 right-0 z-50 p-2">
-            <ModeToggle client:load />
-            <LanguageComponent client:load />
+            <div class="absolute top-0 right-0 z-50 p-2">
+                <ModeToggle client:load />
+                <LanguageComponent client:load />
+            </div>
+
+        <div class="h-max items-center justify-center font-custom2 dark:text-white md:flex-col lg:mx-16 lg:flex lg:flex-row xl:mx-40 2xl:mx-80">
+            <nav class="block h-fit w-screen p-8 lg:w-1/5 2xl:w-2/5">
+            <ul class="flex select-none justify-center gap-x-8 text-xl tracking-tight sm:gap-x-16 sm:text-2xl lg:flex-col lg:items-end lg:text-3xl">
+                <li
+                class="z-50 cursor-pointer"
+                >
+                <a href="/">{getTranslation("navbar.home")}</a>
+                </li>
+                <li
+                class="line-through"
+                >
+                <a href="/about">About</a>
+                </li>
+                <li
+                class="line-through"
+                >
+                <a href="/notes">Notes</a>
+                </li>
+                <li
+                class="line-through"
+                >
+                <a href="/projects">
+                    Projects
+                </a>
+                </li>
+            </ul>
+            </nav>
+
+            <div class="hidden h-dvh lg:flex lg:items-center *:opacity-15">
+            <Separator orientation="vertical" className="h-1/5" />
+            </div>
+
+            <main class="flex h-max w-screen items-center justify-center p-6 font-custom2 text-xl lg:h-dvh lg:w-4/5">
+            <HomeComponent />
+            </main>
         </div>
 
-      <div class="h-max items-center justify-center font-custom2 dark:text-white md:flex-col lg:mx-16 lg:flex lg:flex-row xl:mx-40 2xl:mx-80">
-        <nav class="block h-fit w-screen p-8 lg:w-1/5 2xl:w-2/5">
-          <ul class="flex select-none justify-center gap-x-8 text-xl tracking-tight sm:gap-x-16 sm:text-2xl lg:flex-col lg:items-end lg:text-3xl">
-            <li
-              class="z-50 cursor-pointer"
-            >
-              <a href="/">Home</a>
-            </li>
-            <li
-              class="line-through"
-            >
-              <a href="/about">About</a>
-            </li>
-            <li
-              class="line-through"
-            >
-              <a href="/notes">Notes</a>
-            </li>
-            <li
-              class="line-through"
-            >
-              <a href="/projects">
-                Projects
-              </a>
-            </li>
-          </ul>
-        </nav>
-
-        <div class="hidden h-dvh lg:flex lg:items-center *:opacity-15">
-          <Separator orientation="vertical" className="h-1/5" />
+        <div class="absolute left-0 top-0" >
+            <div class="relative h-screen w-screen">
+            <div
+                class="absolute left-0 top-0 h-screen w-screen"
+                id="mask-div"
+                style={{
+                backgroundImage: `radial-gradient(rgba(255, 255, 255, 0.7) 4%, transparent 4%)`,
+                backgroundSize: "3vmin 3vmin",
+                maskMode: "alpha",
+                maskImage: `url(radialmask.svg)`,
+                maskPosition: "50% 50%",
+                maskRepeat: "no-repeat",
+                maskSize: "100vh 100vh",
+                transition: "opacity 0.2s ease-in-out",
+                opacity: 0,
+                }}
+            />
+            <div
+                class="absolute left-0 top-0 h-screen w-screen"
+                style={{
+                backgroundImage: `radial-gradient(rgba(255, 255, 255, 0.05) 4%, transparent 4%)`,
+                backgroundSize: "3vmin 3vmin",
+                }}
+            />
+            </div>
         </div>
-
-        <main class="flex h-max w-screen items-center justify-center p-6 font-custom2 text-xl lg:h-dvh lg:w-4/5">
-          <HomeComponent />
-        </main>
-      </div>
-
-      <div class="absolute left-0 top-0" >
-        <div class="relative h-screen w-screen">
-          <div
-            class="absolute left-0 top-0 h-screen w-screen"
-            id="mask-div"
-            style={{
-              backgroundImage: `radial-gradient(rgba(255, 255, 255, 0.7) 4%, transparent 4%)`,
-              backgroundSize: "3vmin 3vmin",
-              maskMode: "alpha",
-              maskImage: `url(radialmask.svg)`,
-              maskPosition: "50% 50%",
-              maskRepeat: "no-repeat",
-              maskSize: "100vh 100vh",
-              transition: "opacity 0.2s ease-in-out",
-              opacity: 0,
-            }}
-          />
-          <div
-            class="absolute left-0 top-0 h-screen w-screen"
-            style={{
-              backgroundImage: `radial-gradient(rgba(255, 255, 255, 0.05) 4%, transparent 4%)`,
-              backgroundSize: "3vmin 3vmin",
-            }}
-          />
-        </div>
-      </div>
-	</main>
-</Layout>
+    	</main>
+    </Layout>
+</LanguageProvider>
 
 <script>
   const hoverDiv = document.getElementById("hover-div");
