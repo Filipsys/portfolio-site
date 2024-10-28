@@ -10,7 +10,7 @@ import {
 import { LangIcon } from "@/icons/dev-icons";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
-import i18n from "@/i18n";
+import i18next from "i18next";
 
 type Languages = "english" | "german" | "polish" | "russian";
 const langsDict: Record<Languages, string> = {
@@ -19,13 +19,27 @@ const langsDict: Record<Languages, string> = {
   polish: "Polski",
   russian: "Русский",
 };
+const shortLangsDict: Record<string, string> = {
+  english: "en",
+  german: "de",
+  polish: "pl",
+  russian: "ru",
+};
 
 export const LanguageComponent = () => {
   const [language, setLanguage] = useState("english");
 
   useEffect(() => {
-    const lng = langsDict[language as Languages];
-    i18n.changeLanguage(lng);
+    const lng = shortLangsDict[language];
+    console.log(lng);
+    i18next
+      .changeLanguage(lng)
+      .then(() => {
+        console.log("Language changed to:", lng);
+      })
+      .catch((error) => {
+        console.error("Error changing language:", error);
+      });
   }, [language]);
 
   return (

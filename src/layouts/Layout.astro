@@ -1,13 +1,9 @@
 ---
-interface Props {
-	title: string;
-}
-
-const { title } = Astro.props;
+import i18next, { t } from "i18next";
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={i18next.language}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
@@ -15,7 +11,7 @@ const { title } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="sitemap" href="/sitemap-index.xml" />
-		<title>{title}</title>
+		<title>{t("site.title")}</title>
 	</head>
 	<body>
 		<slot />

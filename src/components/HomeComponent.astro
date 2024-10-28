@@ -4,42 +4,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { HoverCardComponent } from "@/components/HoverCardComponent";
 
-const WHATIUSEDICT = {
-  languages: [
-    { type: "Python", link: "https://www.python.org", stars: 5 },
-    { type: "JavaScript", link: "https://www.javascript.com", stars: 3 },
-    {
-      type: "TypeScript",
-      link: "https://www.typescriptlang.org",
-      stars: 3,
-    },
-    { type: "HTML + CSS", link: "https://www.w3.org/html", stars: 4 },
-    { type: "SQL", link: "https://www.sql.org", stars: 4 },
-  ],
-  libraries: [
-    { type: "TailwindCSS", link: "https://tailwindcss.com", stars: 4 },
-    { type: "Drizzle", link: "https://orm.drizzle.team", stars: 2 },
-    { type: "React", link: "https://reactjs.org", stars: 3 },
-    {
-      type: "Astro",
-      link: "https://astro.build",
-      stars: 2,
-    },
-    {
-      type: "Discord.py",
-      link: "https://discordpy.readthedocs.io/en/stable",
-      stars: 5,
-    },
-  ],
-  tools: [
-    { type: "Next.js", link: "https://nextjs.org", stars: 3 },
-    { type: "Git", link: "https://git-scm.com", stars: 4 },
-    { type: "Vite", link: "https://vitejs.dev", stars: 3 },
-    { type: "Bun", link: "https://bun.sh", stars: 4 },
-    { type: "Flask", link: "https://expressjs.com", stars: 3 },
-  ],
-};
-
 ---
 
 <div>
@@ -114,39 +78,31 @@ const WHATIUSEDICT = {
           </div>
         </div>
 
-        <div class="mb-8 grid w-full grid-cols-1 gap-3 text-black/50 dark:text-white/50 sm:grid-cols-3 lg:mb-0">
-          {Object.entries(WHATIUSEDICT).map(([key, value]) => (
-            <div>
-              <p class="pl-2 pr-1 text-base font-light tracking-wider">
-                - {key}
-              </p>
-              <Card className="bg-gradient-to-tr dark:from-gray-400/5 from-gray-400/10 duration-300 ease-in-out bg-transparent border-white/10 z-50">
-                <CardContent className="p-3 text-sm font-light dark:text-white/50 text-black/50 sm:text-base">
-                  {value.map((item) => (
-                    <div
-                      class="flex flex-row justify-between"
-                    >
-                      <a
-                        href={item.link}
-                        target="_blank"
-                        class="z-50 line-clamp-1 font-mono underline-offset-4 hover:underline"
-                      >
-                        {item.type}
-                      </a>
-                      <div class="flex items-center justify-center gap-[2px] *:size-3">
-                        {[...Array(5 - item.stars)].map((_, i) => (
-                          <TinyStarIcon />
-                        ))}
-                        {[...Array(item.stars)].map((_, i) => (
-                          <TinyStarIcon fill={true} />
-                        ))}
-                      </div>
-                    </div>
-                  ))}
-                </CardContent>
-              </Card>
+        <div class="mb-8 grid w-full grid-cols-1 gap-3 text-black/50 dark:text-white/50 sm:grid-cols-3 md:grid-cols-4 lg:mb-0">
+            <div class="h-16 w-full bg-white/10 rounded-md border-white/10 border-2 flex items-center">
+                <p>TypeScript</p>
             </div>
-          ))}
+            <div class="h-16 w-full bg-white/10 rounded-md border-white/10 border-2 flex items-center">
+                <p>TypeScript</p>
+            </div>
+            <div class="h-16 w-full bg-white/10 rounded-md border-white/10 border-2 flex items-center">
+                <p>TypeScript</p>
+            </div>
+            <div class="h-16 w-full bg-white/10 rounded-md border-white/10 border-2 flex items-center">
+                <p>TypeScript</p>
+            </div>
+            <div class="h-16 w-full bg-white/10 rounded-md border-white/10 border-2 flex items-center">
+                <p>TypeScript</p>
+            </div>
+            <div class="h-16 w-full bg-white/10 rounded-md border-white/10 border-2 flex items-center">
+                <p>TypeScript</p>
+            </div>
+            <div class="h-16 w-full bg-white/10 rounded-md border-white/10 border-2 flex items-center">
+                <p>TypeScript</p>
+            </div>
+            <div class="h-16 w-full bg-white/10 rounded-md border-white/10 border-2 flex items-center">
+                <p>TypeScript</p>
+            </div>
         </div>
 
         <div class="block sm:hidden">
