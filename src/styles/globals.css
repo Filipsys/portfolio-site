@@ -12,6 +12,20 @@
     src: url("../fonts/Overpass_Mono/OverpassMono-VariableFont_wght.ttf");
   }
 
+  /* Animation for snowflake */
+  @keyframes snowflake {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(100px);
+    }
+  }
+
   :root {
     --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;
