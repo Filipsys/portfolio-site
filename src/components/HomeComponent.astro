@@ -1,158 +1,158 @@
 ---
-import { SmallGithubIcon, SmallLinkedinIcon, SmallGmailIcon, TinyStarIcon } from "@/icons/dev-icons";
-import { Card, CardContent } from "@/components/ui/card";
+import { SmallGithubIcon, SmallLinkedinIcon, SmallGmailIcon, 
+         TypescriptIcon, TailwindIcon, ReactIcon, NextJSIcon,
+         VercelIcon, SqliteIcon, BunIcon, ViteIcon } from "@/icons/dev-icons";
 import { Separator } from "@/components/ui/separator";
 import { HoverCardComponent } from "@/components/HoverCardComponent";
-
-const WHATIUSEDICT = {
-  languages: [
-    { type: "Python", link: "https://www.python.org", stars: 5 },
-    { type: "JavaScript", link: "https://www.javascript.com", stars: 3 },
-    {
-      type: "TypeScript",
-      link: "https://www.typescriptlang.org",
-      stars: 3,
-    },
-    { type: "HTML + CSS", link: "https://www.w3.org/html", stars: 4 },
-    { type: "SQL", link: "https://www.sql.org", stars: 4 },
-  ],
-  libraries: [
-    { type: "TailwindCSS", link: "https://tailwindcss.com", stars: 4 },
-    { type: "Drizzle", link: "https://orm.drizzle.team", stars: 2 },
-    { type: "React", link: "https://reactjs.org", stars: 3 },
-    {
-      type: "Astro",
-      link: "https://astro.build",
-      stars: 2,
-    },
-    {
-      type: "Discord.py",
-      link: "https://discordpy.readthedocs.io/en/stable",
-      stars: 5,
-    },
-  ],
-  tools: [
-    { type: "Next.js", link: "https://nextjs.org", stars: 3 },
-    { type: "Git", link: "https://git-scm.com", stars: 4 },
-    { type: "Vite", link: "https://vitejs.dev", stars: 3 },
-    { type: "Bun", link: "https://bun.sh", stars: 4 },
-    { type: "Flask", link: "https://expressjs.com", stars: 3 },
-  ],
-};
 
 ---
 
 <div>
-      <div class="px-2 py-6 select-none">
-        <h1 class="text-xl font-light tracking-wide xs:text-2xl sm:text-3xl">
-          Hi, I'm <span class="">Filip</span>, a self-taught front-end
-          developer from Poland. I mainly work with <span class="text-green-500">React</span>, <span class="text-pink-500">NextJS</span>, <span class="dark:text-blue-200 text-blue-500">TailwindCSS</span>, <span class="text-blue-600">TypeScript</span>, and relational
-          databases like <span class="text-orange-400">SQLite</span>.
-        </h1>
-      </div>
+  <div class="px-2 py-6">
+    <h1 class="text-xl font-light tracking-wide xs:text-2xl sm:text-3xl">
+      Hi, I'm <span class="">Filip</span>, a self-taught front-end
+      developer from Poland. I mainly work with <span class="text-green-500">React</span>, <span class="text-pink-500">NextJS</span>, <span class="dark:text-blue-200 text-blue-500">TailwindCSS</span>, <span class="text-blue-600">TypeScript</span>, and relational
+      databases like <span class="text-orange-400">SQLite</span>.
+    </h1>
+  </div>
 
-      <div class="px-2 *:opacity-15">
-        <Separator />
-      </div>
+  <div class="px-2 *:opacity-15 *:bg-black *:dark:bg-white">
+    <Separator />
+  </div>
 
-      <div class="px-2 py-6">
-        <h2 class="py-2 text-lg underline underline-offset-4 xs:text-xl">
-          Links
-        </h2>
+  <div class="px-2 py-6">
+    <h2 class="py-2 text-lg underline underline-offset-4 xs:text-xl">
+      Links
+    </h2>
 
-        <div class="flex flex-col fill-white/50 font-custom3 dark:text-white/50 *:flex *:cursor-pointer *:justify-between *:text-xs *:font-light *:tracking-wide *:xs:text-sm *:sm:text-base">
-          <div
-            class="group/github z-50 transition-colors duration-200 hover:text-black dark:hover:text-white"
-          >
-            <a href="https://github.com/Filipsys" target="_blank">
-              github.com/Filipsys
-            </a>
+    <div class="flex flex-col fill-white/50 font-custom3 dark:text-white/50 *:flex *:cursor-pointer *:justify-between *:text-xs *:font-light *:tracking-wide *:xs:text-sm *:sm:text-base">
+      <div class="group/github z-50 transition-colors duration-200 hover:text-black dark:hover:text-white">
+        <a href="https://github.com/Filipsys" target="_blank">
+          github.com/Filipsys
+        </a>
 
-            <div class="flex items-center gap-2">
-              <p class="hidden xs:block">Github</p>
-              <div class="size-4 duration-200 dark:fill-white/50 dark:group-hover/github:fill-white fill-black">
-                <SmallGithubIcon />
-              </div>
-            </div>
-          </div>
-          <div
-            class="group/linkedin z-50 py-1 transition-colors duration-200 hover:text-[#0A66C2] xs:p-0"
-          >
-            <a href="https://linkedin.com/in/filipsysak" target="_blank">
-              linkedin.com/in/filipsysak
-            </a>
-            <div class="flex items-center gap-2">
-              <p class="hidden xs:block">LinkedIn</p>
-              <div class="size-4 duration-200 dark:fill-white/50 dark:group-hover/linkedin:fill-[#0A66C2] fill-black">
-                <SmallLinkedinIcon />
-              </div>
-            </div>
-          </div>
-          <div
-            class="group/email z-50 transition-colors duration-200 hover:text-[#EA4335]"
-          >
-            <a href="mailto:quietus.fits_0p@icloud.com">quietus.fits_0p@icloud.com</a>
-
-            <div class="flex items-center gap-2">
-              <p class="hidden xs:block">Email</p>
-              <div class="size-4 duration-200 dark:fill-white/50 dark:group-hover/email:fill-[#EA4335] fill-black">
-                <SmallGmailIcon />
-              </div>
-            </div>
+        <div class="flex items-center gap-2">
+          <p class="hidden sm:block">Github</p>
+          <div class="size-4 duration-200 dark:fill-white/50 dark:group-hover/github:fill-white fill-black">
+            <SmallGithubIcon />
           </div>
         </div>
       </div>
 
-      <div class="z-50 px-2">
-        <div class="flex items-center">
-          <h2 class="py-2 text-lg underline underline-offset-4 xs:text-xl">
-            Tech I know and use
-          </h2>
-
-          <div class="z-50 mb-auto px-1 py-2">
-            <HoverCardComponent client:load />
+      <div class="group/linkedin z-50 py-1 transition-colors duration-200 hover:text-[#0A66C2] xs:p-0">
+        <a href="https://linkedin.com/in/filipsysak" target="_blank">
+          linkedin.com/in/filipsysak
+        </a>
+        <div class="flex items-center gap-2">
+          <p class="hidden sm:block">LinkedIn</p>
+          <div class="size-4 duration-200 dark:fill-white/50 dark:group-hover/linkedin:fill-[#0A66C2] fill-black">
+            <SmallLinkedinIcon />
           </div>
         </div>
+      </div>
+      <div class="group/email z-50 transition-colors duration-200 hover:text-[#EA4335]">
+        <a href="mailto:quietus.fits_0p@icloud.com">quietus.fits_0p@icloud.com</a>
 
-        <div class="mb-8 grid w-full grid-cols-1 gap-3 text-black/50 dark:text-white/50 sm:grid-cols-3 lg:mb-0">
-          {Object.entries(WHATIUSEDICT).map(([key, value]) => (
-            <div>
-              <p class="pl-2 pr-1 text-base font-light tracking-wider">
-                - {key}
-              </p>
-              <Card className="bg-gradient-to-tr dark:from-gray-400/5 from-gray-400/10 duration-300 ease-in-out bg-transparent border-white/10 z-50">
-                <CardContent className="p-3 text-sm font-light dark:text-white/50 text-black/50 sm:text-base">
-                  {value.map((item) => (
-                    <div
-                      class="flex flex-row justify-between"
-                    >
-                      <a
-                        href={item.link}
-                        target="_blank"
-                        class="z-50 line-clamp-1 font-mono underline-offset-4 hover:underline"
-                      >
-                        {item.type}
-                      </a>
-                      <div class="flex items-center justify-center gap-[2px] *:size-3">
-                        {[...Array(5 - item.stars)].map((_, i) => (
-                          <TinyStarIcon />
-                        ))}
-                        {[...Array(item.stars)].map((_, i) => (
-                          <TinyStarIcon fill={true} />
-                        ))}
-                      </div>
-                    </div>
-                  ))}
-                </CardContent>
-              </Card>
-            </div>
-          ))}
-        </div>
-
-        <div class="block sm:hidden">
-          <p class="p-3 text-center text-xs dark:text-white/50 text-black/50">
-            * The stars indicate my level of proficiency in each technology.
-          </p>
+        <div class="flex items-center gap-2">
+          <p class="hidden sm:block">Email</p>
+          <div class="size-4 duration-200 dark:fill-white/50 dark:group-hover/email:fill-[#EA4335] fill-black">
+            <SmallGmailIcon />
+          </div>
         </div>
       </div>
     </div>
+  </div>
+
+  <div class="z-50 px-2">
+    <div class="flex items-center">
+      <h2 class="py-2 text-lg underline underline-offset-4 xs:text-xl">
+        Tech I know and use
+      </h2>
+
+      <div class="z-50 mb-auto px-1 py-2">
+        <HoverCardComponent client:load />
+      </div>
+    </div>
+
+    <div class="mb-8 grid w-full grid-cols-1 gap-3 text-black/50 dark:text-white/50 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 lg:mb-0">
+      <div class="h-fit w-full rounded-md dark:border-white/10 border-black/10 border-[1px] flex items-center">
+        <div class="*:size-5 p-3 m-2 rounded-md dark:*:fill-white/90 fill-black/90 bg-black/10 dark:bg-white/10">
+          <TypescriptIcon />
+        </div>
+        <div>
+          <p class="text-sm text-black dark:text-white">TypeScript</p>
+          <p class="font-extralight text-xs pr-1 [line-height:0.7rem]">Typesafe JavaScript</p>
+        </div>
+      </div>
+      <div class="h-fit w-full rounded-md dark:border-white/10 border-black/10 border-[1px] flex items-center">
+        <div class="*:size-5 p-3 m-2 rounded-md dark:*:fill-white/90 fill-black/90 bg-black/10 dark:bg-white/10">
+          <TailwindIcon />
+        </div>
+        <div>
+          <p class="text-sm text-black dark:text-white">TailwindCSS</p>
+          <p class="font-extralight text-xs pr-1 [line-height:0.7rem]">Modern CSS framework</p>
+        </div>
+      </div>
+      <div class="h-fit w-full rounded-md dark:border-white/10 border-black/10 border-[1px] flex items-center">
+        <div class="*:size-5 p-3 m-2 rounded-md dark:*:fill-white/90 fill-black/90 bg-black/10 dark:bg-white/10">
+          <VercelIcon />
+        </div>
+        <div>
+          <p class="text-sm text-black dark:text-white">Vercel</p>
+          <p class="font-extralight text-xs pr-1 [line-height:0.7rem]">Hosting & Cloud infrastructure</p>
+        </div>
+      </div>
+      <div class="h-fit w-full rounded-md dark:border-white/10 border-black/10 border-[1px] flex items-center">
+        <div class="*:size-5 p-3 m-2 rounded-md dark:*:fill-white/90 fill-black/90 bg-black/10 dark:bg-white/10">
+          <BunIcon />
+        </div>
+        <div>
+          <p class="text-sm text-black dark:text-white">Bun</p>
+          <p class="font-extralight text-xs pr-1 [line-height:0.7rem]">All-in-one JavaScript toolkit</p>
+        </div>
+      </div>
+      <div class="h-fit w-full rounded-md dark:border-white/10 border-black/10 border-[1px] flex items-center">
+        <div class="*:size-5 dark:*:fill-white/90 fill-black/90 p-3 m-2 rounded-md bg-black/10 dark:bg-white/10">
+          <ReactIcon />
+        </div>
+        <div>
+          <p class="text-sm text-black dark:text-white">React</p>
+          <p class="font-extralight text-xs pr-1 [line-height:0.7rem]">Javascript framework</p>
+        </div>
+      </div>
+      <div class="h-fit w-full rounded-md dark:border-white/10 border-black/10 border-[1px] flex items-center">
+        <div class="*:size-5 dark:*:fill-white/90 fill-black/90 p-3 m-2 rounded-md bg-black/10 dark:bg-white/10">
+          <SqliteIcon />
+        </div>
+        <div>
+          <p class="text-sm text-black dark:text-white">SQLite</p>
+          <p class="font-extralight text-xs pr-1 [line-height:0.7rem]">Lightweight database</p>
+        </div>
+      </div>
+      <div class="h-fit w-full rounded-md dark:border-white/10 border-black/10 border-[1px] flex items-center">
+        <div class="*:size-5 dark:*:fill-white/90 fill-black/90 p-3 m-2 rounded-md bg-black/10 dark:bg-white/10">
+          <ViteIcon />
+        </div>
+        <div>
+          <p class="text-sm text-black dark:text-white">Vite</p>
+          <p class="font-extralight text-xs pr-1 [line-height:0.7rem]">Frontend build tool</p>
+        </div>
+      </div>
+      <div class="h-fit w-full rounded-md dark:border-white/10 border-black/10 border-[1px] flex items-center">
+        <div class="*:size-5 dark:*:fill-white/90 fill-black/90 p-3 m-2 rounded-md bg-black/10 dark:bg-white/10">
+          <NextJSIcon />
+        </div>
+        <div>
+          <p class="text-sm text-black dark:text-white">Next.js</p>
+          <p class="font-extralight text-xs pr-1 [line-height:0.7rem]">Frontend React framework</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="block sm:hidden">
+      <p class="p-3 text-center text-xs dark:text-white/50 text-black/50">
+        * The stars indicate my level of proficiency in each technology.
+      </p>
+    </div>
+  </div>
+</div>
