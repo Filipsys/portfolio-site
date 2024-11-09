@@ -4,10 +4,6 @@ import Layout from "../layouts/Layout.astro";
 import HomeComponent from "@/components/HomeComponent.astro";
 import { Separator } from "@/components/ui/separator";
 import { ModeToggle } from "@/components/ModeToggle";
-// import { LanguageComponent } from "@/components/LanguageComponent";
-
-// import i18next, { t } from "i18next";
-// import { Trans, HeadHrefLangs } from "astro-i18next/components";
 
 ---
 
@@ -39,7 +35,6 @@ import { ModeToggle } from "@/components/ModeToggle";
 
     <div class="absolute top-0 right-0 z-50 p-2">
       <ModeToggle client:load />
-      <!-- <LanguageComponent client:load /> -->
     </div>
 
     <div class="h-max items-center justify-center font-custom2 dark:text-white md:flex-col lg:mx-16 lg:flex lg:flex-row xl:mx-40 2xl:mx-80">
@@ -97,7 +92,6 @@ import { ModeToggle } from "@/components/ModeToggle";
     </div>
   </main>
 </Layout>
-
 
 <script>
   const hoverDiv = document.getElementById("hover-div");
