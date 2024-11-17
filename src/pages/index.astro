@@ -136,26 +136,29 @@ import lights10 from "@/assets/lights-10.svg?raw";
 
   const main = document.querySelector("main");
   const snowflakeEffect = setInterval(() => {
-    if (main) {
-      let randomX = Math.floor(Math.random() * (main.clientWidth - 100));
-      let randomY = Math.floor(Math.random() * (main.clientHeight - 100));
-      let randomSway = Math.floor(Math.random() * 40);
+    if (!main) return;
 
-      const snowflake = document.createElement("div");
-      snowflake.className = "absolute size-1 bg-white/[.2] rounded-full overflow-hidden";
-      snowflake.style.animation = "snowflake 4s";
-      snowflake.style.transition = "left 2s, rotate 2s";
-      snowflake.style.left = `${randomX}px`;
-      snowflake.style.top = `${randomY}px`;
+    let randomX = Math.floor(Math.random() * (main.clientWidth - 100));
+    let randomY = Math.floor(Math.random() * (main.clientHeight - 100));
+    let randomSway = Math.floor(Math.random() * 40);
 
-      if (randomSway > 20) randomSway = -randomSway;
-      snowflake.style.transform = `translateX(${randomSway}px)`;
+    if (randomY + randomSway > main.clientHeight) return;
+    if (randomX + randomSway > main.clientWidth) return;
 
-      main.appendChild(snowflake);
+    const snowflake = document.createElement("div");
+    snowflake.className = "absolute size-1 bg-white/[.2] rounded-full overflow-hidden";
+    snowflake.style.animation = "snowflake 4s";
+    snowflake.style.transition = "left 2s, rotate 2s";
+    snowflake.style.left = `${randomX}px`;
+    snowflake.style.top = `${randomY}px`;
 
-      setTimeout(() => {
-        main.removeChild(snowflake);
-      }, 4000);
-    }
+    if (randomSway > 20) randomSway = -randomSway;
+    snowflake.style.transform = `translateX(${randomSway}px)`;
+
+    main.appendChild(snowflake);
+
+    setTimeout(() => {
+      main.removeChild(snowflake);
+    }, 4000);
   }, 100);
 </script>
