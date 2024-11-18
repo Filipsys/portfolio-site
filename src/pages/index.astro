@@ -25,29 +25,28 @@ import lights10 from "@/assets/lights-10.svg?raw";
 		const observer = new MutationObserver(() => {
 			const isDark = document.documentElement.classList.contains('dark');
 			localStorage.setItem('theme', isDark ? 'dark' : 'light');
-		});
+        });
 		observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
 	}
 </script>
-  <Layout title="filyys • Main site">
-    <main class="dark:bg-black bg-white text-black dark:text-white w-screen overflow-hidden" id="hover-div">
-      <div class="absolute left-0 top-0 z-10 h-screen w-screen hidden lg:block overflow-hidden">
-        <div class="absolute -inset-2 -translate-x-20 dark:hidden">
-          <Fragment set:html={lights2} />
-        </div>
-        <div class="absolute -inset-2 left-0 translate-x-1/2 w-screen dark:hidden">
-          <Fragment set:html={lights10} />
-        </div>
-        <div class="absolute -translate-y-2 translate-x-2 right-0 dark:hidden">
-          <Fragment set:html={lights4} />
-        </div>
-      </div>
 
 <Layout>
   <main
     class="dark:bg-black bg-white text-black dark:text-white w-screen"
     id="hover-div"
   >
+  <div class="absolute left-0 top-0 z-10 h-screen w-screen hidden lg:block overflow-hidden">
+    <div class="absolute -inset-2 -translate-x-20 dark:hidden">
+      <Fragment set:html={lights2} />
+    </div>
+    <div class="absolute -inset-2 left-0 translate-x-1/2 w-screen dark:hidden">
+      <Fragment set:html={lights10} />
+    </div>
+    <div class="absolute -translate-y-2 translate-x-2 right-0 dark:hidden">
+      <Fragment set:html={lights4} />
+    </div>
+  </div>
+
     <div class="absolute left-0 top-0 z-10 h-screen w-screen" />
 
     <div class="absolute top-0 right-0 z-50 p-2">
@@ -111,44 +110,47 @@ import lights10 from "@/assets/lights-10.svg?raw";
 </Layout>
 
 <script>
+  let isReducedMotion = false;
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches)
+    isReducedMotion = true;
+
   const hoverDiv = document.getElementById("hover-div");
   const maskDiv = document.getElementById("mask-div");
-
-  hoverDiv?.addEventListener("mousemove", (event) => {
-    if (!maskDiv) return;
-
-    maskDiv.style.maskPosition = `${event.clientX - maskDiv.clientHeight / 2}px ${
-      event.clientY - maskDiv.clientHeight / 2
-    }px`;
-  });
-
-  hoverDiv?.addEventListener("mouseleave", () => {
-    if (!maskDiv) return;
-
+  if (maskDiv)
     maskDiv.style.opacity = "0";
-  });
 
-  hoverDiv?.addEventListener("mouseover", () => {
-    if (!maskDiv) return;
+  !isReducedMotion && maskDiv
+    ? hoverDiv?.addEventListener("mousemove", (event) => {
+        maskDiv.style.maskPosition = `${event.clientX - maskDiv.clientHeight / 2}px ${event.clientY - maskDiv.clientHeight / 2}px`;
+    })
+  : null;
 
-    maskDiv.style.opacity = "0.2";
-  });
+  !isReducedMotion && maskDiv
+    ? hoverDiv?.addEventListener("mouseover", () => {
+      hoverDiv.addEventListener("mousemove", () => {
+        maskDiv.style.opacity = "0.2";
+        hoverDiv.removeEventListener("mousemove", () => {});
+      });
+    })
+    : null
+
+  !isReducedMotion && maskDiv
+      ? hoverDiv?.addEventListener("mouseleave", () => ( maskDiv.style.opacity = "0" ))
+      : null;
 
   const main = document.querySelector("main");
   const snowflakeEffect = setInterval(() => {
+    if (isReducedMotion) return;
     if (!main) return;
 
-    let randomX = Math.floor(Math.random() * (main.clientWidth - 100));
-    let randomY = Math.floor(Math.random() * (main.clientHeight - 100));
+    let randomX = Math.floor(Math.random() * (main.clientWidth - 30));
+    let randomY = Math.floor(Math.random() * (main.clientHeight - 106));
     let randomSway = Math.floor(Math.random() * 40);
 
-    if (randomY + randomSway > main.clientHeight) return;
-    if (randomX + randomSway > main.clientWidth) return;
-
     const snowflake = document.createElement("div");
-    snowflake.className = "absolute size-1 bg-white/[.2] rounded-full overflow-hidden";
+    snowflake.className = "absolute size-1 bg-white/[.2] rounded-full";
     snowflake.style.animation = "snowflake 4s";
-    snowflake.style.transition = "left 2s, rotate 2s";
+
     snowflake.style.left = `${randomX}px`;
     snowflake.style.top = `${randomY}px`;
 
