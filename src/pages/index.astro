@@ -32,7 +32,7 @@ import lights10 from "@/assets/lights-10.svg?raw";
 
 <Layout>
   <main
-    class="dark:bg-black bg-white text-black dark:text-white w-screen"
+    class="dark:bg-black bg-white text-black dark:text-[#d3d3d3] w-screen"
     id="hover-div"
   >
   <div class="absolute left-0 top-0 z-10 h-screen w-screen hidden lg:block overflow-hidden">
@@ -47,13 +47,11 @@ import lights10 from "@/assets/lights-10.svg?raw";
     </div>
   </div>
 
-    <div class="absolute left-0 top-0 z-10 h-screen w-screen" />
-
     <div class="absolute top-0 right-0 z-50 p-2">
       <ModeToggle client:load />
     </div>
 
-    <div class="h-max items-center justify-center font-custom2 dark:text-white md:flex-col lg:mx-16 lg:flex lg:flex-row xl:mx-40 2xl:mx-80">
+    <div class="h-max items-center justify-center font-custom2 md:flex-col lg:mx-16 lg:flex lg:flex-row xl:mx-40 2xl:mx-80">
       <nav class="block h-fit w-screen p-8 lg:w-1/5 2xl:w-2/5">
         <ul class="flex select-none justify-center gap-x-8 text-xl tracking-tight sm:gap-x-16 sm:text-2xl lg:flex-col lg:items-end lg:text-3xl">
           <li class="z-50 cursor-pointer">
@@ -120,10 +118,11 @@ import lights10 from "@/assets/lights-10.svg?raw";
     maskDiv.style.opacity = "0";
 
   !isReducedMotion && maskDiv
-    ? hoverDiv?.addEventListener("mousemove", (event) => {
-        maskDiv.style.maskPosition = `${event.clientX - maskDiv.clientHeight / 2}px ${event.clientY - maskDiv.clientHeight / 2}px`;
-    })
-  : null;
+  ? hoverDiv?.addEventListener("mousemove", (event) => {
+    setTimeout(() => {
+      maskDiv.style.maskPosition = `${event.clientX - maskDiv.clientHeight / 2}px ${event.clientY - maskDiv.clientHeight / 2}px`;
+    }, 100)
+  }) : null;
 
   !isReducedMotion && maskDiv
     ? hoverDiv?.addEventListener("mouseover", () => {
@@ -131,8 +130,7 @@ import lights10 from "@/assets/lights-10.svg?raw";
         maskDiv.style.opacity = "0.2";
         hoverDiv.removeEventListener("mousemove", () => {});
       });
-    })
-    : null
+    }) : null
 
   !isReducedMotion && maskDiv
       ? hoverDiv?.addEventListener("mouseleave", () => ( maskDiv.style.opacity = "0" ))
