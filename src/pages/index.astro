@@ -12,22 +12,25 @@ import lights10 from "@/assets/lights-10.svg?raw";
 ---
 
 <script is:inline>
-	const getThemePreference = () => {
-		if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-			return localStorage.getItem('theme');
-		}
-		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-	};
-	const isDark = getThemePreference() === 'dark';
-	document.documentElement.classList[isDark ? 'add' : 'remove']('dark');
+  const getThemePreference = () => {
+    if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+      return localStorage.getItem("theme");
+    }
+    
+    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  };
+  
+  const isDark = getThemePreference() === "dark";
+  document.documentElement.classList[isDark ? "add" : "remove"]("dark");
 
-	if (typeof localStorage !== 'undefined') {
-		const observer = new MutationObserver(() => {
-			const isDark = document.documentElement.classList.contains('dark');
-			localStorage.setItem('theme', isDark ? 'dark' : 'light');
-        });
-		observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
-	}
+  if (typeof localStorage !== "undefined") {
+    const observer = new MutationObserver(() => {
+      const isDark = document.documentElement.classList.contains("dark");
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+    });
+  
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+  }
 </script>
 
 <Layout>
@@ -36,13 +39,19 @@ import lights10 from "@/assets/lights-10.svg?raw";
     id="hover-div"
   >
   <div class="absolute left-0 top-0 z-10 h-screen w-screen hidden lg:block overflow-hidden">
-    <div class="absolute -inset-2 -translate-x-20 dark:hidden">
+      <div class="lights absolute -inset-2 -translate-x-20 dark:hidden" styles={{
+          display: "none"
+        }}>
       <Fragment set:html={lights2} />
     </div>
-    <div class="absolute -inset-2 left-0 translate-x-1/2 w-screen dark:hidden">
+      <div class="lights absolute -inset-2 left-0 translate-x-1/2 w-screen dark:hidden" styles={{
+          display: "none"
+        }}>
       <Fragment set:html={lights10} />
     </div>
-    <div class="absolute -translate-y-2 translate-x-2 right-0 dark:hidden">
+      <div class="lights absolute -translate-y-2 translate-x-2 right-0 dark:hidden" styles={{
+        display: "none"
+        }}>
       <Fragment set:html={lights4} />
     </div>
   </div>
@@ -108,51 +117,67 @@ import lights10 from "@/assets/lights-10.svg?raw";
 </Layout>
 
 <script>
-  let isReducedMotion = false;
-  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches)
-    isReducedMotion = true;
+  const getThemePreference = () => {
+    if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+      return localStorage.getItem("theme");
+    }
+    
+    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  };
 
+  // Check for christmas season 
+  if (new Date().getMonth() + 1 == 12) {
+    document.querySelectorAll(".lights").forEach((light) => {
+      (light as HTMLElement).style.display = "block !important";
+    })
+  }
+
+  // Check for reduced motion
+  let isReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? true : false;
+
+  // Animated grid pattern
   const hoverDiv = document.getElementById("hover-div");
   const maskDiv = document.getElementById("mask-div");
-  if (maskDiv)
-    maskDiv.style.opacity = "0";
+  if (maskDiv) maskDiv.style.opacity = "0";
 
-  !isReducedMotion && maskDiv
-  ? hoverDiv?.addEventListener("mousemove", (event) => {
-    setTimeout(() => {
-      maskDiv.style.maskPosition = `${event.clientX - maskDiv.clientHeight / 2}px ${event.clientY - maskDiv.clientHeight / 2}px`;
-    }, 100)
-  }) : null;
+  if (!isReducedMotion && maskDiv) {
+    hoverDiv?.addEventListener("mousemove", (event) => {
+      setTimeout(() => {
+        maskDiv.style.maskPosition = `${event.clientX - maskDiv.clientHeight / 2}px ${event.clientY - maskDiv.clientHeight / 2}px`;
+      }, 100)
+    })
+  }
 
-  !isReducedMotion && maskDiv
-    ? hoverDiv?.addEventListener("mouseover", () => {
+  if (!isReducedMotion && maskDiv) {
+    hoverDiv?.addEventListener("mouseover", () => {
       hoverDiv.addEventListener("mousemove", () => {
         maskDiv.style.opacity = "0.2";
         hoverDiv.removeEventListener("mousemove", () => {});
       });
-    }) : null
+    })
+  }
 
-  !isReducedMotion && maskDiv
-      ? hoverDiv?.addEventListener("mouseleave", () => ( maskDiv.style.opacity = "0" ))
-      : null;
+  if (!isReducedMotion && maskDiv) {
+    hoverDiv?.addEventListener("mouseleave", () => ( maskDiv.style.opacity = "0" ))
+  }
 
+  // Christmas dark theme snowflakes
   const main = document.querySelector("main");
-  const snowflakeEffect = setInterval(() => {
+  setInterval(() => {
     if (isReducedMotion) return;
     if (!main) return;
-
-    let randomX = Math.floor(Math.random() * (main.clientWidth - 30));
-    let randomY = Math.floor(Math.random() * (main.clientHeight - 106));
-    let randomSway = Math.floor(Math.random() * 40);
+    if (getThemePreference() != "dark") return;
 
     const snowflake = document.createElement("div");
     snowflake.className = "absolute size-1 bg-white/[.2] rounded-full";
     snowflake.style.animation = "snowflake 4s";
 
-    snowflake.style.left = `${randomX}px`;
-    snowflake.style.top = `${randomY}px`;
+    snowflake.style.left = `${Math.floor(Math.random() * (main.clientWidth - 30))}px`;
+    snowflake.style.top = `${Math.floor(Math.random() * (main.clientHeight - 106))}px`;
 
+    let randomSway = Math.floor(Math.random() * 40);
     if (randomSway > 20) randomSway = -randomSway;
+
     snowflake.style.transform = `translateX(${randomSway}px)`;
 
     main.appendChild(snowflake);
