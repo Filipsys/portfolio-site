@@ -102,7 +102,6 @@ import lights10 from "@/assets/lights-10.svg?raw";
           class="absolute left-0 top-0 h-screen w-full"
           id="mask-div"
           style={{
-            backgroundImage: `radial-gradient(rgba(255, 255, 255, 0.7) 4%, transparent 4%)`,
             backgroundSize: "3vmin 3vmin",
             maskMode: "alpha",
             maskImage: `url(radialmask.svg)`,
@@ -116,8 +115,8 @@ import lights10 from "@/assets/lights-10.svg?raw";
         </div>
         <div
           class="absolute left-0 top-0 h-screen w-full"
+          id="grid-pattern"
           style={{
-            backgroundImage: `radial-gradient(rgba(255, 255, 255, 0.05) 4%, transparent 4%)`,
             backgroundSize: "3vmin 3vmin",
           }}
         >
@@ -128,14 +127,6 @@ import lights10 from "@/assets/lights-10.svg?raw";
 </Layout>
 
 <script>
-  const getThemePreference = () => {
-    if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
-      return localStorage.getItem("theme");
-    }
-
-    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-  };
-
   // Check for christmas season
   if (new Date().getMonth() + 1 == 12) {
     document.querySelectorAll(".lights").forEach((light) => {
@@ -149,7 +140,38 @@ import lights10 from "@/assets/lights-10.svg?raw";
   // Animated grid pattern
   const hoverDiv = document.getElementById("hover-div");
   const maskDiv = document.getElementById("mask-div");
+  const gridPattern = document.getElementById("grid-pattern");
   if (maskDiv) maskDiv.style.opacity = "0";
+
+  // Check for changes in the theme
+  const checkForGrid = (gridPattern: HTMLElement, maskDiv: HTMLElement) => {
+    const getThemePreference = () => {
+      if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+        return localStorage.getItem("theme");
+      }
+
+      return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    };
+    const isDark = getThemePreference() === "dark";
+
+    if (!isDark) {
+      gridPattern.style.backgroundImage = "radial-gradient(rgba(255, 255, 255, 0.05) 4%, transparent 4%)";
+      maskDiv.style.backgroundImage = "radial-gradient(rgba(255, 255, 255, 0.7) 4%, transparent 4%)";
+    } else {
+      gridPattern.style.backgroundImage = "radial-gradient(rgba(0, 0, 0, 0.1) 4%, transparent 4%)";
+      maskDiv.style.backgroundImage = "radial-gradient(rgba(0, 0, 0, 0.8) 4%, transparent 4%)";
+    }
+  }
+
+  // Event listener for the theme changes
+  window.addEventListener("storage", () => {
+    if (!gridPattern || !maskDiv) return;
+
+    checkForGrid(gridPattern, maskDiv);
+  });
+
+  // Initial check for theme
+  if (gridPattern && maskDiv) checkForGrid(gridPattern, maskDiv);
 
   if (!isReducedMotion && maskDiv) {
     hoverDiv?.addEventListener("mousemove", (event) => {

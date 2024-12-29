@@ -24,7 +24,9 @@ export function ModeToggle() {
       theme === "dark" ||
       (theme === "system" &&
         window.matchMedia("(prefers-color-scheme: dark)").matches);
+
     document.documentElement.classList[isDark ? "add" : "remove"]("dark");
+    window.dispatchEvent(new Event("storage"));
   }, [theme]);
 
   return (
@@ -33,10 +35,10 @@ export function ModeToggle() {
         <Button
           variant="outline"
           size="icon"
-          className="*:hover:stroke-black dark:*:hover:stroke-white/75 dark:*:stroke-white/25 *:stroke-black/50 transition-colors"
+          className="transition-colors *:stroke-black/50 *:hover:stroke-black dark:*:stroke-white/25 dark:*:hover:stroke-white/75"
         >
-          <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0 " />
-          <Moon className="absolute h-[1.2rem] w-[1.2rem] stroke-white/25 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+          <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+          <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 stroke-white/25 transition-all dark:rotate-0 dark:scale-100" />
           <span className="sr-only">Toggle theme</span>
         </Button>
       </DropdownMenuTrigger>
