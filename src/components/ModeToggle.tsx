@@ -11,7 +11,7 @@ import {
 
 export function ModeToggle() {
   const [theme, setThemeState] = React.useState<
-    "theme-light" | "dark" | "system"
+    "theme-light" | "dark" | "fun" | "system"
   >("theme-light");
 
   React.useEffect(() => {
@@ -48,6 +48,9 @@ export function ModeToggle() {
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setThemeState("dark")}>
           Dark
+        </DropdownMenuItem>
+        <DropdownMenuItem onClick={() => setThemeState("fun")}>
+          Fun mode
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setThemeState("system")}>
           System

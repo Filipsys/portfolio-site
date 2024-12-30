@@ -1,0 +1,147 @@
+---
+
+import "@/styles/globals.css";
+import Layout from "../../layouts/Layout.astro";
+import HomeComponent from "@/components/HomeComponent.astro";
+import { ModeToggle } from "@/components/ModeToggle";
+
+---
+
+<script is:inline>
+  const getThemePreference = () => {
+    if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+      return localStorage.getItem("theme");
+    }
+
+    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  };
+
+  const isDark = getThemePreference() === "dark";
+  document.documentElement.classList[isDark ? "add" : "remove"]("dark");
+
+  if (typeof localStorage !== "undefined") {
+    const observer = new MutationObserver(() => {
+      const isDark = document.documentElement.classList.contains("dark");
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+    });
+
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+  }
+</script>
+
+<Layout>
+  <main class="text-white w-full" id="hover-div"
+  style={{
+    backgroundImage: "url(/background3.webp)",
+    backgroundSize: "10vw 10vw",
+  }}>
+    <div class="absolute top-0 right-0 z-50 p-2">
+      <ModeToggle client:load />
+    </div>
+
+    <div
+      class="bg-zinc-950 [font-family:serif] flex flex-col h-full justify-center lg:mx-40 lg:flex xl:mx-80 2xl:mx-80 [box-shadow:_0px_0px_50px_30px_rgba(0,_0,_0,_1)]"
+    >
+        <div class="w-full h-24 mb-12" style={{
+            backgroundImage: "url(./sparkles.gif)",
+            backgroundSize: "12vw",
+            backgroundRepeat: "10"
+        }} />
+
+      <main id="main" class="w-full h-dvh flex flex-row">
+        <div class="h-full w-2/3 px-4">
+            <HomeComponent />
+        </div>
+
+        <div class="h-full w-1/3 gap-4 flex flex-col">
+            <div class="border-4 border-red-500 shadow-lg shadow-red-500">
+                <h2 class="text-5xl text-red-500">
+                    Links to my socials
+                </h2>
+                
+                <ol class="list-decimal px-6">
+                    <li><div class="group/github z-50 transition-colors duration-0 hover:text-white/50">
+                        <a href="https://github.com/Filipsys" target="_blank">
+                            github.com/Filipsys
+                        </a>
+                        <p class="italic">Github</p>
+                    </div></li>
+            
+                    <li><div class="group/linkedin py-1 transition-colors duration-0 hover:text-[#0A66C2]">
+                        <a href="https://linkedin.com/in/filipsysak" target="_blank">
+                            linkedin.com/in/filipsysak
+                        </a>
+                        <p class="italic">LinkedIn</p>
+                    </div></li>
+        
+                    <li><div class="group/email transition-colors duration-0 hover:text-[#EA4335]">
+                        <a href="mailto:quietus.fits_0p@icloud.com">quietus.fits_0p@icloud.com</a>
+                        <p class="italic">Email</p>
+                    </div></li>
+                </ol>
+            </div>
+
+            <div class="border-4 border-red-500 shadow-lg shadow-red-500">
+                <h2 class="text-5xl text-red-500">
+                    Latest blog posts :)
+                </h2>
+
+                <ol class="list-decimal px-6">
+                    <li>How does Next.js caching work? Why was it reworked?</li>
+                    <li>Encrypted images & why/they don't work well.</li>
+                    <li>The fl\ood of JavaSc%ipt frameworks, will it gg%et any %etter?</li>
+                    <li>C vs-@C++ a%. th<span class="line-through">e ol@d Jav/Sc</span>ri]]]]tvs<span class="line-through">..,</span>5T5peScr%pt.</li>
+                </ol>
+            </div>
+
+            <div class="flex flex-col gap-8">
+                <div class="w-2/3 h-auto">
+                    <div class="h-36 w-36" style={{
+                      backgroundImage: "url(./noai.gif)",
+                      backgroundSize: "150px",
+                      backgroundRepeat: "no-repeat"
+                  }} />
+    
+                <p class="w-full">This place is a <i>NO AI</i> sanctuary. Any AI models seen around will be unmercifully deleted using the newest top technology laser ray.</p>
+            </div>
+
+            <p class="italic text-4xl font-bold ">Useful links</p>
+            <ol class="list-decimal ml-4 *:text-blue-400 *:underline">
+                <li><a href="https://neobrutalism.com/">https://neobrutalism.com</a></li>
+                <li><a href="https://squoosh.app/">https://squoosh.app</a></li>
+                <li><a href="https://cssbattle.dev/">https://cssbattle.dev</a></li>
+                <li><a href="https://news.ycombinator.com/">https://news.ycombinator.com</a></li>
+                <li><a href="https://www.fffuel.co/">https://www.fffuel.co</a></li>
+                <li><a href="https://transform.tools/">https://transform.tools</a></li>
+                <li><a href="https://bentogrids.com/">https://bentogrids.com</a></li>
+                <li><a href="https://icodethis.com/">https://icodethis.com</a></li>
+                <li><a href="https://odin-lang.org/">https://odin-lang.org</a></li>
+            </ol>
+
+            <p class="text-yellow-400 font-mono text-4xl">Quote of the day</p>
+            <p class="italic">"When one does not want, you cannot make him want it." - Arystoteles</p>
+        </div>
+      </main>
+    </div>
+  </main>
+</Layout>
+
+<script>
+    const setOnFire = () => {
+        const mainDiv = document.querySelector("#main");
+        if (!mainDiv) return;
+
+        const fireDiv = document.createElement("div");
+        fireDiv.style.position = "absolute";
+        fireDiv.style.top = `${Math.random() * mainDiv.clientWidth}`;
+        fireDiv.style.left = `${Math.random() * mainDiv.clientHeight}`;
+        fireDiv.style.width = "300px";
+        fireDiv.style.height = "120px";
+        fireDiv.style.zIndex = "50";
+        fireDiv.style.backgroundImage = "url(./fire.gif)";
+
+        mainDiv.appendChild(fireDiv);
+    }
+
+    // setOnFire();
+</script>
