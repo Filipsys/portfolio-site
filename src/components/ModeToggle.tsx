@@ -28,6 +28,7 @@ export function ModeToggle() {
     document.documentElement.classList[isDark ? "add" : "remove"]("dark");
     window.dispatchEvent(new Event("storage"));
   }, [theme]);
+  console.log(window.location.pathname);
 
   return (
     <DropdownMenu>
@@ -49,12 +50,36 @@ export function ModeToggle() {
         <DropdownMenuItem onClick={() => setThemeState("dark")}>
           Dark
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setThemeState("fun")}>
-          Fun mode
-        </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setThemeState("system")}>
           System
         </DropdownMenuItem>
+        {window.location.pathname == "/" ? (
+          <DropdownMenuItem
+            onClick={() => (
+              setThemeState("dark"), (window.location.href = "/fun")
+            )}
+            className="bg-gradient-to-tr from-yellow-400 to-orange-800"
+          >
+            <span className="animate-none">Fun mode</span>
+            <span className="relative -top-5">
+              <span className="absolute">🎉</span>
+              <span className="absolute animate-ping">🎉</span>
+            </span>
+            <span className="relative -top-1 left-1">
+              <span className="absolute">🪩</span>
+              <span className="absolute animate-ping delay-500">🪩</span>
+            </span>
+          </DropdownMenuItem>
+        ) : (
+          <DropdownMenuItem
+            onClick={() => (
+              setThemeState("system"), (window.location.href = "/")
+            )}
+            className="bg-gradient-to-tr from-white to-gray-500"
+          >
+            <span className="animate-none text-black">Normal mode</span>
+          </DropdownMenuItem>
+        )}
       </DropdownMenuContent>
     </DropdownMenu>
   );
