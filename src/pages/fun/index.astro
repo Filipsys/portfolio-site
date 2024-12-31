@@ -112,31 +112,127 @@ import { ModeToggle } from "@/components/ModeToggle";
                 <iframe src="https://neobrutalism.com" title="WOTW" class="w-full border-dashed aspect-video border-8 border-green-500 shadow-lg shadow-green-500" style={{ zoom: "0.25"}}></iframe>
             </div>
 
-
             <p class="text-yellow-400 font-mono text-4xl">Quote of the day</p>
             <p class="italic">"When one does not want, you cannot make him want it." - Arystoteles</p>
         </div>
       </main>
     </div>
+
+    <div class="h-40 w-24" id="extinguisher" style={{
+      backgroundImage: "url(./extinguisher.gif)",
+      backgroundSize: "150px",
+      backgroundRepeat: "no-repeat",
+      opacity: "0",
+      zIndex: "100"
+  }} />
   </main>
 </Layout>
 
 <script>
-    const setOnFire = () => {
-        const mainDiv = document.querySelector("#main");
-        if (!mainDiv) return;
+  let pageOnFire = false;
 
-        const fireDiv = document.createElement("div");
-        fireDiv.style.position = "absolute";
-        fireDiv.style.top = `${Math.random() * mainDiv.clientWidth}`;
-        fireDiv.style.left = `${Math.random() * mainDiv.clientHeight}`;
-        fireDiv.style.width = "300px";
-        fireDiv.style.height = "120px";
-        fireDiv.style.zIndex = "50";
-        fireDiv.style.backgroundImage = "url(./fire.gif)";
+  const createFire = (mainDiv: HTMLElement, top: number, left: number) => {
+    const fireDiv = document.createElement("fire");
+    fireDiv.style.position = "absolute";
+    fireDiv.style.top = `${top}px`;
+    fireDiv.style.left = `${left}px`;
+    fireDiv.style.width = "300px";
+    fireDiv.style.height = "200px";
+    fireDiv.style.zIndex = "50";
+    fireDiv.style.backgroundImage = "url(./fire.gif)";
 
-        mainDiv.appendChild(fireDiv);
+    mainDiv.appendChild(fireDiv);
+  }
+
+  const setOnFire = () => {
+    const mainDiv = document.querySelector("#main") as HTMLElement;
+    if (!mainDiv) return;
+    pageOnFire = true;
+
+    const createWarning = () => {
+      const warning = document.createElement("warning");
+      warning.style.position = "absolute";
+      warning.style.height = "100px";
+      warning.style.width = "100px";
+      warning.style.backgroundImage = "url(./emergency.gif)";
+      warning.style.backgroundSize = "100px";
+      warning.style.backgroundRepeat = "no-repeat";
+      warning.style.top = `${Math.random() * mainDiv.clientHeight}px`;
+      warning.style.left = `${Math.random() * mainDiv.clientWidth}px`;
+      warning.style.boxShadow = "0px 0px 10px 10px red"
+
+      mainDiv.appendChild(warning);
     }
 
-    // setOnFire();
+    for (let i = 0; i <= 20; i++) {
+      createWarning();
+    }
+    
+
+    const extinguisher = document.getElementById("extinguisher");
+    if (!extinguisher) return;
+
+    createFire(mainDiv, Math.random() * mainDiv.clientWidth, Math.random() * (mainDiv.clientHeight - 300) + 300);
+    extinguisher.style.opacity = "1";
+  }
+
+  const spreadFire = () => {
+    const getFires = document.querySelectorAll("fire");
+
+    getFires.forEach((fire) => {
+      const fireLeft = parseInt(fire.style.left.slice(0, fire.style.left.length - 2));
+      const fireTop = parseInt(fire.style.top.slice(0, fire.style.top.length - 2));
+
+      const directionX = Math.random() >= 0.5 ? -1 : 1;
+      const directionY = Math.random() >= 0.5 ? -1 : 1;
+
+      const mainDiv = document.querySelector("#main") as HTMLElement;
+      if (!mainDiv) return;
+
+      createFire(mainDiv, fireTop + 100 * directionY, fireLeft + 100 * directionX);
+    })
+  }
+
+  const extinguisher = document.getElementById("extinguisher");
+  extinguisher?.addEventListener("mousemove", (event: MouseEvent) => {
+    const extinguisher = document.getElementById("extinguisher");
+    if (!extinguisher) return;
+    const fires = document.querySelectorAll("fire");
+    if (!fires) return;
+    const mainDiv = document.querySelector("#main") as HTMLElement;
+    if (!mainDiv) return;
+
+    extinguisher.style.position = "absolute";
+    extinguisher.style.top = `${event.clientY + window.scrollY - extinguisher.clientHeight / 2}px`;
+    extinguisher.style.left = `${event.clientX + window.scrollX - extinguisher.clientWidth / 2}px`;
+
+    fires.forEach((fire) => {
+      if (parseInt(extinguisher.style.left) + extinguisher.offsetWidth / 2 > parseInt(fire.style.left) && parseInt(extinguisher.style.left) + extinguisher.offsetWidth / 2 < parseInt(fire.style.left) + fire.clientWidth && parseInt(extinguisher.style.top) + extinguisher.offsetHeight / 2 > parseInt(fire.style.top) && parseInt(extinguisher.style.top) + extinguisher.offsetHeight / 2 < parseInt(fire.style.top) + fire.clientHeight) {
+        mainDiv.removeChild(fire);
+      }
+    })
+
+    if (fires.length == 0) {
+      pageOnFire = false;
+
+      const warnings = document.querySelectorAll("warning");
+      if (!warnings) return;
+
+      warnings.forEach((warning) => {
+        mainDiv.removeChild(warning);
+      })
+
+      extinguisher.style.display = "none";
+    }
+  });
+
+  setTimeout(() => {
+    setOnFire();
+
+    setInterval(() => {
+      if (!pageOnFire) return;
+
+      spreadFire();
+    }, 2000)
+  }, 10000);
 </script>
