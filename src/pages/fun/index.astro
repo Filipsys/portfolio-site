@@ -180,8 +180,8 @@ import { ModeToggle } from "@/components/ModeToggle";
     const getFires = document.querySelectorAll("fire");
 
     getFires.forEach((fire) => {
-      const fireLeft = parseInt(fire.style.left.slice(0, fire.style.left.length - 2));
-      const fireTop = parseInt(fire.style.top.slice(0, fire.style.top.length - 2));
+      const fireLeft = parseInt((fire as HTMLElement).style.left.slice(0, (fire as HTMLElement).style.left.length - 2));
+      const fireTop = parseInt((fire as HTMLElement).style.top.slice(0, (fire as HTMLElement).style.top.length - 2));
 
       const directionX = Math.random() >= 0.5 ? -1 : 1;
       const directionY = Math.random() >= 0.5 ? -1 : 1;
@@ -207,7 +207,7 @@ import { ModeToggle } from "@/components/ModeToggle";
     extinguisher.style.left = `${event.clientX + window.scrollX - extinguisher.clientWidth / 2}px`;
 
     fires.forEach((fire) => {
-      if (parseInt(extinguisher.style.left) + extinguisher.offsetWidth / 2 > parseInt(fire.style.left) && parseInt(extinguisher.style.left) + extinguisher.offsetWidth / 2 < parseInt(fire.style.left) + fire.clientWidth && parseInt(extinguisher.style.top) + extinguisher.offsetHeight / 2 > parseInt(fire.style.top) && parseInt(extinguisher.style.top) + extinguisher.offsetHeight / 2 < parseInt(fire.style.top) + fire.clientHeight) {
+      if (parseInt(extinguisher.style.left) + extinguisher.offsetWidth / 2 > parseInt((fire as HTMLElement).style.left) && parseInt(extinguisher.style.left) + extinguisher.offsetWidth / 2 < parseInt((fire as HTMLElement).style.left) + fire.clientWidth && parseInt(extinguisher.style.top) + extinguisher.offsetHeight / 2 > parseInt((fire as HTMLElement).style.top) && parseInt(extinguisher.style.top) + extinguisher.offsetHeight / 2 < parseInt((fire as HTMLElement).style.top) + fire.clientHeight) {
         mainDiv.removeChild(fire);
       }
     })
