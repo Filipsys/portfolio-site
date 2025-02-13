@@ -10,9 +10,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 export function ModeToggle() {
-  const [theme, setThemeState] = React.useState<
-    "theme-light" | "dark" | "fun" | "system"
-  >("theme-light");
+  const [theme, setThemeState] = React.useState<"theme-light" | "dark" | "fun" | "system">("theme-light");
 
   React.useEffect(() => {
     const isDarkMode = document.documentElement.classList.contains("dark");
@@ -21,9 +19,7 @@ export function ModeToggle() {
 
   React.useEffect(() => {
     const isDark =
-      theme === "dark" ||
-      (theme === "system" &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches);
+      theme === "dark" || (theme === "system" && window.matchMedia("(prefers-color-scheme: dark)").matches);
 
     document.documentElement.classList[isDark ? "add" : "remove"]("dark");
     window.dispatchEvent(new Event("storage"));
@@ -44,20 +40,12 @@ export function ModeToggle() {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => setThemeState("theme-light")}>
-          Light
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setThemeState("dark")}>
-          Dark
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setThemeState("system")}>
-          System
-        </DropdownMenuItem>
+        <DropdownMenuItem onClick={() => setThemeState("theme-light")}>Light</DropdownMenuItem>
+        <DropdownMenuItem onClick={() => setThemeState("dark")}>Dark</DropdownMenuItem>
+        <DropdownMenuItem onClick={() => setThemeState("system")}>System</DropdownMenuItem>
         {window.location.pathname == "/" ? (
           <DropdownMenuItem
-            onClick={() => (
-              setThemeState("dark"), (window.location.href = "/fun")
-            )}
+            onClick={() => (setThemeState("dark"), (window.location.href = "/fun"))}
             className="bg-gradient-to-tr from-yellow-400 to-orange-800"
           >
             <span className="animate-none">Fun mode</span>
@@ -72,9 +60,7 @@ export function ModeToggle() {
           </DropdownMenuItem>
         ) : (
           <DropdownMenuItem
-            onClick={() => (
-              setThemeState("system"), (window.location.href = "/")
-            )}
+            onClick={() => (setThemeState("system"), (window.location.href = "/"))}
             className="bg-gradient-to-tr from-white to-gray-500"
           >
             <span className="animate-none text-black">Normal mode</span>
