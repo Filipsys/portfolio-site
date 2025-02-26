@@ -11,6 +11,7 @@ import {
   BunIcon,
   ViteIcon,
 } from "@/icons/dev-icons";
+import { Separator } from "@/components/Separator";
 
 export const HomeComponent = () => {
   return (
@@ -25,12 +26,12 @@ export const HomeComponent = () => {
         </h1>
       </div>
 
-      <div className="px-2 *:opacity-15 *:bg-black *:dark:bg-white">separator</div>
+      <Separator />
 
       <div className="px-2 py-6">
         <h2 className="py-2 text-lg underline underline-offset-4 xs:text-xl">Links</h2>
 
-        <div className="flex flex-col fill-white/50 font-custom3 dark:text-[#d3d3d3]/50 *:flex *:cursor-pointer *:justify-between *:text-xs *:font-light *:tracking-wide *:xs:text-sm *:sm:text-base">
+        <div className="flex flex-col fill-white/50 font-overpassMono dark:text-[#d3d3d3]/50 *:flex *:cursor-pointer *:justify-between *:text-xs *:font-light *:tracking-wide *:xs:text-sm *:sm:text-base">
           <div className="group/github z-50 transition-colors duration-200 hover:text-black dark:hover:text-white">
             <a href="https://github.com/Filipsys" target="_blank">
               github.com/Filipsys
@@ -44,23 +45,23 @@ export const HomeComponent = () => {
             </div>
           </div>
 
-          <div className="group/linkedin z-50 py-1 transition-colors duration-200 hover:text-[#0A66C2] xs:p-0">
+          <div className="group/linkedin z-50 py-1 transition-colors duration-200 hover:text-black dark:hover:text-white xs:p-0">
             <a href="https://linkedin.com/in/filipsysak" target="_blank">
               linkedin.com/in/filipsysak
             </a>
             <div className="flex items-center gap-2">
               <p className="hidden sm:block">LinkedIn</p>
-              <div className="size-4 duration-200 dark:fill-white/50 dark:group-hover/linkedin:fill-[#0A66C2] fill-black">
+              <div className="size-4 duration-200 dark:fill-white/50 dark:group-hover/linkedin:fill-white fill-black">
                 <SmallLinkedinIcon />
               </div>
             </div>
           </div>
-          <div className="group/email z-50 transition-colors duration-200 hover:text-[#EA4335]">
+          <div className="group/email z-50 transition-colors duration-200 hover:text-black dark:hover:text-white">
             <a href="mailto:quietus.fits_0p@icloud.com">quietus.fits_0p@icloud.com</a>
 
             <div className="flex items-center gap-2">
               <p className="hidden sm:block">Email</p>
-              <div className="size-4 duration-200 dark:fill-white/50 dark:group-hover/email:fill-[#EA4335] fill-black">
+              <div className="size-4 duration-200 dark:fill-white/50 dark:group-hover/email:fill-white fill-black">
                 <SmallGmailIcon />
               </div>
             </div>

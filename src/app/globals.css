@@ -2,15 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  @font-face {
+    font-family: "Overpass";
+    src: url("../fonts/Overpass.ttf");
+  }
+
+  @font-face {
+    font-family: "Overpass Mono";
+    src: url("../fonts/OverpassMono.ttf");
+  }
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f9f8f6;
+  --foreground: #1d1e20;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #1d1e20;
+    --foreground: #f9f8f6;
   }
 }
 
