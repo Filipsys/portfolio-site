@@ -17,12 +17,16 @@
 :root {
   --background: #f9f8f6;
   --foreground: #1d1e20;
+  --grid: rgba(180, 180, 180, 0.3);
+  --grid-mask: rgba(130, 130, 130, 0.4);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #1d1e20;
-    --foreground: #f9f8f6;
+    --background: #090909;
+    --grid: rgba(70, 70, 70, 0.3);
+    --grid-mask: rgba(120, 120, 120, 0.4);
+    --foreground: #e9dddd;
   }
 }
 
