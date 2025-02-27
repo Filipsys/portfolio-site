@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: "Overpass";
+    src: url("../fonts/Overpass.ttf");
+  }
+
+  @font-face {
+    font-family: "Overpass Mono";
+    src: url("../fonts/OverpassMono.ttf");
+  }
+}
+
+:root {
+  --background: #f9f8f6;
+  --foreground: #1d1e20;
+  --grid: rgba(180, 180, 180, 0.3);
+  --grid-mask: rgba(130, 130, 130, 0.4);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #090909;
+    --grid: rgba(70, 70, 70, 0.3);
+    --grid-mask: rgba(120, 120, 120, 0.4);
+    --foreground: #e9dddd;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
