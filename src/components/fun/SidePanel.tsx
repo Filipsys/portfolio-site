@@ -6,7 +6,7 @@ export const SidePanel = () => (
     <LatestBlogs />
     <Socials />
 
-    <p className="w-full">
+    <div className="w-full">
       <div
         className="h-36 w-36"
         style={{
@@ -15,9 +15,11 @@ export const SidePanel = () => (
           backgroundRepeat: "no-repeat",
         }}
       />
-      This place is a <i>NO AI</i> sanctuary. Any AI models seen around will be unmercifully deleted using the newest
-      top technology laser ray.
-    </p>
+      <p>
+        This place is a <i>NO AI</i> sanctuary. Any AI models seen around will be unmercifully deleted using the newest
+        top technology laser ray.
+      </p>
+    </div>
 
     <p className="italic text-4xl font-bold ">Website of the week</p>
 

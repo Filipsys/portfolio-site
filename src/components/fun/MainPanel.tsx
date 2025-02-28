@@ -1,23 +1,18 @@
 import { Separator } from "@/components/fun/Separator";
 import { TechList } from "@/components/fun/TechList";
+import { Campfire } from "@/components/fun/Campfire";
 
 export const MainPanel = () => (
   <div className="flex flex-col">
     <div className="w-full flex justify-center">
-      <div
-        className="h-32 w-32"
-        style={{
-          backgroundImage: "url(./campfire.gif)",
-          backgroundSize: "150px",
-        }}
-      />
+      <Campfire />
     </div>
 
     <p>
       Welcome to my hidden part of the internet. You have been through a lot, take a rest, relax, sip some coffee and
       sit down next to the campfire.
-      <div className="animate-sidewaysGlitch">Don&apos;t worry, it won&apos;t bite :)</div>
     </p>
+    <div className="animate-sidewaysGlitch">Don&apos;t worry, it won&apos;t bite :)</div>
 
     <Separator />
 
