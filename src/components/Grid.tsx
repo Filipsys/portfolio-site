@@ -21,9 +21,8 @@ export const Grid = forwardRef<HTMLDivElement, { cursorPosition: { x: number; y:
         <div
           className="absolute left-0 top-0 h-full w-full"
           ref={(el) => {
-            movableGridRef.current = el; // Set the movableGridRef
+            movableGridRef.current = el;
             if (ref) {
-              // Set the forwarded ref if provided
               if (typeof ref === "function") {
                 ref(el);
               } else {
@@ -39,7 +38,7 @@ export const Grid = forwardRef<HTMLDivElement, { cursorPosition: { x: number; y:
             maskPosition: "50% 50%",
             maskRepeat: "no-repeat",
             maskSize: "100vh 100vh",
-            transition: "opacity 0.2s ease-in-out",
+            transition: "opacity 0.5s ease-in-out",
             opacity: 0,
             pointerEvents: "none",
           }}

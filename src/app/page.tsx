@@ -24,7 +24,11 @@ export default function Home() {
       id="hover-div"
       onMouseMove={(event) => setCursorPosition({ x: event.clientX, y: event.clientY })}
       onMouseOut={() => (movableGridRef.current ? (movableGridRef.current.style.opacity = "0") : null)}
-      onMouseOver={() => (movableGridRef.current ? (movableGridRef.current.style.opacity = "1") : null)}
+      onMouseOver={() =>
+        movableGridRef.current && cursorPosition.x !== 0 && cursorPosition.y !== 0
+          ? (movableGridRef.current.style.opacity = "1")
+          : null
+      }
     >
       {isChristmas ? <ChristmasLights /> : null}
 
