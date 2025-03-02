@@ -13,7 +13,7 @@ export const Socials = () => (
       </li>
 
       <li>
-        <div className="group/linkedin py-1 transition-colors duration-0 border-2 border-red-500 hover:border-dashed hover:animate-spin hover:rotate-180 hover:border-white hover:text-[#0A66C2]">
+        <div className="group/linkedin py-1 transition-colors duration-0 border-2 border-red-500 hover:border-dashed hover:animate-sidewaysMove hover:rotate-180 hover:border-white hover:text-[#0A66C2]">
           <a href="https://linkedin.com/in/filipsysak" target="_blank">
             linkedin.com/in/filipsysak
           </a>
@@ -22,7 +22,7 @@ export const Socials = () => (
       </li>
 
       <li>
-        <div className="group/email transition-colors duration-0 border-2 border-red-500 hover:border-dashed hover:border-white hover:animate-bounce hover:text-[#EA4335]">
+        <div className="group/email transition-colors duration-0 border-2 border-red-500 hover:border-dashed hover:border-white hover:animate-verticalMove hover:text-[#EA4335]">
           <a href="mailto:quietus.fits_0p@icloud.com">quietus.fits_0p@icloud.com</a>
           <p className="italic">Email</p>
         </div>

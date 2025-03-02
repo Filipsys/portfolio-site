@@ -17,6 +17,16 @@ export default {
         foreground: "var(--foreground)",
       },
       keyframes: {
+        sidewaysMove: {
+          "0%": { transform: "translateX(-50px)" },
+          "50%": { transform: "translateX(50px)" },
+          "100%": { transform: "translateX(-50px)" },
+        },
+        verticalMove: {
+          "0%": { transform: "rotate(90deg)" },
+          "50%": { transform: "rotate(-180deg)" },
+          "100%": { transform: "rotate(90deg)" },
+        },
         sidewaysGlitch: {
           "0%": { transform: "translateX(0)" },
           "40%": { transform: "translateX(1px)" },
@@ -51,6 +61,8 @@ export default {
       animation: {
         random1: "random1 3s linear infinite",
         sidewaysGlitch: "sidewaysGlitch 0.05s linear infinite",
+        sidewaysMove: "sidewaysMove 0.5s linear infinite",
+        verticalMove: "verticalMove 5s linear infinite",
       },
     },
   },
