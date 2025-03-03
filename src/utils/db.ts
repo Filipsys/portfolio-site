@@ -1,5 +1,6 @@
-import { getCloudflareContext } from "@opennextjs/cloudflare";
+import type { D1Database } from "@cloudflare/workers-types";
 
+import { getCloudflareContext } from "@opennextjs/cloudflare";
 import { D1Dialect } from "kysely-d1";
 import { Kysely } from "kysely";
 
@@ -7,7 +8,7 @@ const initDbConnectionDev = () => {
   const { env } = getCloudflareContext();
 
   return new D1Dialect({
-    database: (env as { DB: /* D1Database */ null }).DB,
+    database: (env as { DB: D1Database }).DB,
   });
 };
 
