@@ -4,6 +4,7 @@ const UserSign = (props: { username: string; message: string }) => (
   <div className="flex flex-col gap-1 border-[1px] border-zinc-900 border-b-zinc-700 border-r-zinc-700">
     <div className="flex items-center gap-1">
       <p className="peer cursor-pointer">{props.username}</p>
+
       <div className="*:peer-hover:opacity-100 *:opacity-0 *:size-3">
         <LeaveSiteIcon />
       </div>

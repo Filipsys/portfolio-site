@@ -38,3 +38,13 @@ CREATE TABLE "verification" (
 );
 
 CREATE UNIQUE INDEX "user_email_key" ON "user"("email");
+
+CREATE TABLE "messages" (
+    "id" TEXT NOT NULL PRIMARY KEY,
+    "userId" TEXT NOT NULL,
+    "displayName" TEXT NOT NULL,
+    "message" TEXT,
+    "sentAt" DATETIME NOT NULL,
+    CONSTRAINT "messages_userId_fkey" FOREIGN KEY ("userId") REFERENCES "user" ("id") ON DELETE CASCADE ON UPDATE CASCADE
+)
+
