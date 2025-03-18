@@ -1,6 +1,6 @@
 import { useEffect, useState, useContext, memo } from "react";
 import { RepoCard } from "@/components/RepoCard";
-import { ProjectContext } from "@/app/page";
+import { ProjectContext } from "@/providers/ContextProvider";
 import type { SingleProject, GithubResponseJSON, ProjectData } from "@/types/env";
 
 export const ProjectsComponent = memo(() => {

@@ -5,13 +5,9 @@ import { HomeComponent } from "@/components/Home";
 import { Separator } from "@/components/Separator";
 import { ProjectsComponent } from "@/components/ProjectsComponent";
 import { ChristmasLights } from "@/components/ChristmasLights";
-import { useEffect, useRef, useState, createContext, memo, useMemo } from "react";
-import type { ProjectData, ProjectContextType } from "@/types/env";
-
-export const ProjectContext = createContext<ProjectContextType>({
-  repoListData: [],
-  setRepoListData: () => {},
-});
+import { useEffect, useRef, useState, memo, useMemo } from "react";
+import { ProjectContext } from "@/providers/ContextProvider";
+import type { ProjectData } from "@/types/env";
 
 const FullContent = memo(
   (props: {
