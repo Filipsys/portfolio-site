@@ -15,15 +15,20 @@
 }
 
 :root {
+  /* Temporarily removing light theme
   --background: #f9f8f6;
   --foreground: #1d1e20;
   --grid: rgba(180, 180, 180, 0.3);
-  --grid-mask: rgba(130, 130, 130, 0.4);
+  --grid-mask: rgba(130, 130, 130, 0.4); */
+  --background: #0a0a0a;
+  --grid: rgba(70, 70, 70, 0.3);
+  --grid-mask: rgba(120, 120, 120, 0.4);
+  --foreground: #e9dddd;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #090909;
+    --background: #0a0a0a;
     --grid: rgba(70, 70, 70, 0.3);
     --grid-mask: rgba(120, 120, 120, 0.4);
     --foreground: #e9dddd;

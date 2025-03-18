@@ -29,7 +29,7 @@ export const HomeComponent = () => {
       <Separator />
 
       <div className="px-2 py-6">
-        <h2 className="py-2 text-lg underline underline-offset-4 xs:text-xl">Links</h2>
+        <h1 className="pt-2">- Links</h1>
 
         <div className="flex flex-col fill-white/50 font-overpassMono dark:text-[#d3d3d3]/50 *:flex *:cursor-pointer *:justify-between *:text-xs *:font-light *:tracking-wide *:xs:text-sm *:sm:text-base">
           <div className="group/github z-50 transition-colors duration-200 hover:text-black dark:hover:text-white">
@@ -56,6 +56,7 @@ export const HomeComponent = () => {
               </div>
             </div>
           </div>
+
           <div className="group/email z-50 transition-colors duration-200 hover:text-black dark:hover:text-white">
             <a href="mailto:quietus.fits_0p@icloud.com">quietus.fits_0p@icloud.com</a>
 
@@ -71,7 +72,7 @@ export const HomeComponent = () => {
 
       <div className="z-50 px-2">
         <div className="flex items-center">
-          <h2 className="py-2 text-lg underline underline-offset-4 xs:text-xl">Tech I know and use</h2>
+          <h1 className="pt-2">- Tech I know and use</h1>
         </div>
 
         <div className="mb-8 grid w-full grid-cols-1 gap-3 text-black/50 dark:text-white/50 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 lg:mb-0">
@@ -84,6 +85,7 @@ export const HomeComponent = () => {
               <p className="font-extralight text-xs pr-1 [line-height:0.7rem]">Typesafe JavaScript</p>
             </div>
           </div>
+
           <div className="h-fit w-full rounded-md dark:border-white/10 border-black/10 border-[1px] flex items-center">
             <div className="*:size-5 p-3 m-2 rounded-md dark:*:fill-[#d3d3d3]/90 fill-black/90 bg-black/10 dark:bg-white/10">
               <TailwindIcon />
@@ -93,6 +95,7 @@ export const HomeComponent = () => {
               <p className="font-extralight text-xs pr-1 [line-height:0.7rem]">Modern CSS framework</p>
             </div>
           </div>
+
           <div className="h-fit w-full rounded-md dark:border-white/10 border-black/10 border-[1px] flex items-center">
             <div className="*:size-5 p-3 m-2 rounded-md dark:*:fill-[#d3d3d3]/90 fill-black/90 bg-black/10 dark:bg-white/10">
               <VercelIcon />
@@ -102,6 +105,7 @@ export const HomeComponent = () => {
               <p className="font-extralight text-xs pr-1 [line-height:0.7rem]">Hosting & Cloud infrastructure</p>
             </div>
           </div>
+
           <div className="h-fit w-full rounded-md dark:border-white/10 border-black/10 border-[1px] flex items-center">
             <div className="*:size-5 p-3 m-2 rounded-md dark:*:fill-[#d3d3d3]/90 fill-black/90 bg-black/10 dark:bg-white/10">
               <BunIcon />
@@ -111,6 +115,7 @@ export const HomeComponent = () => {
               <p className="font-extralight text-xs pr-1 [line-height:0.7rem]">All-in-one JavaScript toolkit</p>
             </div>
           </div>
+
           <div className="h-fit w-full rounded-md dark:border-white/10 border-black/10 border-[1px] flex items-center">
             <div className="*:size-5 dark:*:fill-[#d3d3d3]/90 fill-black/90 p-3 m-2 rounded-md bg-black/10 dark:bg-white/10">
               <ReactIcon />
@@ -120,6 +125,7 @@ export const HomeComponent = () => {
               <p className="font-extralight text-xs pr-1 [line-height:0.7rem]">Javascript framework</p>
             </div>
           </div>
+
           <div className="h-fit w-full rounded-md dark:border-white/10 border-black/10 border-[1px] flex items-center">
             <div className="*:size-5 dark:*:fill-[#d3d3d3]/90 fill-black/90 p-3 m-2 rounded-md bg-black/10 dark:bg-white/10">
               <SqliteIcon />
@@ -129,6 +135,7 @@ export const HomeComponent = () => {
               <p className="font-extralight text-xs pr-1 [line-height:0.7rem]">Lightweight database</p>
             </div>
           </div>
+
           <div className="h-fit w-full rounded-md dark:border-white/10 border-black/10 border-[1px] flex items-center">
             <div className="*:size-5 dark:*:fill-[#d3d3d3]/90 fill-black/90 p-3 m-2 rounded-md bg-black/10 dark:bg-white/10">
               <ViteIcon />
@@ -138,6 +145,7 @@ export const HomeComponent = () => {
               <p className="font-extralight text-xs pr-1 [line-height:0.7rem]">Frontend build tool</p>
             </div>
           </div>
+
           <div className="h-fit w-full rounded-md dark:border-white/10 border-black/10 border-[1px] flex items-center">
             <div className="*:size-5 dark:*:fill-[#d3d3d3]/90 fill-black/90 p-3 m-2 rounded-md bg-black/10 dark:bg-white/10">
               <NextJSIcon />
