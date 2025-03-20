@@ -12,6 +12,19 @@ import {
   ViteIcon,
 } from "@/icons/dev-icons";
 import { Separator } from "@/components/Separator";
+import { ComponentType } from "react";
+
+const TechCard = (props: { icon: ComponentType; name: string; description: string }) => (
+  <div className="h-fit w-full rounded-md dark:border-white/10 border-black/10 border-[1px] flex items-center">
+    <div className="*:size-5 p-3 m-2 rounded-md dark:*:fill-[#d3d3d3]/90 fill-black/90 bg-black/10 dark:bg-white/10">
+      <props.icon />
+    </div>
+    <div>
+      <p className="text-sm text-black dark:text-[#d3d3d3]">{props.name}</p>
+      <p className="font-extralight text-xs pr-1 [line-height:0.7rem]">{props.description}</p>
+    </div>
+  </div>
+);
 
 export const HomeComponent = () => {
   return (
@@ -76,85 +89,20 @@ export const HomeComponent = () => {
         </div>
 
         <div className="mb-8 grid w-full grid-cols-1 gap-3 text-black/50 dark:text-white/50 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 lg:mb-0">
-          <div className="h-fit w-full rounded-md dark:border-white/10 border-black/10 border-[1px] flex items-center">
-            <div className="*:size-5 p-3 m-2 rounded-md dark:*:fill-[#d3d3d3]/90 fill-black/90 bg-black/10 dark:bg-white/10">
-              <TypescriptIcon />
-            </div>
-            <div>
-              <p className="text-sm text-black dark:text-[#d3d3d3]">TypeScript</p>
-              <p className="font-extralight text-xs pr-1 [line-height:0.7rem]">Typesafe JavaScript</p>
-            </div>
-          </div>
-
-          <div className="h-fit w-full rounded-md dark:border-white/10 border-black/10 border-[1px] flex items-center">
-            <div className="*:size-5 p-3 m-2 rounded-md dark:*:fill-[#d3d3d3]/90 fill-black/90 bg-black/10 dark:bg-white/10">
-              <TailwindIcon />
-            </div>
-            <div>
-              <p className="text-sm text-black dark:text-[#d3d3d3]">TailwindCSS</p>
-              <p className="font-extralight text-xs pr-1 [line-height:0.7rem]">Modern CSS framework</p>
-            </div>
-          </div>
-
-          <div className="h-fit w-full rounded-md dark:border-white/10 border-black/10 border-[1px] flex items-center">
-            <div className="*:size-5 p-3 m-2 rounded-md dark:*:fill-[#d3d3d3]/90 fill-black/90 bg-black/10 dark:bg-white/10">
-              <VercelIcon />
-            </div>
-            <div>
-              <p className="text-sm text-black dark:text-[#d3d3d3]">Vercel</p>
-              <p className="font-extralight text-xs pr-1 [line-height:0.7rem]">Hosting & Cloud infrastructure</p>
-            </div>
-          </div>
-
-          <div className="h-fit w-full rounded-md dark:border-white/10 border-black/10 border-[1px] flex items-center">
-            <div className="*:size-5 p-3 m-2 rounded-md dark:*:fill-[#d3d3d3]/90 fill-black/90 bg-black/10 dark:bg-white/10">
-              <BunIcon />
-            </div>
-            <div>
-              <p className="text-sm text-black dark:text-[#d3d3d3]">Bun</p>
-              <p className="font-extralight text-xs pr-1 [line-height:0.7rem]">All-in-one JavaScript toolkit</p>
-            </div>
-          </div>
-
-          <div className="h-fit w-full rounded-md dark:border-white/10 border-black/10 border-[1px] flex items-center">
-            <div className="*:size-5 dark:*:fill-[#d3d3d3]/90 fill-black/90 p-3 m-2 rounded-md bg-black/10 dark:bg-white/10">
-              <ReactIcon />
-            </div>
-            <div>
-              <p className="text-sm text-black dark:text-[#d3d3d3]">React</p>
-              <p className="font-extralight text-xs pr-1 [line-height:0.7rem]">Javascript framework</p>
-            </div>
-          </div>
-
-          <div className="h-fit w-full rounded-md dark:border-white/10 border-black/10 border-[1px] flex items-center">
-            <div className="*:size-5 dark:*:fill-[#d3d3d3]/90 fill-black/90 p-3 m-2 rounded-md bg-black/10 dark:bg-white/10">
-              <SqliteIcon />
-            </div>
-            <div>
-              <p className="text-sm text-black dark:text-[#d3d3d3]">SQLite</p>
-              <p className="font-extralight text-xs pr-1 [line-height:0.7rem]">Lightweight database</p>
-            </div>
-          </div>
-
-          <div className="h-fit w-full rounded-md dark:border-white/10 border-black/10 border-[1px] flex items-center">
-            <div className="*:size-5 dark:*:fill-[#d3d3d3]/90 fill-black/90 p-3 m-2 rounded-md bg-black/10 dark:bg-white/10">
-              <ViteIcon />
-            </div>
-            <div>
-              <p className="text-sm text-black dark:text-[#d3d3d3]">Vite</p>
-              <p className="font-extralight text-xs pr-1 [line-height:0.7rem]">Frontend build tool</p>
-            </div>
-          </div>
-
-          <div className="h-fit w-full rounded-md dark:border-white/10 border-black/10 border-[1px] flex items-center">
-            <div className="*:size-5 dark:*:fill-[#d3d3d3]/90 fill-black/90 p-3 m-2 rounded-md bg-black/10 dark:bg-white/10">
-              <NextJSIcon />
-            </div>
-            <div>
-              <p className="text-sm text-black dark:text-[#d3d3d3]">Next.js</p>
-              <p className="font-extralight text-xs pr-1 [line-height:0.7rem]">Frontend React framework</p>
-            </div>
-          </div>
+          {(
+            [
+              [TypescriptIcon, "TypeScript", "Typesafe JavaScript"],
+              [TailwindIcon, "TailwindCSS", "Modern CSS framework"],
+              [VercelIcon, "Vercel", "Hosting & Cloud infrastructure"],
+              [BunIcon, "Bun", "All-in-one JavaScript toolkit"],
+              [ReactIcon, "React", "Javascript framework"],
+              [SqliteIcon, "SQLite", "Lightweight database"],
+              [ViteIcon, "Vite", "Frontend build tool"],
+              [NextJSIcon, "Next.js", "Frontend React framework"],
+            ] as [ComponentType, string, string][]
+          ).map((element) => (
+            <TechCard key={element[1]} icon={element[0]} name={element[1]} description={element[2]} />
+          ))}
         </div>
       </div>
     </div>

@@ -18,6 +18,8 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <title>filyys - main page</title>
+
+        {/* <script crossOrigin="anonymous" src="//unpkg.com/react-scan/dist/auto.global.js" /> */}
       </head>
 
       <body className="bg-black antialiased">{children}</body>

@@ -21,6 +21,21 @@ const Topic = (props: { name: string }) => (
   </div>
 );
 
+// const LanguageCircle = async (props: { language: string }) => {
+//   const getColourFromWorker = async () => {
+//     const response = await (
+//       await fetch(`https://language-colour.filipsysak.workers.dev/get?l=${props.language}`)
+//     ).json();
+
+//     return response["color"] ?? "#ffffff";
+//   };
+
+//   const outputColour = await getColourFromWorker();
+//   return <div className={`size-2.5 border-[1px] border-[${outputColour}]/30 rounded-full bg-[${outputColour}]/30`} />;
+// };
+
+export const SkeletonRepoCard = () => <div className="rounded-md border-white/10 bg-neutral-950 border-[1px] h-full" />;
+
 export const RepoCard = (props: {
   repoName: string;
   repoLink: string;
@@ -30,8 +45,9 @@ export const RepoCard = (props: {
   lastUpdate: string;
   mainLanguage: string;
   topics: string[];
-  staggerDelay: number;
   forkLink?: string;
+  repositoryLink?: string;
+  commitsLink?: string;
 }) => (
   <div className="rounded-md text-xs text-gray-300 border-white/10 bg-neutral-950 border-[1px] p-3 flex flex-col h-full">
     <div className="flex justify-between rounded-md">
@@ -47,12 +63,16 @@ export const RepoCard = (props: {
       </div>
 
       <div className="flex gap-1 items-center *:transition-all *:duration-100">
-        <a href={props.repoLink} target="_blank" className="*:fill-gray-500 hover:*:fill-white hover:scale-125">
+        <a
+          href={props.repositoryLink ?? props.repoLink}
+          target="_blank"
+          className="*:fill-gray-500 hover:*:fill-white hover:scale-125"
+        >
           <MicroLinkIcon />
         </a>
 
         <a
-          href={`${props.repoLink}/commits`}
+          href={props.commitsLink ?? `${props.repoLink}/commits`}
           target="_blank"
           className="*:fill-gray-500 hover:*:fill-white hover:scale-125"
         >
@@ -78,6 +98,7 @@ export const RepoCard = (props: {
         <div className="flex items-center gap-1">
           {/* TODO: Create the coloured circles for the languages */}
           {/* <div className="size-2.5 border-[1px] border-red-500/30 rounded-full bg-red-400/30" /> */}
+          {/* <LanguageCircle language={props.mainLanguage} /> */}
           <p className="text-gray-600">{props.mainLanguage ?? "unknown"}</p>
         </div>
       </div>
