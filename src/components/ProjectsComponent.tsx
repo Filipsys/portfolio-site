@@ -52,11 +52,6 @@ export const ProjectsComponent = memo(() => {
       setIsLoading(false);
     };
 
-    // if (categoryPinned) {
-    //   setIsLoading(false);
-    //   return;
-    // }
-
     if (repoListData.length === 0) {
       fetchDataFromGithub();
     } else {

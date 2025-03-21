@@ -1,4 +1,3 @@
-// import { memo } from "react";
 import { MicroArchiveIcon, MicroLinkIcon } from "@/icons/dev-icons";
 
 const Badge = (props: { forked?: boolean; template?: boolean }) => (
@@ -34,7 +33,35 @@ const Topic = (props: { name: string }) => (
 //   return <div className={`size-2.5 border-[1px] border-[${outputColour}]/30 rounded-full bg-[${outputColour}]/30`} />;
 // };
 
-export const SkeletonRepoCard = () => <div className="rounded-md border-white/10 bg-neutral-950 border-[1px] h-full" />;
+const PulsingSkeletonText = (props: { length: number; list: string[] }) => (
+  <div className="w-full flex flex-wrap gap-2">
+    {Array.from({ length: props.length }).map((_, index) => (
+      <div
+        key={`loader-${index}`}
+        className={`${
+          props.list[Math.floor(Math.random() * props.list.length)]
+        } h-3 pb-2 bg-white/5 rounded-full animate-pulse delay-500`}
+        style={{ transitionDelay: `${index * 1000}ms` }}
+      />
+    ))}
+  </div>
+);
+
+export const SkeletonRepoCard = () => {
+  const listOfLengths = ["w-8", "w-12", "w-16", "w-20", "w-24", "w-28", "w-32"];
+
+  return (
+    <div className="rounded-md border-white/10 bg-neutral-950 border-[1px] h-full w-full p-2">
+      <div className="flex flex-col justify-between h-full">
+        <PulsingSkeletonText length={6} list={listOfLengths} />
+
+        <div className="*:justify-end">
+          <PulsingSkeletonText length={2} list={listOfLengths} />
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export const RepoCard = (props: {
   repoName: string;
