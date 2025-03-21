@@ -9,8 +9,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        overpass: ["Overpass", "sans-serif"],
-        overpassMono: ["Overpass Mono", "monospace"],
+        DMSans: ["DMSans", "sans-serif"],
+        DMMono: ["DMMono", "monospace"],
       },
       colors: {
         background: "var(--background)",

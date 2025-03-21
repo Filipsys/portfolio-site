@@ -15,12 +15,13 @@ import { Separator } from "@/components/Separator";
 import { ComponentType } from "react";
 
 const TechCard = (props: { icon: ComponentType; name: string; description: string }) => (
-  <div className="h-fit w-full rounded-md dark:border-white/10 border-black/10 border-[1px] flex items-center">
-    <div className="*:size-5 p-3 m-2 rounded-md dark:*:fill-[#d3d3d3]/90 fill-black/90 bg-black/10 dark:bg-white/10">
+  <div className="h-fit w-full rounded-md border-white/10 border-[1px] flex items-center">
+    <div className="*:size-5 p-3 m-2 rounded-md *:fill-[#d3d3d3]/90 bg-white/10">
       <props.icon />
     </div>
+
     <div>
-      <p className="text-sm text-black dark:text-[#d3d3d3]">{props.name}</p>
+      <p className="text-sm text-[#d3d3d3]">{props.name}</p>
       <p className="font-extralight text-xs pr-1 [line-height:0.7rem]">{props.description}</p>
     </div>
   </div>
@@ -44,7 +45,7 @@ export const HomeComponent = () => {
       <div className="px-2 py-6">
         <h1 className="pt-2">- Links</h1>
 
-        <div className="flex flex-col fill-white/50 font-overpassMono dark:text-[#d3d3d3]/50 *:flex *:cursor-pointer *:justify-between *:text-xs *:font-light *:tracking-wide *:xs:text-sm *:sm:text-base">
+        <div className="flex flex-col fill-white/50 font-DMMono dark:text-[#d3d3d3]/50 *:flex *:cursor-pointer *:justify-between *:text-xs *:font-light *:tracking-wide *:xs:text-sm *:sm:text-base">
           <div className="group/github z-50 transition-colors duration-200 hover:text-black dark:hover:text-white">
             <a href="https://github.com/Filipsys" target="_blank">
               github.com/Filipsys

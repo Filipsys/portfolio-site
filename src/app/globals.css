@@ -4,13 +4,13 @@
 
 @layer base {
   @font-face {
-    font-family: "Overpass";
-    src: url("../fonts/Overpass.ttf");
+    font-family: "DMSans";
+    src: url("../fonts/DMSans.ttf");
   }
 
   @font-face {
-    font-family: "Overpass Mono";
-    src: url("../fonts/OverpassMono.ttf");
+    font-family: "DMMono";
+    src: url("../fonts/DMMono.ttf");
   }
 }
 

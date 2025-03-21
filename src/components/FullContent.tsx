@@ -6,7 +6,7 @@ import { FunModeTeleporter } from "@/components/FunModeTeleporter";
 // import { ThemeToggle } from "@/components/ThemeToggle";
 
 export const FullContent = () => (
-  <main className="bg-background text-foreground font-overpass w-full" id="hover-div">
+  <main className="bg-background text-foreground font-DMSans w-full" id="hover-div">
     <ChristmasLights />
 
     <div className="absolute top-2 left-2">{/* <ThemeToggle /> */}</div>
