@@ -19,7 +19,7 @@ export const Grid = forwardRef<HTMLDivElement>(() => {
 
   return (
     <div
-      className="absolute left-0 top-0 h-full w-full"
+      className="absolute -z-10 left-0 top-0 h-full w-full"
       onMouseMove={(event) => setCursorPosition({ x: event.clientX, y: event.clientY })}
       onMouseOut={() => (movableGridRef.current ? (movableGridRef.current.style.opacity = "0") : null)}
       onMouseOver={() =>

@@ -78,7 +78,7 @@ export const ProjectsComponent = memo(() => {
         <h1>- {categoryPinned ? "Pinned" : "Recent"} Github projects</h1>
 
         <button
-          className="flex gap-1 items-center *:fill-gray-500 hover:underline underline-offset-4 decoration-gray-500"
+          className="flex gap-1 items-center *:fill-gray-500 hover:underline underline-offset-4 decoration-gray-500 cursor-pointer"
           onClick={() => setCategoryPinned(!categoryPinned)}
         >
           <p className="text-sm text-gray-500">Switch to {categoryPinned ? "recent" : "pinned"}</p>
@@ -86,7 +86,7 @@ export const ProjectsComponent = memo(() => {
         </button>
       </div>
 
-      <div className="grid grid-cols-2 grid-rows-3 gap-2 *:h-36">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-rows-3 gap-2 *:h-36">
         {isLoading ? (
           <LoadingSkeleton />
         ) : categoryPinned ? (
