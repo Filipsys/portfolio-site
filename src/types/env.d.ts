@@ -7,6 +7,8 @@ export interface ProjectData {
   lastUpdate: string;
   mainLanguage: string;
   topics: string[];
+  createdAt?: string;
+  starAmount?: number;
   forkLink?: string;
 }
 

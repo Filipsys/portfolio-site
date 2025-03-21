@@ -8,5 +8,6 @@
 - [ ] Add a list of signed messages to the fun site, using oath (Github) and a database to track messages and saved users.
 - [x] Create a projects tab in the main site.
 - [ ] Make the language colours dynamic (fix CORS).
-- [ ] Make the pinned repositories dynamic by creating a worker which will scrape the Github profile to get the repo details.
+- [ ] Make the projects section responsive.
+- [x] Make the pinned repositories dynamic by creating a worker which will scrape the Github profile to get the repo details.
 - [ ] Switching from Cloudflare's d1 to Drizzle's Sqlite as d1 requires a worker. I'm not sure how to make a worker work with a database that better-auth uses so I have to use something like Drizzle.
