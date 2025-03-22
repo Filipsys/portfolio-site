@@ -4,7 +4,7 @@ import { useState, useContext, memo, useEffect } from "react";
 import { RepoCard, SkeletonRepoCard } from "@/components/RepoCard";
 import { ProjectContext } from "@/providers/ContextProvider";
 import { MicroArrowIcon } from "@/icons/dev-icons";
-import type { SingleProject, ProjectData } from "@/types/env";
+import type { SingleProject, ProjectData } from "@/types/global";
 
 export const ProjectsComponent = memo(() => {
   const [isLoading, setIsLoading] = useState(true);

@@ -1,4 +1,6 @@
 import { MicroArchiveIcon, MicroLinkIcon } from "@/icons/dev-icons";
+import { ProjectContext } from "@/providers/ContextProvider";
+import { useContext, useEffect, useRef, useState } from "react";
 
 const Badge = (props: { forked?: boolean; template?: boolean }) => (
   <div
@@ -20,18 +22,46 @@ const Topic = (props: { name: string }) => (
   </div>
 );
 
-// const LanguageCircle = async (props: { language: string }) => {
-//   const getColourFromWorker = async () => {
-//     const response = await (
-//       await fetch(`https://language-colour.filipsysak.workers.dev/get?l=${props.language}`)
-//     ).json();
+const LanguageCircle = (props: { language: string }) => {
+  const [colour, setColour] = useState<string>("#ffffff");
 
-//     return response["color"] ?? "#ffffff";
-//   };
+  const { languageColourData, setLanguageColourData } = useContext(ProjectContext);
+  const languageColourDataRef = useRef(languageColourData);
 
-//   const outputColour = await getColourFromWorker();
-//   return <div className={`size-2.5 border-[1px] border-[${outputColour}]/30 rounded-full bg-[${outputColour}]/30`} />;
-// };
+  useEffect(() => {
+    languageColourDataRef.current = languageColourData;
+  }, [languageColourData]);
+
+  useEffect(() => {
+    const getColourFromWorker = async () => {
+      const response = await (
+        await fetch(`https://language-colour.filipsysak.workers.dev/get?l=${props.language}`)
+      ).json();
+
+      setColour(response["color"] ?? "#ffffff");
+      setLanguageColourData((prevData) => ({
+        ...prevData,
+        [props.language]: response["color"] ?? "#ffffff",
+      }));
+    };
+
+    if (props.language in languageColourDataRef.current) {
+      setColour(languageColourDataRef.current[props.language]);
+      console.log("No need for fetching, already in cache");
+
+      return;
+    }
+
+    if (props.language !== "unknown") getColourFromWorker();
+  }, [languageColourDataRef, props.language, setLanguageColourData]);
+
+  return (
+    <div
+      className={`size-2.5 border-[1px] rounded-full`}
+      style={{ borderColor: `#ffffff4c`, backgroundColor: `${colour}80` }}
+    />
+  );
+};
 
 const PulsingSkeletonText = (props: { length: number; list: string[] }) => (
   <div className="w-full flex flex-wrap gap-2">
@@ -89,19 +119,15 @@ export const RepoCard = (props: {
         </div>
       </div>
 
-      <div className="flex gap-1 items-center *:transition-all *:duration-100">
-        <a
-          href={props.repositoryLink ?? props.repoLink}
-          target="_blank"
-          className="*:fill-gray-500 hover:*:fill-white hover:scale-125"
-        >
+      <div className="flex gap-1 items-center *:transition-colors *:duration-300">
+        <a href={props.repositoryLink ?? props.repoLink} target="_blank" className="*:fill-gray-500 hover:*:fill-white">
           <MicroLinkIcon />
         </a>
 
         <a
           href={props.commitsLink ?? `${props.repoLink}/commits`}
           target="_blank"
-          className="*:fill-gray-500 hover:*:fill-white hover:scale-125"
+          className="*:fill-gray-500 hover:*:fill-white"
         >
           <MicroArchiveIcon />
         </a>
@@ -123,14 +149,11 @@ export const RepoCard = (props: {
         <p className="text-gray-600">Last updated: {new Date(props.lastUpdate).toDateString()}</p>
 
         <div className="flex items-center gap-1">
-          {/* TODO: Create the coloured circles for the languages */}
-          {/* <div className="size-2.5 border-[1px] border-red-500/30 rounded-full bg-red-400/30" /> */}
-          {/* <LanguageCircle language={props.mainLanguage} /> */}
+          <LanguageCircle language={props.mainLanguage ?? "unknown"} />
+
           <p className="text-gray-600">{props.mainLanguage ?? "unknown"}</p>
         </div>
       </div>
     </div>
   </div>
 );
-
-RepoCard.displayName = "RepoCard";
