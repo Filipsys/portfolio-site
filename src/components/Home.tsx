@@ -72,7 +72,7 @@ export const HomeComponent = () => {
           </div>
 
           <div className="group/email z-50 transition-colors duration-200 hover:text-black dark:hover:text-white">
-            <a href="mailto:quietus.fits_0p@icloud.com">quietus.fits_0p@icloud.com</a>
+            <a href="mailto:mail@filyys.dev">mail@filyys.dev</a>
 
             <div className="flex items-center gap-2">
               <p className="hidden sm:block">Email</p>
