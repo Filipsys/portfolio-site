@@ -1,18 +1,18 @@
-import { int, sqliteTable, text } from "drizzle-orm/sqlite-core";
+import { integer, sqliteTable, text } from "drizzle-orm/sqlite-core";
 
 export const user = sqliteTable("user", {
   id: text().notNull().primaryKey(),
   name: text().notNull(),
   email: text().notNull().unique("user_email_key"),
-  emailVerified: int().default(0).notNull(),
+  emailVerified: integer().default(0).notNull(),
   image: text(),
-  createdAt: int().notNull(),
-  updatedAt: int().notNull(),
+  createdAt: integer().notNull(),
+  updatedAt: integer().notNull(),
 });
 
 export const session = sqliteTable("session", {
   id: text().notNull().primaryKey(),
-  expiresAt: int().notNull(),
+  expiresAt: integer().notNull(),
   ipAddress: text(),
   userAgent: text(),
   userId: text()
@@ -30,7 +30,7 @@ export const account = sqliteTable("account", {
   accessToken: text(),
   refreshToken: text(),
   idToken: text(),
-  expiresAt: int(),
+  expiresAt: integer(),
   password: text(),
 });
 
@@ -38,7 +38,7 @@ export const verification = sqliteTable("verification", {
   id: text().notNull().primaryKey(),
   identifier: text().notNull(),
   value: text().notNull(),
-  expiresAt: int().notNull(),
+  expiresAt: integer().notNull(),
 });
 
 export const messages = sqliteTable("messages", {
@@ -48,5 +48,5 @@ export const messages = sqliteTable("messages", {
     .references(() => user.id, { onDelete: "cascade", onUpdate: "cascade" }),
   displayName: text().notNull(),
   message: text(),
-  sentAt: int().notNull(),
+  sentAt: integer().notNull(),
 });
