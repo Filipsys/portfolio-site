@@ -1,5 +1,5 @@
 export const Opinions = () => (
-  <div>
+  <div className="p-5 underline decoration-amber-200">
     <p>My unpopular opinions</p>
 
     <ol>

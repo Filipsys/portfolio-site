@@ -2,6 +2,7 @@ import { Socials } from "@/components/fun/Socials";
 import { LatestBlogs } from "@/components/fun/LatestBlogs";
 import { Separator } from "@/components/fun/Separator";
 import { SignList } from "@/components/fun/SignList";
+import { Opinions } from "@/components/fun/Opinions";
 
 export const SidePanel = () => (
   <div className="flex flex-col gap-2">
@@ -41,6 +42,8 @@ export const SidePanel = () => (
     <p className="italic">&quot;When one does not want, you cannot make him want it.&quot; - Arystoteles</p>
 
     <Separator />
+
+    <Opinions />
 
     <SignList />
 

@@ -81,7 +81,7 @@ export const SkeletonRepoCard = () => {
   const listOfLengths = ["w-8", "w-12", "w-16", "w-20", "w-24", "w-28", "w-32"];
 
   return (
-    <div className="rounded-md border-white/10 bg-neutral-950 border-[1px] h-full w-full p-2">
+    <div className="rounded-md border-white/10 bg-neutral-950 border-[1px] h-full p-3">
       <div className="flex flex-col justify-between h-full">
         <PulsingSkeletonText length={6} list={listOfLengths} />
 

@@ -77,11 +77,12 @@ export const ProjectsComponent = memo(() => {
           onClick={() => setCategoryPinned(!categoryPinned)}
         >
           <p className="text-sm text-gray-500">Switch to {categoryPinned ? "recent" : "pinned"}</p>
+
           <MicroArrowIcon />
         </button>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-rows-3 gap-2 *:h-36">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-rows-3 gap-2 *:w-full *:h-36">
         {isLoading ? (
           <LoadingSkeleton />
         ) : categoryPinned ? (

@@ -1,7 +1,6 @@
 import { Separator } from "@/components/fun/Separator";
 import { TechList } from "@/components/fun/TechList";
 import { Campfire } from "@/components/fun/Campfire";
-import { Opinions } from "@/components/fun/Opinions";
 
 export const MainPanel = () => (
   <div className="flex flex-col">
@@ -29,7 +28,5 @@ export const MainPanel = () => (
     </div>
 
     <TechList />
-
-    <Opinions />
   </div>
 );
