@@ -1,6 +1,7 @@
 import { MainPanel } from "@/components/fun/MainPanel";
 import { SidePanel } from "@/components/fun/SidePanel";
 import { ErrorPopup } from "@/components/fun/ErrorPopup";
+import { Cookies } from "@/components/fun/Cookies";
 
 export default function Fun() {
   return (
@@ -12,6 +13,8 @@ export default function Fun() {
         backgroundSize: "10vw 10vw",
       }}
     >
+      <Cookies />
+
       <div className="bg-zinc-950 max-w-7xl [font-family:serif] flex flex-col h-dvh [box-shadow:_0px_0px_50px_30px_rgba(0,_0,_0,_1)]">
         <div
           className="w-full h-24 mb-12"

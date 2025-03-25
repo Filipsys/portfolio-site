@@ -26,7 +26,7 @@ export const SidePanel = () => (
 
     <p className="italic text-4xl font-bold ">Website of the week</p>
 
-    <div>
+    <div className="*:overflow-hidden">
       <a target="_blank" href="https://neobrutalism.com/" className="text-green-500">
         https://neobrutalism.com
       </a>
