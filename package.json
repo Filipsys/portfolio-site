@@ -7,8 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "db-generate": "drizzle-kit generate",
-    "db-push": "drizzle-kit push"
+    "db-generate": "@better-auth/cli generate",
+    "db-push": "drizzle-kit push",
+    "db-studio": "drizzle-kit studio"
   },
   "dependencies": {
     "better-auth": "^1.2.4",
