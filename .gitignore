@@ -40,6 +40,5 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# wrangler
-wrangler.toml
-.wrangler
+# drizzle
+/drizzle

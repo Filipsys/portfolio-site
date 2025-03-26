@@ -23,7 +23,7 @@ export const Cookies = () => {
           </a>
         </div>
 
-        <div className="flex justify-between gap-2 *:border-white *:border-2 *:p-2">
+        <div className="flex justify-between gap-2 *:border-white *:bg-red-500 *:border-2 *:p-2">
           <button
             onClick={() => {
               const div = cookiesWindowRef.current;

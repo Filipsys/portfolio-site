@@ -2,7 +2,7 @@ export const Socials = () => (
   <div className="border-4 border-red-500 shadow-lg shadow-red-500">
     <h2 className="text-5xl text-red-500">Links to my socials</h2>
 
-    <ol className="px-2 *:mb-2">
+    <ol className="px-2 *:mb-2 *:overflow-hidden">
       <li>
         <div className="group/github z-50 transition-colors duration-0 border-2 border-red-500 hover:animate-spin hover:border-dashed hover:border-white hover:text-white/50">
           <a href="https://github.com/Filipsys" target="_blank">
