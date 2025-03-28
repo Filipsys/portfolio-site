@@ -49,3 +49,10 @@ export const verification = sqliteTable("verification", {
   createdAt: integer("created_at", { mode: "timestamp" }),
   updatedAt: integer("updated_at", { mode: "timestamp" }),
 });
+
+export const messages = sqliteTable("messages", {
+  userId: text("id").references(() => user.id, { onDelete: "cascade" }),
+  displayName: text("display_name").notNull(),
+  message: text("message"),
+  createdAt: integer("created_at", { mode: "timestamp" }).notNull(),
+});
