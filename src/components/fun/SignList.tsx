@@ -55,7 +55,7 @@ const MessageForm = (props: {
       <button className="py-2 px-3 w-fit cursor-pointer bg-green-900 hover:bg-green-800">Save message</button>
     </form>
   ) : (
-    <div>You've already sent a message, soldier.</div>
+    <div>You&apos;ve already sent a message, soldier.</div>
   );
 };
 
@@ -63,7 +63,7 @@ const SignIn = () => (
   <div
     className="py-2 px-3 w-fit bg-green-900 hover:bg-green-800 hover:animate-sidewaysGlitch cursor-pointer text-white"
     onClick={async () => {
-      const data = await authClient.signIn.social({
+      await authClient.signIn.social({
         provider: "github",
         callbackURL: "http://localhost:3000/fun",
       });
