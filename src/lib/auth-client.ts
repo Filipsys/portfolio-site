@@ -1,5 +1,5 @@
 import { createAuthClient } from "better-auth/react";
 
 export const authClient = createAuthClient({
-  baseURL: "https://filyys.dev",
+  baseURL: "http://localhost:3000",
 });

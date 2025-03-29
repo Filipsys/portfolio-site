@@ -32,15 +32,16 @@ const MessageForm = (props: {
   useEffect(() => {
     const fetchMessageStatus = async () => {
       const result = await checkUserSavedMessage(props.userId);
+
       setHasPreviousMessage(result);
     };
 
     fetchMessageStatus();
   }, [props.userId, props.addedMessage]);
 
-  if (!hasPreviousMessage) {
-    return <div>Loading!!!</div>;
-  }
+  // if (!hasPreviousMessage) {
+  //   return <div>Loading!!!</div>;
+  // }
 
   return !hasPreviousMessage ? (
     <form action={props.createMessage} className="flex justify-between">
@@ -65,7 +66,7 @@ const SignIn = () => (
     onClick={async () => {
       await authClient.signIn.social({
         provider: "github",
-        callbackURL: "https://filyys.dev/fun",
+        callbackURL: "http://localhost:3000/fun",
       });
     }}
   >
@@ -119,7 +120,10 @@ export const SignList = () => {
       console.log(session);
       console.log("---");
 
+      console.log(session.data);
       if (session.data) setUserInfo({ id: session.data.user.id, displayName: session.data.user.name });
+      console.log(session.data?.user.id);
+      console.log(session.data?.user.name);
     };
 
     checkAuth();
