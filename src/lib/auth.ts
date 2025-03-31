@@ -3,7 +3,6 @@ import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { db } from "@/db/db";
 
 import * as schema from "@/db/auth-schema";
-import { createAuthMiddleware } from "better-auth/api";
 
 export const auth = betterAuth({
   database: drizzleAdapter(db, {
@@ -26,15 +25,4 @@ export const auth = betterAuth({
       },
     },
   },
-  // TODO:
-  // hooks: {
-  //   after: createAuthMiddleware(async (ctx) => {
-  //     if (ctx.path !== "/sign-in/social") return;
-
-  //     console.log(ctx.context.tables);
-  //     console.log(ctx.context.tables.user);
-
-  //     return;
-  //   }),
-  // },
 });
