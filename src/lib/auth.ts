@@ -16,6 +16,14 @@ export const auth = betterAuth({
       clientSecret: process.env.GITHUB_CLIENT_SECRET as string,
       disableDefaultScope: true,
       scope: ["read:user"],
+      mapProfileToUser: (profile) => {
+        const { email, ...rest } = profile;
+
+        return {
+          ...rest,
+          email: "none",
+        };
+      },
     },
   },
   // TODO:
