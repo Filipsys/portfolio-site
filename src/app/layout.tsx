@@ -1,16 +1,13 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { PostHogProvider } from "../providers/PostHogProvider";
 
 export const metadata: Metadata = {
   title: "filyys - main page",
   description: "My simple, small, personal portfolio site",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
       <head>
@@ -21,8 +18,9 @@ export default function RootLayout({
 
         {/* <script crossOrigin="anonymous" src="//unpkg.com/react-scan/dist/auto.global.js" /> */}
       </head>
-
-      <body className="bg-black antialiased">{children}</body>
+      <body className="bg-black antialiased">
+        <PostHogProvider>{children}</PostHogProvider>
+      </body>
     </html>
   );
 }
