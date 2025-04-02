@@ -1,6 +1,17 @@
 export const Lights1 = () => (
-  <svg width="584" height="228" viewBox="0 0 584 228" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M2 74C2 74 140.457 198 296.5 198C452.543 198 582 2 582 2" stroke="black" strokeWidth="2" />
+  <svg
+    width="584"
+    height="228"
+    viewBox="0 0 584 228"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <title>Lights 1</title>
+    <path
+      d="M2 74C2 74 140.457 198 296.5 198C452.543 198 582 2 582 2"
+      stroke="black"
+      strokeWidth="2"
+    />
     <path
       d="M52.286 108.203C47.9431 109.825 51.3812 116.449 53.6431 119.559H57.7146C57.7146 115.097 56.6288 106.58 52.286 108.203Z"
       stroke="black"
@@ -51,17 +62,50 @@ export const Lights1 = () => (
       stroke="black"
       strokeWidth="2"
     />
-    <ellipse cx="421.536" cy="175.293" rx="9.53593" ry="13.2925" fill="#FF0000" fillOpacity="0.47" />
-    <ellipse cx="163.536" cy="190.851" rx="9.53593" ry="13.2925" fill="#FF009D" fillOpacity="0.45" />
-    <ellipse cx="54.5359" cy="130.539" rx="9.53593" ry="13.2925" fill="#00FF40" fillOpacity="0.47" />
+    <ellipse
+      cx="421.536"
+      cy="175.293"
+      rx="9.53593"
+      ry="13.2925"
+      fill="#FF0000"
+      fillOpacity="0.47"
+    />
+    <ellipse
+      cx="163.536"
+      cy="190.851"
+      rx="9.53593"
+      ry="13.2925"
+      fill="#FF009D"
+      fillOpacity="0.45"
+    />
+    <ellipse
+      cx="54.5359"
+      cy="130.539"
+      rx="9.53593"
+      ry="13.2925"
+      fill="#00FF40"
+      fillOpacity="0.47"
+    />
     <ellipse cx="532" cy="84.5922" rx="9.53593" ry="13.2925" fill="#FF0000" fillOpacity="0.47" />
-    <ellipse cx="317.536" cy="214.695" rx="9.53593" ry="13.2925" fill="#2F00FF" fillOpacity="0.47" />
+    <ellipse
+      cx="317.536"
+      cy="214.695"
+      rx="9.53593"
+      ry="13.2925"
+      fill="#2F00FF"
+      fillOpacity="0.47"
+    />
   </svg>
 );
 
 export const Lights2 = () => (
   <svg width="567" height="90" viewBox="0 0 567 90" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M1 2C1 2 130.457 59.7935 286.5 59.7935C442.543 59.7935 566 38 566 38" stroke="black" strokeWidth="2" />
+    <title>Lights 2</title>
+    <path
+      d="M1 2C1 2 130.457 59.7935 286.5 59.7935C442.543 59.7935 566 38 566 38"
+      stroke="black"
+      strokeWidth="2"
+    />
     <path
       d="M145.896 42.3691C141.553 43.9914 144.991 50.6158 147.253 53.7252H151.325C151.325 49.2639 150.239 40.7468 145.896 42.3691Z"
       stroke="black"
@@ -92,14 +136,36 @@ export const Lights2 = () => (
       stroke="black"
       strokeWidth="2"
     />
-    <ellipse cx="147.536" cy="64.2925" rx="9.53593" ry="13.2925" fill="#FF0000" fillOpacity="0.47" />
-    <ellipse cx="443.536" cy="72.6847" rx="9.53593" ry="13.2925" fill="#FF0000" fillOpacity="0.47" />
-    <ellipse cx="355.536" cy="76.2925" rx="9.53593" ry="13.2925" fill="#2F00FF" fillOpacity="0.47" />
+    <ellipse
+      cx="147.536"
+      cy="64.2925"
+      rx="9.53593"
+      ry="13.2925"
+      fill="#FF0000"
+      fillOpacity="0.47"
+    />
+    <ellipse
+      cx="443.536"
+      cy="72.6847"
+      rx="9.53593"
+      ry="13.2925"
+      fill="#FF0000"
+      fillOpacity="0.47"
+    />
+    <ellipse
+      cx="355.536"
+      cy="76.2925"
+      rx="9.53593"
+      ry="13.2925"
+      fill="#2F00FF"
+      fillOpacity="0.47"
+    />
   </svg>
 );
 
 export const Lights3 = () => (
   <svg width="107" height="33" viewBox="0 0 107 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <title>Lights 3</title>
     <path d="M2 2C19.5481 23.8841 64.7156 54.5218 105 2" stroke="black" strokeWidth="2" />
   </svg>
 );

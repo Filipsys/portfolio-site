@@ -14,16 +14,20 @@ export const Navigation = () => {
     <nav className="block h-fit w-full lg:w-fit p-8">
       <ul className="flex select-none justify-center gap-x-8 text-xl tracking-tight *:z-50 sm:gap-x-16 sm:text-2xl lg:flex-col lg:items-end lg:text-3xl">
         <li className="cursor-pointer">
-          <button onClick={() => handlePageState("home")}>Home</button>
+          <button onClick={() => handlePageState("home")} type="button">
+            Home
+          </button>
         </li>
         <li className="cursor-pointer">
-          <button onClick={() => handlePageState("projects")}>Projects</button>
+          <button onClick={() => handlePageState("projects")} type="button">
+            Projects
+          </button>
         </li>
         <li className="*:line-through *:cursor-default">
-          <button>About</button>
+          <button type="button">About</button>
         </li>
         <li className="*:line-through *:cursor-default">
-          <button>Notes</button>
+          <button type="button">Notes</button>
         </li>
       </ul>
     </nav>

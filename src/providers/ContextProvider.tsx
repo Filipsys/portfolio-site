@@ -1,6 +1,7 @@
 "use client";
 
-import { createContext, ReactNode, useState } from "react";
+import { createContext, useState } from "react";
+import type { ReactNode } from "react";
 import type { ProjectData } from "@/types/global";
 
 export const ProjectContext = createContext<{

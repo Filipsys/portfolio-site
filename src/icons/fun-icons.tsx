@@ -7,6 +7,7 @@ export const CloseIcon = () => (
     stroke="currentColor"
     className="size-6"
   >
+    <title>Close Icon</title>
     <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
   </svg>
 );
@@ -20,6 +21,7 @@ export const InfoIcon = () => (
     stroke="currentColor"
     className="size-6"
   >
+    <title>Info Icon</title>
     <path
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -37,6 +39,7 @@ export const LeaveSiteIcon = () => (
     stroke="currentColor"
     className="size-6"
   >
+    <title>Leave Site Icon</title>
     <path
       strokeLinecap="round"
       strokeLinejoin="round"

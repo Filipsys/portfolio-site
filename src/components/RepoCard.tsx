@@ -8,8 +8,8 @@ const Badge = (props: { forked?: boolean; template?: boolean }) => (
       props.forked
         ? "bg-blue-400/10  border-blue-400/20"
         : props.template
-        ? "bg-green-400/10  border-green-400/20"
-        : null
+          ? "bg-green-400/10  border-green-400/20"
+          : null
     }`}
   >
     <p>{props.forked ? "forked" : props.template ? "template" : null}</p>
@@ -38,10 +38,10 @@ const LanguageCircle = (props: { language: string }) => {
         await fetch(`https://language-colour.filipsysak.workers.dev/get?l=${props.language}`)
       ).json();
 
-      setColour(response["color"] ?? "#ffffff");
+      setColour(response.color ?? "#ffffff");
       setLanguageColourData((prevData) => ({
         ...prevData,
-        [props.language]: response["color"] ?? "#ffffff",
+        [props.language]: response.color ?? "#ffffff",
       }));
     };
 
@@ -53,12 +53,12 @@ const LanguageCircle = (props: { language: string }) => {
     }
 
     if (props.language !== "unknown") getColourFromWorker();
-  }, [languageColourDataRef, props.language, setLanguageColourData]);
+  }, [props.language, setLanguageColourData]);
 
   return (
     <div
-      className={`size-2.5 border-[1px] rounded-full`}
-      style={{ borderColor: `#ffffff4c`, backgroundColor: `${colour}80` }}
+      className={"size-2.5 border-[1px] rounded-full"}
+      style={{ borderColor: "#ffffff4c", backgroundColor: `${colour}80` }}
     />
   );
 };
@@ -67,7 +67,10 @@ const PulsingSkeletonText = (props: { length: number; list: string[] }) => (
   <div className="w-full flex flex-wrap gap-2">
     {Array.from({ length: props.length }).map((_, index) => (
       <div
-        key={`loader-${index}`}
+        key={`loader-${
+          // biome-ignore lint/suspicious/noArrayIndexKey: I'll find a better way to do this in some time
+          index
+        }`}
         className={`${
           props.list[Math.floor(Math.random() * props.list.length)]
         } h-3 pb-2 bg-white/5 rounded-full animate-pulse delay-500`}
@@ -120,14 +123,20 @@ export const RepoCard = (props: {
       </div>
 
       <div className="flex gap-1 items-center *:transition-colors *:duration-300">
-        <a href={props.repositoryLink ?? props.repoLink} target="_blank" className="*:fill-gray-500 hover:*:fill-white">
+        <a
+          href={props.repositoryLink ?? props.repoLink}
+          className="*:fill-gray-500 hover:*:fill-white"
+          target="_blank"
+          rel="noreferrer"
+        >
           <MicroLinkIcon />
         </a>
 
         <a
           href={props.commitsLink ?? `${props.repoLink}/commits`}
-          target="_blank"
           className="*:fill-gray-500 hover:*:fill-white"
+          target="_blank"
+          rel="noreferrer"
         >
           <MicroArchiveIcon />
         </a>
@@ -141,7 +150,13 @@ export const RepoCard = (props: {
 
       <div className={`flex flex-wrap gap-1 ${props.topics.length > 0 ? "pb-2" : null}`}>
         {props.topics.map((topic, index) => (
-          <Topic key={`${topic}-${index}`} name={topic} />
+          <Topic
+            key={`${topic}-${
+              // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+              index
+            }`}
+            name={topic}
+          />
         ))}
       </div>
 

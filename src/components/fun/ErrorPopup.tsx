@@ -9,7 +9,10 @@ export const ErrorPopup = () => {
   const [randomness, setRandomness] = useState(0.6);
 
   useEffect(() => {
-    const interval = setInterval(() => setCounter((counter) => counter + 1), 1000 * multiplier * randomness);
+    const interval = setInterval(
+      () => setCounter((counter) => counter + 1),
+      1000 * multiplier * randomness,
+    );
 
     return () => clearInterval(interval);
   }, [multiplier, randomness]);
@@ -28,7 +31,8 @@ export const ErrorPopup = () => {
         {counter} <p>errors</p>
       </div>
 
-      <div
+      <button
+        type="button"
         className="*:size-5 hover:*:scale-150 cursor-pointer"
         onClick={() => {
           setMultiplier((multiplier) => (multiplier > 0.05 ? multiplier - 0.05 : 0.05));
@@ -36,7 +40,7 @@ export const ErrorPopup = () => {
         }}
       >
         <CloseIcon />
-      </div>
+      </button>
     </div>
   );
 };

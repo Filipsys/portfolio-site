@@ -18,13 +18,14 @@ export const Cookies = () => {
             Cookies allow us to earn money off of your data, it helps us pick ads that are more specifially chosen to
             your recommendations, they will not be used for mischief.
           </p>
-          <a href="#" className="underline text-xs">
+          <a href="https://filyys.dev/fun/terms" className="underline text-xs">
             Read the full terms here
           </a>
         </div>
 
         <div className="flex justify-between gap-2 *:border-white *:bg-red-500 *:border-2 *:p-2">
           <button
+            type="button"
             onClick={() => {
               const div = cookiesWindowRef.current;
               if (!div) return;
@@ -36,6 +37,7 @@ export const Cookies = () => {
           </button>
 
           <button
+            type="button"
             ref={declineButton}
             className="duration-1000 ease-in-out delay-150"
             onClick={() => {

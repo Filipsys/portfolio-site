@@ -7,10 +7,10 @@ import { usePathname, useSearchParams } from "next/navigation";
 
 export function PostHogProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
-    posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY!, {
+    posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY as string, {
       api_host: "/ingest",
       ui_host: "https://eu.posthog.com",
-      capture_pageview: false,
+      capture_pageview: true,
       capture_pageleave: true,
     });
   }, []);
@@ -33,7 +33,7 @@ function PostHogPageView() {
       let url = window.origin + pathname;
       const search = searchParams.toString();
       if (search) {
-        url += "?" + search;
+        url += `?${search}`;
       }
       posthog.capture("$pageview", { $current_url: url });
     }

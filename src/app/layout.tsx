@@ -1,6 +1,6 @@
+import { PostHogProvider } from "@/providers/PostHogProvider";
 import type { Metadata } from "next";
 import "./globals.css";
-import { PostHogProvider } from "../providers/PostHogProvider";
 
 export const metadata: Metadata = {
   title: "filyys - main page",

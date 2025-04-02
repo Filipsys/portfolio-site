@@ -43,9 +43,10 @@ export const Campfire = () => {
   }, [cursorIndex, touched]);
 
   return (
-    <div
+    <button
+      type="button"
       onMouseOver={() => setTouched(true)}
-      // onMouseOut={() => setTouched(false)}
+      onFocus={() => setTouched(true)}
       className="h-32 w-32"
       style={{
         backgroundImage: "url(./campfire.gif)",

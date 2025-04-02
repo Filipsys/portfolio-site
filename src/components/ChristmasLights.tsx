@@ -12,28 +12,13 @@ export const ChristmasLights = () => {
 
   return isChristmas ? (
     <div className="absolute left-0 top-0 z-10 h-screen w-full hidden lg:block overflow-hidden">
-      <div
-        className="lights absolute -inset-2 -translate-x-20 dark:hidden"
-        style={{
-          display: "none",
-        }}
-      >
+      <div className="lights absolute -inset-2 -translate-x-20 hidden">
         <Lights1 />
       </div>
-      <div
-        className="lights absolute -inset-2 left-0 translate-x-1/2 w-full dark:hidden"
-        style={{
-          display: "none",
-        }}
-      >
+      <div className="lights absolute -inset-2 left-0 translate-x-1/2 w-full hidden">
         <Lights2 />
       </div>
-      <div
-        className="lights absolute -translate-y-2 translate-x-2 right-0 dark:hidden"
-        style={{
-          display: "none",
-        }}
-      >
+      <div className="lights absolute -translate-y-2 translate-x-2 right-0 hidden">
         <Lights3 />
       </div>
     </div>

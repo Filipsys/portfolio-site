@@ -12,7 +12,7 @@ import {
   ViteIcon,
 } from "@/icons/dev-icons";
 import { Separator } from "@/components/Separator";
-import { ComponentType } from "react";
+import type { ComponentType } from "react";
 
 const TechCard = (props: { icon: ComponentType; name: string; description: string }) => (
   <div className="h-fit w-full rounded-md border-white/10 border-[1px] flex items-center">
@@ -33,7 +33,8 @@ export const HomeComponent = () => {
       <div className="px-2 py-6">
         <h1 className="text-xl font-light tracking-wide xs:text-2xl sm:text-3xl">
           Hi, I&apos;m Filip, a self-taught front-end developer from Poland. I mainly work with{" "}
-          <span className="text-green-500">React</span>, <span className="text-pink-500">NextJS</span>,{" "}
+          <span className="text-green-500">React</span>,{" "}
+          <span className="text-pink-500">NextJS</span>,{" "}
           <span className="dark:text-blue-200 text-blue-500">TailwindCSS</span>,{" "}
           <span className="text-blue-600">TypeScript</span>, and relational databases like{" "}
           <span className="text-orange-400">SQLite</span>.
@@ -47,7 +48,7 @@ export const HomeComponent = () => {
 
         <div className="flex flex-col fill-white/50 font-DMMono dark:text-[#d3d3d3]/50 *:flex *:cursor-pointer *:justify-between *:text-xs *:font-light *:tracking-wide *:xs:text-sm *:sm:text-base">
           <div className="group/github z-50 transition-colors duration-200 hover:text-black dark:hover:text-white">
-            <a href="https://github.com/Filipsys" target="_blank">
+            <a href="https://github.com/Filipsys" target="_blank" rel="noreferrer">
               github.com/Filipsys
             </a>
 
@@ -60,7 +61,7 @@ export const HomeComponent = () => {
           </div>
 
           <div className="group/linkedin z-50 py-1 transition-colors duration-200 hover:text-black dark:hover:text-white xs:p-0">
-            <a href="https://linkedin.com/in/filipsysak" target="_blank">
+            <a href="https://linkedin.com/in/filipsysak" target="_blank" rel="noreferrer">
               linkedin.com/in/filipsysak
             </a>
             <div className="flex items-center gap-2">
@@ -102,7 +103,12 @@ export const HomeComponent = () => {
               [NextJSIcon, "Next.js", "Frontend React framework"],
             ] as [ComponentType, string, string][]
           ).map((element) => (
-            <TechCard key={element[1]} icon={element[0]} name={element[1]} description={element[2]} />
+            <TechCard
+              key={element[1]}
+              icon={element[0]}
+              name={element[1]}
+              description={element[2]}
+            />
           ))}
         </div>
       </div>

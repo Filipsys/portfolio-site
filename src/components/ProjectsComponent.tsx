@@ -4,12 +4,13 @@ import { useState, useContext, memo, useEffect } from "react";
 import { RepoCard, SkeletonRepoCard } from "@/components/RepoCard";
 import { ProjectContext } from "@/providers/ContextProvider";
 import { MicroArrowIcon } from "@/icons/dev-icons";
-import type { SingleProject, ProjectData } from "@/types/global";
+import type { ProjectData, GithubResponseJSON } from "@/types/global";
 
 export const ProjectsComponent = memo(() => {
   const [isLoading, setIsLoading] = useState(true);
   const [categoryPinned, setCategoryPinned] = useState<boolean>(true);
-  const { repoListData, setRepoListData, pinnedRepoListData, setPinnedRepoListData } = useContext(ProjectContext);
+  const { repoListData, setRepoListData, pinnedRepoListData, setPinnedRepoListData } =
+    useContext(ProjectContext);
 
   useEffect(() => {
     const fetchDataFromGithub = async () => {
@@ -29,7 +30,7 @@ export const ProjectsComponent = memo(() => {
       if (!categoryPinned) {
         newData = [];
 
-        data.forEach((project: SingleProject) => {
+        for (const project of data as GithubResponseJSON) {
           newData.push({
             repoName: project.name,
             repoLink: project.html_url,
@@ -40,7 +41,7 @@ export const ProjectsComponent = memo(() => {
             mainLanguage: project.language,
             topics: project.topics,
           });
-        });
+        }
       }
 
       if (categoryPinned) {
@@ -62,7 +63,12 @@ export const ProjectsComponent = memo(() => {
   const LoadingSkeleton = () => (
     <>
       {Array.from({ length: 6 }).map((_, index) => (
-        <SkeletonRepoCard key={`skeleton-${index}`} />
+        <SkeletonRepoCard
+          key={`skeleton-${
+            // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+            index
+          }`}
+        />
       ))}
     </>
   );
@@ -75,6 +81,7 @@ export const ProjectsComponent = memo(() => {
         <button
           className="flex gap-1 items-center *:fill-gray-500 hover:underline underline-offset-4 decoration-gray-500 cursor-pointer"
           onClick={() => setCategoryPinned(!categoryPinned)}
+          type="button"
         >
           <p className="text-sm text-gray-500">Switch to {categoryPinned ? "recent" : "pinned"}</p>
 
@@ -118,5 +125,3 @@ export const ProjectsComponent = memo(() => {
     </div>
   );
 });
-
-ProjectsComponent.displayName = "ProjectsComponent";

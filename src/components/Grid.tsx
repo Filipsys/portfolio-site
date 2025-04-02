@@ -21,12 +21,22 @@ export const Grid = forwardRef<HTMLDivElement>(() => {
     <div
       className="absolute -z-10 left-0 top-0 h-full w-full"
       onMouseMove={(event) => setCursorPosition({ x: event.clientX, y: event.clientY })}
-      onMouseOut={() => (movableGridRef.current ? (movableGridRef.current.style.opacity = "0") : null)}
-      onMouseOver={() =>
-        movableGridRef.current && cursorPosition.x !== 0 && cursorPosition.y !== 0
-          ? (movableGridRef.current.style.opacity = "1")
-          : null
-      }
+      onMouseOut={() => {
+        if (movableGridRef.current) movableGridRef.current.style.opacity = "0";
+      }}
+      onBlur={() => {
+        if (movableGridRef.current) movableGridRef.current.style.opacity = "0";
+      }}
+      onMouseOver={() => {
+        if (movableGridRef.current && cursorPosition.x !== 0 && cursorPosition.y !== 0) {
+          movableGridRef.current.style.opacity = "1";
+        }
+      }}
+      onFocus={() => {
+        if (movableGridRef.current && cursorPosition.x !== 0 && cursorPosition.y !== 0) {
+          movableGridRef.current.style.opacity = "1";
+        }
+      }}
     >
       <div
         className="absolute left-0 top-0 h-full w-full"
@@ -34,7 +44,7 @@ export const Grid = forwardRef<HTMLDivElement>(() => {
           backgroundSize: "3vmin 3vmin",
           backgroundImage: "radial-gradient(var(--grid-mask) 4%, transparent 4%)",
           maskMode: "alpha",
-          maskImage: `url(radialmask.svg)`,
+          maskImage: "url(radialmask.svg)",
           maskPosition: "50% 50%",
           maskRepeat: "no-repeat",
           maskSize: "100vh 100vh",
@@ -55,5 +65,3 @@ export const Grid = forwardRef<HTMLDivElement>(() => {
     </div>
   );
 });
-
-Grid.displayName = "Grid";

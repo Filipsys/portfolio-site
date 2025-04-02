@@ -11,5 +11,7 @@
 - [x] Make the projects section responsive.
 - [ ] Keep the navbar as a static client-side component and lazy load the heavier sections using next/dynamic.
 - [x] Make the pinned repositories dynamic by creating a worker which will scrape the Github profile to get the repo details.
-- [x] Switching from Cloudflare's d1 to Drizzle's Sqlite as d1 requires a worker. I'm not sure how to make a worker work with a database that better-auth uses so I have to use something like Drizzle.
+- [x] ~~Switching from Cloudflare's d1 to Drizzle's Sqlite as d1 requires a worker. I'm not sure how to make a worker work with a database that better-auth uses so I have to use something like Drizzle.~~ Used Drizzle.
 - [x] Possibly add Posthog to track any parts of the site that could be improved on.
+- [x] Replace Eslint with [Biome](https://biomejs.dev) to improve DX.
+- [ ] Update site accessibility to include the ability of traversing without a mouse.

@@ -3,7 +3,7 @@
 import { messages } from "@/db/auth-schema";
 import { db } from "@/db/db";
 
-export const getLastMessages = async (page: number = 1) => {
+export const getLastMessages = async (page = 1) => {
   const result = await db
     .select()
     .from(messages)
