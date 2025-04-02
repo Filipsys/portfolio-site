@@ -2,6 +2,7 @@ import { Socials } from "@/components/fun/Socials";
 import { LatestBlogs } from "@/components/fun/LatestBlogs";
 import { Separator } from "@/components/fun/Separator";
 import { SignList } from "@/components/fun/SignList";
+import { UnderlineAnimate } from "@/components/fun/UnderlineAnimate";
 
 export const SidePanel = () => (
   <div className="flex flex-col gap-2">
@@ -42,7 +43,10 @@ export const SidePanel = () => (
       />
     </div>
 
-    <p className="text-yellow-400 font-mono text-4xl">Quote of the day</p>
+    <div className="text-yellow-400 font-mono text-4xl">
+      <UnderlineAnimate text={"Quote of the day"} />
+    </div>
+    
     <p className="italic">
       &quot;When one does not want, you cannot make him want it.&quot; - Arystotle
     </p>
