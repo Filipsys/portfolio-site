@@ -11,25 +11,25 @@ export const Navigation = () => {
   };
 
   return (
-    <nav className="block h-fit w-full lg:w-fit p-8">
-      <ul className="flex select-none justify-center gap-x-8 text-xl tracking-tight *:z-50 sm:gap-x-16 sm:text-2xl lg:flex-col lg:items-end lg:text-3xl">
-        <li className="cursor-pointer">
-          <button onClick={() => handlePageState("home")} type="button">
-            Home
-          </button>
-        </li>
-        <li className="cursor-pointer">
-          <button onClick={() => handlePageState("projects")} type="button">
-            Projects
-          </button>
-        </li>
-        <li className="*:line-through *:cursor-default">
-          <button type="button">About</button>
-        </li>
-        <li className="*:line-through *:cursor-default">
-          <button type="button">Notes</button>
-        </li>
-      </ul>
+    <nav className="block w-full lg:w-fit pt-8 lg:pt-0 lg:pr-8">
+      <div className="flex justify-center gap-x-8 text-xl tracking-tight *:z-50 sm:gap-x-16 sm:text-2xl lg:flex-col lg:items-end lg:text-3xl">
+        <button className="cursor-pointer" onClick={() => handlePageState("home")} type="button">
+          Home
+        </button>
+        <button
+          className="cursor-pointer"
+          onClick={() => handlePageState("projects")}
+          type="button"
+        >
+          Projects
+        </button>
+        <button className="line-through cursor-default" type="button">
+          About
+        </button>
+        <button className="line-through cursor-default" type="button">
+          Notes
+        </button>
+      </div>
     </nav>
   );
 };

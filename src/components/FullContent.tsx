@@ -22,7 +22,7 @@ export const FullContent = () => (
         <Separator vertical />
       </div>
 
-      <main className="flex z-50 items-center justify-center p-6 text-xl lg:h-dvh lg:w-4/5">
+      <main className="flex z-50 items-center justify-center p-8 text-xl lg:h-dvh lg:w-4/5">
         <MainSection />
       </main>
     </div>

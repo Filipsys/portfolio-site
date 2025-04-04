@@ -9,7 +9,7 @@ export const Cookies = () => {
   return (
     <div
       ref={cookiesWindowRef}
-      className="z-50 fixed top-0 left-0 w-full h-full flex justify-center items-center bg-black/40 backdrop-blur-sm"
+      className="z-50 fixed top-0 left-0 w-full h-full flex justify-center items-center bg-black/40 backdrop-blur-xs"
     >
       <div className="bg-red-500 text-white p-3 w-3/4 md:w-1/2 2xl:w-1/3 max-w-[800px] flex flex-col gap-8">
         <div>

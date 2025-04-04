@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export const FunModeTeleporter = () => (
   <button
-    className="relative hidden lg:block opacity-20 *:hover:brightness-100 cursor-pointer *:transition-all *:delay-1000 *:duration-1000"
+    className="relative hidden lg:block opacity-20 hover:*:brightness-100 cursor-pointer *:transition-all *:delay-1000 *:duration-1000"
     onClick={() => {
       window.location.href = "/fun";
     }}

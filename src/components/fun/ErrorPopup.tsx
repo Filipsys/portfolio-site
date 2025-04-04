@@ -33,7 +33,7 @@ export const ErrorPopup = () => {
 
       <button
         type="button"
-        className="*:size-5 hover:*:scale-150 cursor-pointer"
+        className="*:size-5 *:hover:scale-150 cursor-pointer"
         onClick={() => {
           setMultiplier((multiplier) => (multiplier > 0.05 ? multiplier - 0.05 : 0.05));
           setRandomness(Math.random());

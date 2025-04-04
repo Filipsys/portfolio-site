@@ -84,7 +84,7 @@ const UserSign = (props: { username: string; message: string }) => (
     <div className="flex items-center gap-1">
       <p className="peer text-xs">{props.username}</p>
 
-      {/* <div className="*:peer-hover:opacity-100 *:opacity-0 *:size-3">
+      {/* <div className="peer-hover:*:opacity-100 *:opacity-0 *:size-3">
         <LeaveSiteIcon />
       </div> */}
     </div>

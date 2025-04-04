@@ -125,7 +125,7 @@ export const RepoCard = (props: {
       <div className="flex gap-1 items-center *:transition-colors *:duration-300">
         <a
           href={props.repositoryLink ?? props.repoLink}
-          className="*:fill-gray-500 hover:*:fill-white"
+          className="*:fill-gray-500 *:hover:fill-white"
           target="_blank"
           rel="noreferrer"
         >
@@ -134,7 +134,7 @@ export const RepoCard = (props: {
 
         <a
           href={props.commitsLink ?? `${props.repoLink}/commits`}
-          className="*:fill-gray-500 hover:*:fill-white"
+          className="*:fill-gray-500 *:hover:fill-white"
           target="_blank"
           rel="noreferrer"
         >
@@ -143,8 +143,8 @@ export const RepoCard = (props: {
       </div>
     </div>
 
-    <div className="flex flex-col flex-grow">
-      <div className="flex-grow">
+    <div className="flex flex-col grow">
+      <div className="grow">
         <p>{props.repoDescription}</p>
       </div>
 
