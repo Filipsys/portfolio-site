@@ -1,6 +1,7 @@
+import { useContext, useEffect, useRef, useState } from "react";
 import { MicroArchiveIcon, MicroLinkIcon } from "@/icons/dev-icons";
 import { ProjectContext } from "@/providers/ContextProvider";
-import { useContext, useEffect, useRef, useState } from "react";
+import { Tooltip } from "@/components/tooltip/Tooltip";
 
 const Badge = (props: { forked?: boolean; template?: boolean }) => (
   <div
@@ -123,23 +124,31 @@ export const RepoCard = (props: {
       </div>
 
       <div className="flex gap-1 items-center *:transition-colors *:duration-300">
-        <a
-          href={props.repositoryLink ?? props.repoLink}
-          className="*:fill-gray-500 *:hover:fill-white"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <MicroLinkIcon />
-        </a>
+        <div className="relative">
+          <a
+            href={props.repositoryLink ?? props.repoLink}
+            className="peer *:fill-gray-500 *:hover:fill-white"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <MicroLinkIcon />
+          </a>
 
-        <a
-          href={props.commitsLink ?? `${props.repoLink}/commits`}
-          className="*:fill-gray-500 *:hover:fill-white"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <MicroArchiveIcon />
-        </a>
+          <Tooltip text="Visit repo" />
+        </div>
+
+        <div className="relative">
+          <a
+            href={props.commitsLink ?? `${props.repoLink}/commits`}
+            className="peer *:fill-gray-500 *:hover:fill-white"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <MicroArchiveIcon />
+          </a>
+
+          <Tooltip text="Commits" />
+        </div>
       </div>
     </div>
 
