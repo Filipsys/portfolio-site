@@ -22,13 +22,13 @@ const tech: [ComponentType, string, string][] = [
 ];
 
 const TechCard = (props: { icon: ComponentType; name: string; description: string }) => (
-  <div className="h-fit w-full rounded-md border-white/10 border-[1px] flex items-center">
-    <div className="*:size-5 p-3 m-2 rounded-md *:fill-[#d3d3d3]/90 bg-white/10">
+  <div className="h-fit w-full text-primary border-[1px] border-primary/10 flex items-center">
+    <div className="*:size-5 p-3 m-2 *:fill-primary bg-primary/10">
       <props.icon />
     </div>
 
     <div>
-      <p className="text-sm text-[#d3d3d3]">{props.name}</p>
+      <p className="text-sm">{props.name}</p>
       <p className="font-extralight text-xs pr-1 [line-height:0.7rem]">{props.description}</p>
     </div>
   </div>

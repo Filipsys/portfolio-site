@@ -1,9 +1,10 @@
 "use client";
 
 import { useState, useContext, memo, useEffect } from "react";
-import { RepoCard, SkeletonRepoCard } from "@/components/RepoCard";
+import { RepoCard } from "@/components/projects/RepoCard";
 import { ProjectContext } from "@/providers/ContextProvider";
 import { MicroArrowIcon } from "@/icons/dev-icons";
+import { LoadingSkeleton } from "@/components/LoadingSkeleton";
 import type { ProjectData, GithubResponseJSON } from "@/types/global";
 
 export const ProjectsComponent = memo(() => {
@@ -59,19 +60,6 @@ export const ProjectsComponent = memo(() => {
       setIsLoading(false);
     }
   }, [categoryPinned, repoListData.length, setPinnedRepoListData, setRepoListData]);
-
-  const LoadingSkeleton = () => (
-    <>
-      {Array.from({ length: 6 }).map((_, index) => (
-        <SkeletonRepoCard
-          key={`skeleton-${
-            // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
-            index
-          }`}
-        />
-      ))}
-    </>
-  );
 
   return (
     <div className="w-full">

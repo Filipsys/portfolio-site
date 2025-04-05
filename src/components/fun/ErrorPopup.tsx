@@ -8,6 +8,13 @@ export const ErrorPopup = () => {
   const [multiplier, setMultiplier] = useState(1);
   const [randomness, setRandomness] = useState(0.6);
 
+  // Not sure where else to put this. Returns a hydration error
+  // if I set the style in the layout.tsx so I just changed the
+  // body background colour in a random client component.
+  useEffect(() => {
+    document.body.style.backgroundColor = "oklch(14.1% 0.005 285.823)";
+  }, []);
+
   useEffect(() => {
     const interval = setInterval(
       () => setCounter((counter) => counter + 1),

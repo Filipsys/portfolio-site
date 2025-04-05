@@ -5,7 +5,7 @@ import { Tooltip } from "@/components/tooltip/Tooltip";
 
 const Badge = (props: { forked?: boolean; template?: boolean }) => (
   <div
-    className={`flex h-min items-center px-[8px] text-[10px] text-gray-400 rounded-full border-[1px] ${
+    className={`flex h-min items-center px-[8px] text-[10px] text-gray-400 border-[1px] ${
       props.forked
         ? "bg-blue-400/10  border-blue-400/20"
         : props.template
@@ -18,7 +18,7 @@ const Badge = (props: { forked?: boolean; template?: boolean }) => (
 );
 
 const Topic = (props: { name: string }) => (
-  <div className="flex h-min w-fit break-keep items-center px-[8px] text-[10px] text-gray-500 rounded-full bg-blue-400/10">
+  <div className="flex h-min w-fit break-keep items-center px-[8px] text-[10px] text-gray-500 bg-blue-400/10">
     {props.name}
   </div>
 );
@@ -58,42 +58,9 @@ const LanguageCircle = (props: { language: string }) => {
 
   return (
     <div
-      className={"size-2.5 border-[1px] rounded-full"}
-      style={{ borderColor: "#ffffff4c", backgroundColor: `${colour}80` }}
+      className={"size-2.5 border-[1px] border-primary/15"}
+      style={{ backgroundColor: `${colour}80` }}
     />
-  );
-};
-
-const PulsingSkeletonText = (props: { length: number; list: string[] }) => (
-  <div className="w-full flex flex-wrap gap-2">
-    {Array.from({ length: props.length }).map((_, index) => (
-      <div
-        key={`loader-${
-          // biome-ignore lint/suspicious/noArrayIndexKey: I'll find a better way to do this in some time
-          index
-        }`}
-        className={`${
-          props.list[Math.floor(Math.random() * props.list.length)]
-        } h-3 pb-2 bg-white/5 rounded-full animate-pulse delay-500`}
-        style={{ transitionDelay: `${index * 1000}ms` }}
-      />
-    ))}
-  </div>
-);
-
-export const SkeletonRepoCard = () => {
-  const listOfLengths = ["w-8", "w-12", "w-16", "w-20", "w-24", "w-28", "w-32"];
-
-  return (
-    <div className="rounded-md border-white/10 bg-neutral-950 border-[1px] h-full p-3">
-      <div className="flex flex-col justify-between h-full">
-        <PulsingSkeletonText length={6} list={listOfLengths} />
-
-        <div className="*:justify-end">
-          <PulsingSkeletonText length={2} list={listOfLengths} />
-        </div>
-      </div>
-    </div>
   );
 };
 
@@ -110,8 +77,8 @@ export const RepoCard = (props: {
   repositoryLink?: string;
   commitsLink?: string;
 }) => (
-  <div className="rounded-md text-xs text-gray-300 border-white/10 bg-neutral-950 border-[1px] p-3 flex flex-col h-full">
-    <div className="flex justify-between rounded-md">
+  <div className="text-xs text-primary border-primary/10 bg-background border-[1px] p-3 flex flex-col h-full">
+    <div className="flex justify-between">
       <div>
         <div className="flex items-center gap-2">
           <p className="text-base">{props.repoName}</p>
@@ -127,7 +94,7 @@ export const RepoCard = (props: {
         <div className="relative">
           <a
             href={props.repositoryLink ?? props.repoLink}
-            className="peer *:fill-gray-500 *:hover:fill-white"
+            className="peer *:fill-primary/50 *:hover:fill-primary"
             target="_blank"
             rel="noreferrer"
           >
@@ -140,7 +107,7 @@ export const RepoCard = (props: {
         <div className="relative">
           <a
             href={props.commitsLink ?? `${props.repoLink}/commits`}
-            className="peer *:fill-gray-500 *:hover:fill-white"
+            className="peer *:fill-primary/50 *:hover:fill-primary"
             target="_blank"
             rel="noreferrer"
           >
@@ -170,12 +137,14 @@ export const RepoCard = (props: {
       </div>
 
       <div className="flex justify-between">
-        <p className="text-gray-600">Last updated: {new Date(props.lastUpdate).toDateString()}</p>
+        <p className="text-primary/50">
+          Last updated: {new Date(props.lastUpdate).toDateString()}
+        </p>
 
         <div className="flex items-center gap-1">
           <LanguageCircle language={props.mainLanguage ?? "unknown"} />
 
-          <p className="text-gray-600">{props.mainLanguage ?? "unknown"}</p>
+          <p className="text-primary/50">{props.mainLanguage ?? "unknown"}</p>
         </div>
       </div>
     </div>

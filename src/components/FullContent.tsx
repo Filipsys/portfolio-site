@@ -6,10 +6,15 @@ import { FunModeTeleporter } from "@/components/FunModeTeleporter";
 // import { ThemeToggle } from "@/components/ThemeToggle";
 
 export const FullContent = () => (
-  <main className="bg-background text-foreground font-DMSans w-full h-dvh flex justify-center" id="hover-div">
+  <main
+    className="bg-background font-DMSans text-primary h-dvh flex justify-center"
+    id="hover-div"
+  >
     <ChristmasLights />
 
-    <div className="absolute top-2 left-2">{/* <ThemeToggle /> */}</div>
+    {/* <div className="absolute top-2 left-2">
+      <ThemeToggle />
+    </div> */}
 
     <div className="absolute bottom-0 left-0">
       <FunModeTeleporter />

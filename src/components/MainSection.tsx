@@ -1,7 +1,7 @@
 "use client";
 
 import { HomeComponent } from "@/components/Home";
-import { ProjectsComponent } from "@/components/ProjectsComponent";
+import { ProjectsComponent } from "@/components/projects/ProjectsComponent";
 import { ProjectContext } from "@/providers/ContextProvider";
 import { useContext } from "react";
 

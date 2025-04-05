@@ -24,11 +24,11 @@ const links: {
 ];
 
 export const Links = () => (
-  <>
+  <div className="font-DMMono text-primary/50 text-xs font-light tracking-wide xs:text-sm sm:text-base *:flex *:justify-between *:cursor-pointer">
     {links.map((element) => (
       <div
         key={`${element.name}-link`}
-        className="group z-50 transition-colors duration-200 hover:text-white"
+        className="group z-50 transition-colors duration-200 hover:text-primary"
       >
         <a
           href={element.name === "Email" ? `mailto:${element.link}` : `https://${element.link}`}
@@ -41,11 +41,11 @@ export const Links = () => (
         <div className="flex items-center gap-2">
           <p className="hidden sm:block">{element.name}</p>
 
-          <div className="size-4 duration-200 fill-white/50 group-hover:fill-white">
+          <div className="size-4 duration-200 fill-primary/50 group-hover:fill-primary">
             <element.icon />
           </div>
         </div>
       </div>
     ))}
-  </>
+  </div>
 );

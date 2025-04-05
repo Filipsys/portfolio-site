@@ -1,6 +1,7 @@
 import { PostHogProvider } from "@/providers/PostHogProvider";
-import type { Metadata } from "next";
 import "./globals.css";
+
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://filyys.dev"),
@@ -33,7 +34,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
 
         {/* <script crossOrigin="anonymous" src="//unpkg.com/react-scan/dist/auto.global.js" /> */}
       </head>
-      <body className="bg-black antialiased">
+      <body className="antialiased">
         <PostHogProvider>{children}</PostHogProvider>
       </body>
     </html>

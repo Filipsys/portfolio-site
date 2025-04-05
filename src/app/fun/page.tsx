@@ -6,7 +6,7 @@ import { Cookies } from "@/components/fun/Cookies";
 export default function Fun() {
   return (
     <main
-      className="text-white w-full flex justify-center"
+      className="text-white h-full w-full flex justify-center"
       id="main"
       style={{
         backgroundImage: "url(/background3.webp)",

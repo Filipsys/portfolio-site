@@ -21,9 +21,7 @@ export const HomeComponent = () => (
     <div>
       <h1>- Links</h1>
 
-      <div className="flex flex-col fill-white/50 font-DMMono text-[#d3d3d3]/50 *:cursor-pointer *:flex *:justify-between *:text-xs *:font-light *:tracking-wide *:xs:text-sm sm:*:text-base">
-        <Links />
-      </div>
+      <Links />
     </div>
 
     <div className="py-3" />
@@ -31,7 +29,7 @@ export const HomeComponent = () => (
     <div>
       <h1>- Tech I know and use</h1>
 
-      <div className="mb-8 grid w-full grid-cols-1 gap-2 text-white/50 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 lg:mb-0">
+      <div className="mb-8 grid w-full grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 lg:mb-0">
         <TechCards />
       </div>
     </div>
