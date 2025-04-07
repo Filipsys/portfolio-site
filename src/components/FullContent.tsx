@@ -7,7 +7,7 @@ import { FunModeTeleporter } from "@/components/FunModeTeleporter";
 
 export const FullContent = () => (
   <main
-    className="bg-background font-DMSans text-primary h-dvh flex justify-center"
+    className="bg-background font-DMSans text-primary h-full flex justify-center"
     id="hover-div"
   >
     <ChristmasLights />
