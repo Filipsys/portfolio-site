@@ -3,7 +3,7 @@ import { ChristmasLights } from "@/components/ChristmasLights";
 import { Navigation } from "@/components/Navigation";
 import { MainSection } from "@/components/MainSection";
 import { FunModeTeleporter } from "@/components/FunModeTeleporter";
-// import { ThemeToggle } from "@/components/ThemeToggle";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 export const FullContent = () => (
   <main
@@ -12,9 +12,9 @@ export const FullContent = () => (
   >
     <ChristmasLights />
 
-    {/* <div className="absolute top-2 left-2">
+    <div className="absolute top-2 left-2">
       <ThemeToggle />
-    </div> */}
+    </div>
 
     <div className="absolute bottom-0 left-0">
       <FunModeTeleporter />

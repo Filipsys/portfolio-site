@@ -8,12 +8,10 @@ export const ThemeToggle = () => {
 
   const handleThemeChange = (theme: "dark" | "light") => {
     setTheme(theme);
-
     localStorage.setItem("theme", theme);
 
     if (theme === "dark" || theme === "light") {
-      document.documentElement.classList.add(theme);
-      document.documentElement.classList.remove(theme === "dark" ? "light" : "dark");
+      document.documentElement.style.colorScheme = theme;
     }
   };
 
@@ -22,9 +20,9 @@ export const ThemeToggle = () => {
     console.log(storedTheme);
 
     if (storedTheme === "dark" || storedTheme === "light") {
-      document.documentElement.classList.add(storedTheme);
+      document.documentElement.style.colorScheme = theme;
     }
-  }, []);
+  }, [theme]);
 
   return (
     <button

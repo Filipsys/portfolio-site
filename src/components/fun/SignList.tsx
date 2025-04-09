@@ -31,6 +31,7 @@ const MessageForm = (props: {
   useEffect(() => {
     const fetchMessageStatus = async () => {
       const result = await checkUserSavedMessage(props.userId);
+      console.log("fetchMessage checkUserSavedMessage result:", result)
 
       setHasPreviousMessage(result);
     };
@@ -71,7 +72,7 @@ const SignIn = () => (
     onClick={async () => {
       await authClient.signIn.social({
         provider: "github",
-        callbackURL: "https://filyys.dev/fun",
+        callbackURL: "http://localhost:3000/fun",
       });
     }}
   >
@@ -112,7 +113,7 @@ export const SignList = () => {
 
   const createMessage = async (formData: FormData) => {
     if (!userInfo?.id) return;
-    if (await checkUserSavedMessage(userInfo?.id)) return; // You've already sent a message
+    if (await checkUserSavedMessage(userInfo.id)) return; // You've already sent a message
 
     const messageField = formData.get("message");
     const message = typeof messageField === "string" ? messageField : "";
