@@ -58,6 +58,8 @@ export const SidePanel = () => (
 
     {/* TODO: <Opinions /> */}
 
+    <p>The sign list is currently under maintenance, please forgive me for the broken website</p>
+
     <SignList />
 
     <div className="w-full h-24" />
