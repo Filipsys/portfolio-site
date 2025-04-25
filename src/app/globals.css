@@ -1,11 +1,10 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where([data-mode=dark], [data-mode=dark] *));
+
 @theme {
   --font-DMSans: DMSans, sans-serif;
   --font-DMMono: DMMono, monospace;
-
-  --color-background: var(--background);
-  --color-primary: var(--primary);
 
   --animate-random1: random1 3s linear infinite;
   --animate-sidewaysGlitch: sidewaysGlitch 0.05s linear infinite;
@@ -137,21 +136,5 @@
   @font-face {
     font-family: "DMMono";
     src: url("../fonts/DMMono.ttf");
-  }
-}
-
-:root {
-  --background: oklch(14.5% 0 0);
-  --primary: oklch(97% 0 0);
-  --grid: rgba(70, 70, 70, 0.3);
-  --grid-mask: rgba(120, 120, 120, 0.4);
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    --background: oklch(97% 0 0);
-    --primary: oklch(43.9% 0 0);
-    --grid: rgba(180, 180, 180, 0.3);
-    --grid-mask: rgba(130, 130, 130, 0.4);
   }
 }

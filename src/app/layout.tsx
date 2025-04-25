@@ -2,6 +2,7 @@ import { PostHogProvider } from "@/providers/PostHogProvider";
 import "./globals.css";
 
 import type { Metadata } from "next";
+import { ThemeProvider } from "next-themes";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://filyys.dev"),
@@ -17,11 +18,16 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default function RootLayout({
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <meta name="description" content="My simple, small, personal portfolio site" />
+        <meta
+          name="description"
+          content="My simple, small, personal portfolio site"
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta
           name="keywords"
@@ -35,7 +41,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         {/* <script crossOrigin="anonymous" src="//unpkg.com/react-scan/dist/auto.global.js" /> */}
       </head>
       <body className="antialiased">
-        <PostHogProvider>{children}</PostHogProvider>
+        <PostHogProvider>
+          <ThemeProvider attribute="data-mode">{children}</ThemeProvider>
+        </PostHogProvider>
       </body>
     </html>
   );

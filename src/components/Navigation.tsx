@@ -13,7 +13,11 @@ export const Navigation = () => {
   return (
     <nav className="block w-full lg:w-fit pt-8 lg:pt-0 lg:pr-8">
       <div className="flex justify-center gap-x-8 text-xl tracking-tight *:z-50 sm:gap-x-16 sm:text-2xl lg:flex-col lg:items-end lg:text-3xl">
-        <button className="cursor-pointer" onClick={() => handlePageState("home")} type="button">
+        <button
+          className="cursor-pointer"
+          onClick={() => handlePageState("home")}
+          type="button"
+        >
           Home
         </button>
         <button

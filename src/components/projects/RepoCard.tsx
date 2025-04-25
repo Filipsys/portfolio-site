@@ -26,7 +26,8 @@ const Topic = (props: { name: string }) => (
 const LanguageCircle = (props: { language: string }) => {
   const [colour, setColour] = useState<string>("#ffffff");
 
-  const { languageColourData, setLanguageColourData } = useContext(ProjectContext);
+  const { languageColourData, setLanguageColourData } =
+    useContext(ProjectContext);
   const languageColourDataRef = useRef(languageColourData);
 
   useEffect(() => {
@@ -36,7 +37,9 @@ const LanguageCircle = (props: { language: string }) => {
   useEffect(() => {
     const getColourFromWorker = async () => {
       const response = await (
-        await fetch(`https://language-colour.filipsysak.workers.dev/get?l=${props.language}`)
+        await fetch(
+          `https://language-colour.filipsysak.workers.dev/get?l=${props.language}`,
+        )
       ).json();
 
       setColour(response.color ?? "#ffffff");
@@ -48,7 +51,6 @@ const LanguageCircle = (props: { language: string }) => {
 
     if (props.language in languageColourDataRef.current) {
       setColour(languageColourDataRef.current[props.language]);
-      console.log("No need for fetching, already in cache");
 
       return;
     }
@@ -58,7 +60,9 @@ const LanguageCircle = (props: { language: string }) => {
 
   return (
     <div
-      className={"size-2.5 border-[1px] border-primary/15"}
+      className={
+        "size-2.5 border-[1px] border-neutral-700/15 dark:border-neutral-300/15"
+      }
       style={{ backgroundColor: `${colour}80` }}
     />
   );
@@ -77,7 +81,7 @@ export const RepoCard = (props: {
   repositoryLink?: string;
   commitsLink?: string;
 }) => (
-  <div className="text-xs text-primary border-primary/10 bg-background border-[1px] p-3 flex flex-col h-full">
+  <div className="flex flex-col h-full p-3 text-xs border-[1px] border-neutral-700/10 dark:border-neutral-300/10">
     <div className="flex justify-between">
       <div>
         <div className="flex items-center gap-2">
@@ -94,7 +98,7 @@ export const RepoCard = (props: {
         <div className="relative">
           <a
             href={props.repositoryLink ?? props.repoLink}
-            className="peer *:fill-primary/50 *:hover:fill-primary"
+            className="peer *:fill-neutral-700/50 dark:*:fill-neutral-300/50 *:hover:fill-neutral-700 dark:*:hover:fill-neutral-300"
             target="_blank"
             rel="noreferrer"
           >
@@ -107,7 +111,7 @@ export const RepoCard = (props: {
         <div className="relative">
           <a
             href={props.commitsLink ?? `${props.repoLink}/commits`}
-            className="peer *:fill-primary/50 *:hover:fill-primary"
+            className="peer *:fill-neutral-700/50 dark:*:fill-neutral-300/50 *:hover:fill-neutral-700 dark:*:hover:fill-neutral-300"
             target="_blank"
             rel="noreferrer"
           >
@@ -124,7 +128,9 @@ export const RepoCard = (props: {
         <p>{props.repoDescription}</p>
       </div>
 
-      <div className={`flex flex-wrap gap-1 ${props.topics.length > 0 ? "pb-2" : null}`}>
+      <div
+        className={`flex flex-wrap gap-1 ${props.topics.length > 0 ? "pb-2" : null}`}
+      >
         {props.topics.map((topic, index) => (
           <Topic
             key={`${topic}-${
@@ -137,14 +143,16 @@ export const RepoCard = (props: {
       </div>
 
       <div className="flex justify-between">
-        <p className="text-primary/50">
+        <p className="text-neutral-700/50 dark:text-neutral-300/50">
           Last updated: {new Date(props.lastUpdate).toDateString()}
         </p>
 
         <div className="flex items-center gap-1">
           <LanguageCircle language={props.mainLanguage ?? "unknown"} />
 
-          <p className="text-primary/50">{props.mainLanguage ?? "unknown"}</p>
+          <p className="text-neutral-700/50 dark:text-neutral-300/50">
+            {props.mainLanguage ?? "unknown"}
+          </p>
         </div>
       </div>
     </div>
