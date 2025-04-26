@@ -34,7 +34,7 @@ const links: {
 const DesktopLink = (props: {
   element: { name: string; link: string; icon: () => JSX.Element };
 }) => (
-  <div className="group z-50 transition-colors duration-200 hover:text-neutral-700 dark:hover:text-neutral-300">
+  <div className="flex justify-between group z-50 transition-colors duration-200 hover:text-neutral-700 dark:hover:text-neutral-300">
     <a
       href={
         props.element.name === "Email"
@@ -80,7 +80,7 @@ const MobileLink = (props: {
 
 export const Links = () => (
   <>
-    <div className="hidden font-DMMono text-neutral-700/50 dark:text-neutral-300/50 text-xs font-light tracking-wide sm:block xs:text-sm sm:text-base *:flex *:justify-between *:cursor-pointer">
+    <div className="hidden text-base font-DMMono text-neutral-700/50 dark:text-neutral-300/50 sm:block *:cursor-pointer">
       {links.map((element) => (
         <DesktopLink element={element} key={`desktop-link-${element.id}`} />
       ))}
