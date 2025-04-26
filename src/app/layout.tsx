@@ -14,7 +14,6 @@ export const metadata: Metadata = {
     siteName: "filyys - main page",
     description: "My simple, small, personal portfolio site",
     url: "https://filyys.dev",
-    images: [{ url: "https://filyys.dev/fire.gif" }],
   },
 };
 

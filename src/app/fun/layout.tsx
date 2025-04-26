@@ -1,21 +1,25 @@
-import "../globals.css";
+import "fun.css";
 
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "fun site!!! @ filyys",
-  description: "Get on and rock over cause this is a massive journey. Let the fun begin!!!",
+  description:
+    "Get on and rock over cause this is a massive journey. Let the fun begin!!!",
   openGraph: {
     type: "website",
     title: "fun site!!! @ filyys",
     siteName: "fun site!!! @ filyys",
-    description: "Get on and rock over cause this is a massive journey. Let the fun begin!!!",
+    description:
+      "Get on and rock over cause this is a massive journey. Let the fun begin!!!",
     url: "https://filyys.dev/fun",
     images: [{ url: "https://filyys.dev/fire.gif" }],
   },
 };
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default function RootLayout({
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
