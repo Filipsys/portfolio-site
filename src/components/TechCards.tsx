@@ -27,7 +27,7 @@ const TechCard = (props: {
   description: string;
 }) => (
   <div className="h-fit w-full border-[1px] border-neutral-700/10 dark:border-neutral-300/10 flex items-center">
-    <div className="*:size-5 p-3 m-2 bg-neutral-900/10 dark:bg-neutral-300/10">
+    <div className="p-3 m-2 bg-neutral-900/10 dark:bg-neutral-300/10 *:size-5">
       <props.icon />
     </div>
 

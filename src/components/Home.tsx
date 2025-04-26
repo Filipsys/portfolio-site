@@ -6,11 +6,12 @@ export const HomeComponent = () => (
   <div>
     <div>
       <h1 className="text-xl font-light tracking-wide xs:text-2xl sm:text-3xl">
-        Hi, I&apos;m Filip, a self-taught front-end developer from Poland. I mainly work with{" "}
-        <span className="text-green-500">React</span>, <span className="text-pink-500">NextJS</span>
-        , <span className="dark:text-blue-200 text-blue-500">TailwindCSS</span>,{" "}
-        <span className="text-blue-600">TypeScript</span>, and relational databases like{" "}
-        <span className="text-orange-400">SQLite</span>.
+        Hi, I&apos;m Filip, a self-taught front-end developer from Poland. I
+        mainly work with <span className="text-green-500">React</span>,{" "}
+        <span className="text-pink-500">NextJS</span>,{" "}
+        <span className="dark:text-blue-200 text-blue-500">TailwindCSS</span>,{" "}
+        <span className="text-blue-600">TypeScript</span>, and relational
+        databases like <span className="text-orange-400">SQLite</span>.
       </h1>
     </div>
 
@@ -19,7 +20,7 @@ export const HomeComponent = () => (
     </div>
 
     <div>
-      <h1>- Links</h1>
+      <h1>- Social links</h1>
 
       <Links />
     </div>

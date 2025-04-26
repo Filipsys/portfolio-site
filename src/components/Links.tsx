@@ -6,54 +6,91 @@ import {
 import type { JSX } from "react";
 
 const links: {
+  id: number;
   name: string;
   link: string;
   icon: () => JSX.Element;
 }[] = [
   {
+    id: 1,
     name: "Github",
     link: "github.com/filipsys",
     icon: SmallGithubIcon,
   },
   {
+    id: 2,
     name: "LinkedIn",
     link: "linkedin.com/in/filipsysak",
     icon: SmallLinkedinIcon,
   },
   {
+    id: 3,
     name: "Email",
     link: "mail@filyys.dev",
     icon: SmallGmailIcon,
   },
 ];
 
-export const Links = () => (
-  <div className="font-DMMono text-neutral-700/50 dark:text-neutral-300/50 text-xs font-light tracking-wide xs:text-sm sm:text-base *:flex *:justify-between *:cursor-pointer">
-    {links.map((element) => (
-      <div
-        key={`${element.name}-link`}
-        className="group z-50 transition-colors duration-200 hover:text-neutral-700 dark:hover:text-neutral-300"
-      >
-        <a
-          href={
-            element.name === "Email"
-              ? `mailto:${element.link}`
-              : `https://${element.link}`
-          }
-          target="_blank"
-          rel="noreferrer"
-        >
-          {element.link}
-        </a>
+const DesktopLink = (props: {
+  element: { name: string; link: string; icon: () => JSX.Element };
+}) => (
+  <div className="group z-50 transition-colors duration-200 hover:text-neutral-700 dark:hover:text-neutral-300">
+    <a
+      href={
+        props.element.name === "Email"
+          ? `mailto:${props.element.link}`
+          : `https://${props.element.link}`
+      }
+      target="_blank"
+      rel="noreferrer"
+    >
+      {props.element.link}
+    </a>
 
-        <div className="flex items-center gap-2">
-          <p className="hidden sm:block">{element.name}</p>
+    <div className="flex items-center gap-2">
+      <p className="hidden sm:block">{props.element.name}</p>
 
-          <div className="size-4 duration-200 fill-neutral-700/50 dark:fill-neutral-300/50 group-hover:fill-neutral-700 dark:group-hover:fill-neutral-300">
-            <element.icon />
-          </div>
-        </div>
+      <div className="size-4 duration-200 fill-neutral-700/50 dark:fill-neutral-300/50 group-hover:fill-neutral-700 dark:group-hover:fill-neutral-300">
+        <props.element.icon />
       </div>
-    ))}
+    </div>
   </div>
+);
+
+const MobileLink = (props: {
+  element: { name: string; link: string; icon: () => JSX.Element };
+}) => (
+  <a
+    href={
+      props.element.name === "Email"
+        ? `mailto:${props.element.link}`
+        : `https://${props.element.link}`
+    }
+    target="_blank"
+    rel="noreferrer"
+    className="h-fit w-full py-5 flex gap-0.5 flex-col items-center justify-center border-[1px] border-neutral-700/10 dark:border-neutral-300/10 hover:bg-neutral-900/10 dark:hover:bg-neutral-300/10 transition-colors duration-150"
+  >
+    <div className="size-5">
+      <props.element.icon />
+    </div>
+
+    <p className="text-sm font-DMMono">{props.element.name}</p>
+  </a>
+);
+
+export const Links = () => (
+  <>
+    <div className="hidden font-DMMono text-neutral-700/50 dark:text-neutral-300/50 text-xs font-light tracking-wide sm:block xs:text-sm sm:text-base *:flex *:justify-between *:cursor-pointer">
+      {links.map((element) => (
+        <DesktopLink element={element} key={`desktop-link-${element.id}`} />
+      ))}
+    </div>
+
+    {/* Display this code on small devices */}
+    <div className="flex gap-2 sm:hidden">
+      {links.map((element) => (
+        <MobileLink element={element} key={`mobile-link-${element.id}`} />
+      ))}
+    </div>
+  </>
 );
