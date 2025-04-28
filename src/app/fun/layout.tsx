@@ -1,4 +1,4 @@
-import "fun.css";
+import "./fun.css";
 
 import type { Metadata } from "next";
 

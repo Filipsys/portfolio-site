@@ -70,7 +70,7 @@ const MobileLink = (props: {
     rel="noreferrer"
     className="h-fit w-full py-5 flex gap-0.5 flex-col items-center justify-center border-[1px] border-neutral-700/10 dark:border-neutral-300/10 hover:bg-neutral-900/10 dark:hover:bg-neutral-300/10 transition-colors duration-150"
   >
-    <div className="size-5">
+    <div className="size-5 fill-neutral-700 dark:fill-neutral-300">
       <props.element.icon />
     </div>
 
