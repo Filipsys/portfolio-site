@@ -16,6 +16,7 @@ import { AsciiContainer } from "@/components/ascii/AsciiContainer";
 if (process.env.NODE_ENV === "development") scan();
 
 export default function Ascii() {
+  const { charWidth, charHeight } = useCharDimensions("-");
   const [screenDimensions, setScreenDimensions] = useState({
     width: 0,
     height: 0,
@@ -31,28 +32,20 @@ export default function Ascii() {
       height: document.body.offsetHeight,
     });
 
-    const { charWidth, charHeight } = useCharDimensions("-");
     setCharDimensions({
       width: charWidth,
       height: charHeight,
     });
-
-    // setBoxContent(
-    //   createBox(
-    //     "Hi, I'm Filip, a self-taught front-end developer\nfrom Poland. I mainly work with React, NextJS,\nTailwindCSS, TypeScript, and relational databases\nlike SQLite.",
-    //     3,
-    //   )
-    //     .map((row) => row.join(""))
-    //     .join("\n"),
-    // );
-  }, []);
+  }, [charWidth, charHeight]);
 
   convertJSXTo2d(
-    <div className="flex gap-2">
+    <AsciiContainer>
       <AsciiButton content="My Github" padding={1} />
       <AsciiButton content="My LinkedIn" padding={1} />
-      <AsciiButton content="My email" padding={1} />
-    </div>,
+      <AsciiBox>
+        <AsciiButton content="My email" padding={1} />
+      </AsciiBox>
+    </AsciiContainer>,
   );
 
   return (
@@ -61,13 +54,15 @@ export default function Ascii() {
         <div>
           {/* <p>{boxContent}</p> */}
 
-          {/* <AsciiContainer>
-            <AsciiBox content="Hello this is a box!" />
+          <AsciiContainer>
+            {/* <AsciiBox content="Hello this is a box!" /> */}
 
-            <AsciiButton content="My Github" padding={1} />
-            <AsciiButton content="My LinkedIn" padding={1} />
-            <AsciiButton content="My email" padding={1} />
-          </AsciiContainer> */}
+            <AsciiBox>
+              <AsciiButton content="My Github" padding={1} />
+              <AsciiButton content="My LinkedIn" padding={1} />
+              <AsciiButton content="My email" padding={1} />
+            </AsciiBox>
+          </AsciiContainer>
 
           <AsciiButton content="Button" padding={1} />
 

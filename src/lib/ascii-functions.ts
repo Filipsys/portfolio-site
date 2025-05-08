@@ -88,7 +88,11 @@ export const applyPadding2d = (
 export const convertJSXTo2d = (element: JSX.Element): string[][] => {
   if (!element?.props?.children) return [[]];
 
-  console.log(element.props.children);
+  // console.log(element.props.children);
+
+  for (const item of element.props.children) {
+    console.log(item);
+  }
 
   return [[]];
 };
