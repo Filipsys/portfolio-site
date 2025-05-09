@@ -7,11 +7,15 @@ import { MicroArrowIcon } from "@/icons/dev-icons";
 import { LoadingSkeleton } from "@/components/LoadingSkeleton";
 import type { ProjectData, GithubResponseJSON } from "@/types/global";
 
-export const ProjectsComponent = memo(() => {
+const ProjectsComponent = memo(() => {
   const [isLoading, setIsLoading] = useState(true);
   const [categoryPinned, setCategoryPinned] = useState<boolean>(true);
-  const { repoListData, setRepoListData, pinnedRepoListData, setPinnedRepoListData } =
-    useContext(ProjectContext);
+  const {
+    repoListData,
+    setRepoListData,
+    pinnedRepoListData,
+    setPinnedRepoListData,
+  } = useContext(ProjectContext);
 
   useEffect(() => {
     const fetchDataFromGithub = async () => {
@@ -21,7 +25,8 @@ export const ProjectsComponent = memo(() => {
       if (categoryPinned) {
         link = "https://pinned-repos.filipsysak.workers.dev/get?user=Filipsys";
       } else {
-        link = "https://api.github.com/users/Filipsys/repos?sort=updated&direction=desc&per_page=6";
+        link =
+          "https://api.github.com/users/Filipsys/repos?sort=updated&direction=desc&per_page=6";
       }
 
       const res = await fetch(link);
@@ -59,7 +64,12 @@ export const ProjectsComponent = memo(() => {
     } else {
       setIsLoading(false);
     }
-  }, [categoryPinned, repoListData.length, setPinnedRepoListData, setRepoListData]);
+  }, [
+    categoryPinned,
+    repoListData.length,
+    setPinnedRepoListData,
+    setRepoListData,
+  ]);
 
   return (
     <div className="w-full">
@@ -71,7 +81,9 @@ export const ProjectsComponent = memo(() => {
           onClick={() => setCategoryPinned(!categoryPinned)}
           type="button"
         >
-          <p className="text-sm text-gray-500">Switch to {categoryPinned ? "recent" : "pinned"}</p>
+          <p className="text-sm text-gray-500">
+            Switch to {categoryPinned ? "recent" : "pinned"}
+          </p>
 
           <MicroArrowIcon />
         </button>
@@ -113,3 +125,5 @@ export const ProjectsComponent = memo(() => {
     </div>
   );
 });
+
+export default ProjectsComponent;

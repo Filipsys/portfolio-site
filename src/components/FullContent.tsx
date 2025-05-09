@@ -7,7 +7,7 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 
 export const FullContent = () => (
   <main
-    className="min-h-screen h-full flex justify-center bg-neutral-300 dark:bg-neutral-900 font-DMSans text-neutral-700 dark:text-neutral-300 fill-neutral-700 dark:fill-neutral-300"
+    className="min-h-screen h-full flex justify-center bg-neutral-200 dark:bg-neutral-900 font-DMSans text-neutral-700 dark:text-neutral-300 fill-neutral-700 dark:fill-neutral-300"
     id="hover-div"
   >
     <ChristmasLights />
