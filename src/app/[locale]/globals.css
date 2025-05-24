@@ -18,11 +18,11 @@
 
   @font-face {
     font-family: "DMSans";
-    src: url("../fonts/DMSans.ttf");
+    src: url("../../fonts/DMSans.ttf");
   }
 
   @font-face {
     font-family: "DMMono";
-    src: url("../fonts/DMMono.ttf");
+    src: url("../../fonts/DMMono.ttf");
   }
 }

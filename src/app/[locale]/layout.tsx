@@ -1,8 +1,11 @@
+import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { PostHogProvider } from "@/providers/PostHogProvider";
+import { ThemeProvider } from "next-themes";
+import { notFound } from "next/navigation";
+import { routing } from "@/i18n/routing";
 import "./globals.css";
 
 import type { Metadata } from "next";
-import { ThemeProvider } from "next-themes";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://filyys.dev"),
@@ -17,11 +20,18 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function LocaleLayout({
   children,
-}: Readonly<{ children: React.ReactNode }>) {
+  params,
+}: {
+  children: React.ReactNode;
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  if (!hasLocale(routing.locales, locale)) notFound();
+
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning>
       <head>
         <meta
           name="description"
@@ -36,12 +46,12 @@ export default function RootLayout({
 
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <title>filyys - main page</title>
-
-        {/* <script crossOrigin="anonymous" src="//unpkg.com/react-scan/dist/auto.global.js" /> */}
       </head>
       <body className="antialiased">
         <PostHogProvider>
-          <ThemeProvider attribute="data-mode">{children}</ThemeProvider>
+          <ThemeProvider attribute="data-mode">
+            <NextIntlClientProvider>{children}</NextIntlClientProvider>
+          </ThemeProvider>
         </PostHogProvider>
       </body>
     </html>

@@ -1,0 +1,34 @@
+{
+  "Navigation": {
+    "Home": "Startseite",
+    "Projects": "Projekte",
+    "About": "Über",
+    "Notes": "Notizen"
+  },
+
+  "Home": {
+    "MainInfo": "Hallo, ich bin Filip, ein autodidaktischer Frontend-Entwickler aus Polen. Ich arbeite hauptsächlich mit <green>React</green>,\n<yellow>Next.js</yellow>,\n<darkBlue>Tailwind CSS</darkBlue>,\n<blue>TypeScript</blue> und relationalen Datenbanken wie <orange>MySQL</orange>.",
+    "SocialLinksHeader": "Soziale Netzwerke",
+    "TechHeader": "Technologien, die ich kenne und nutze"
+  },
+
+  "Tech": {
+    "TypeScript": "Typensicheres JavaScript",
+    "TailwindCSS": "Modernes CSS-Framework",
+    "Cloudflare": "Hosting & Cloud-Infrastruktur",
+    "Bun": "All-in-One JavaScript Toolkit",
+    "React": "Bibliothek für Web- und native UIs",
+    "MySQL": "Relationale Datenbank",
+    "Vite": "Front-End-Build-Tool",
+    "NextJS": "Front-End React-Framework"
+  },
+
+  "Projects": {
+    "pinnedProjectsHeader": "Angeheftete GitHub-Projekte",
+    "recentProjectsHeader": "Neueste GitHub-Projekte",
+    "pinnedProjectsSwitch": "Zu angehefteten wechseln",
+    "recentProjectsSwitch": "Zu neuesten wechseln",
+    "visitRepo": "Repo öffnen",
+    "commits": "Commits"
+  }
+}

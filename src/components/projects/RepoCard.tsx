@@ -2,6 +2,7 @@ import { useContext, useEffect, useRef, useState } from "react";
 import { MicroArchiveIcon, MicroLinkIcon } from "@/icons/dev-icons";
 import { ProjectContext } from "@/providers/ContextProvider";
 import { Tooltip } from "@/components/tooltip/Tooltip";
+import { useTranslations } from "next-intl";
 
 const Badge = (props: { forked?: boolean; template?: boolean }) => (
   <div
@@ -80,81 +81,85 @@ export const RepoCard = (props: {
   forkLink?: string;
   repositoryLink?: string;
   commitsLink?: string;
-}) => (
-  <div className="flex flex-col h-full p-3 text-xs border-[1px] border-neutral-700/10 dark:border-neutral-300/10">
-    <div className="flex justify-between">
-      <div>
-        <div className="flex items-center gap-2">
-          <p className="text-base">{props.repoName}</p>
+}) => {
+  const t = useTranslations("Projects");
 
-          <div className="flex gap-1">
-            {props.isFork ? <Badge forked /> : null}
-            {props.isTemplate ? <Badge template /> : null}
+  return (
+    <div className="flex flex-col h-full p-3 text-xs border-[1px] border-neutral-700/10 dark:border-neutral-300/10">
+      <div className="flex justify-between">
+        <div>
+          <div className="flex items-center gap-2">
+            <p className="text-base">{props.repoName}</p>
+
+            <div className="flex gap-1">
+              {props.isFork ? <Badge forked /> : null}
+              {props.isTemplate ? <Badge template /> : null}
+            </div>
+          </div>
+        </div>
+
+        <div className="flex gap-1 items-center *:transition-colors *:duration-300">
+          <div className="relative">
+            <a
+              href={props.repositoryLink ?? props.repoLink}
+              className="peer *:fill-neutral-700/50 dark:*:fill-neutral-300/50 *:hover:fill-neutral-700 dark:*:hover:fill-neutral-300"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <MicroLinkIcon />
+            </a>
+
+            <Tooltip text={t("visitRepo")} />
+          </div>
+
+          <div className="relative">
+            <a
+              href={props.commitsLink ?? `${props.repoLink}/commits`}
+              className="peer *:fill-neutral-700/50 dark:*:fill-neutral-300/50 *:hover:fill-neutral-700 dark:*:hover:fill-neutral-300"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <MicroArchiveIcon />
+            </a>
+
+            <Tooltip text={t("commits")} />
           </div>
         </div>
       </div>
 
-      <div className="flex gap-1 items-center *:transition-colors *:duration-300">
-        <div className="relative">
-          <a
-            href={props.repositoryLink ?? props.repoLink}
-            className="peer *:fill-neutral-700/50 dark:*:fill-neutral-300/50 *:hover:fill-neutral-700 dark:*:hover:fill-neutral-300"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <MicroLinkIcon />
-          </a>
-
-          <Tooltip text="Visit repo" />
+      <div className="flex flex-col grow">
+        <div className="grow">
+          <p>{props.repoDescription}</p>
         </div>
 
-        <div className="relative">
-          <a
-            href={props.commitsLink ?? `${props.repoLink}/commits`}
-            className="peer *:fill-neutral-700/50 dark:*:fill-neutral-300/50 *:hover:fill-neutral-700 dark:*:hover:fill-neutral-300"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <MicroArchiveIcon />
-          </a>
-
-          <Tooltip text="Commits" />
+        <div
+          className={`flex flex-wrap gap-1 ${props.topics.length > 0 ? "pb-2" : null}`}
+        >
+          {props.topics.map((topic, index) => (
+            <Topic
+              key={`${topic}-${
+                // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+                index
+              }`}
+              name={topic}
+            />
+          ))}
         </div>
-      </div>
-    </div>
 
-    <div className="flex flex-col grow">
-      <div className="grow">
-        <p>{props.repoDescription}</p>
-      </div>
-
-      <div
-        className={`flex flex-wrap gap-1 ${props.topics.length > 0 ? "pb-2" : null}`}
-      >
-        {props.topics.map((topic, index) => (
-          <Topic
-            key={`${topic}-${
-              // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
-              index
-            }`}
-            name={topic}
-          />
-        ))}
-      </div>
-
-      <div className="flex justify-between">
-        <p className="text-neutral-700/50 dark:text-neutral-300/50">
-          Last updated: {new Date(props.lastUpdate).toDateString()}
-        </p>
-
-        <div className="flex items-center gap-1">
-          <LanguageCircle language={props.mainLanguage ?? "unknown"} />
-
+        <div className="flex justify-between">
           <p className="text-neutral-700/50 dark:text-neutral-300/50">
-            {props.mainLanguage ?? "unknown"}
+            Last updated: {new Date(props.lastUpdate).toDateString()}
           </p>
+
+          <div className="flex items-center gap-1">
+            <LanguageCircle language={props.mainLanguage ?? "unknown"} />
+
+            <p className="text-neutral-700/50 dark:text-neutral-300/50">
+              {props.mainLanguage ?? "unknown"}
+            </p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-);
+  );
+};

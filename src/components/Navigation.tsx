@@ -1,10 +1,12 @@
 "use client";
 
 import { ProjectContext } from "@/providers/ContextProvider";
+import { useTranslations } from "next-intl";
 import { useContext } from "react";
 
 export const Navigation = () => {
   const { setCurrentPage } = useContext(ProjectContext);
+  const t = useTranslations("Navigation");
 
   const handlePageState = (page: "home" | "projects") => {
     setCurrentPage(page);
@@ -18,20 +20,20 @@ export const Navigation = () => {
           onClick={() => handlePageState("home")}
           type="button"
         >
-          Home
+          {t("Home")}
         </button>
         <button
           className="cursor-pointer"
           onClick={() => handlePageState("projects")}
           type="button"
         >
-          Projects
+          {t("Projects")}
         </button>
         <button className="line-through cursor-default" type="button">
-          About
+          {t("About")}
         </button>
         <button className="line-through cursor-default" type="button">
-          Notes
+          {t("Notes")}
         </button>
       </div>
     </nav>

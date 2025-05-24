@@ -1,0 +1,34 @@
+{
+  "Navigation": {
+    "Home": "Home",
+    "Projects": "Projects",
+    "About": "About",
+    "Notes": "Notes"
+  },
+
+  "Home": {
+    "MainInfo": "Hi, I'm Filip, a self-taught front-end developer from Poland. I mainly work with <green>React</green>,\n<yellow>Next.js</yellow>,\n,<darkBlue>Tailwind CSS</darkBlue>\n, <blue>TypeScript</blue>, and relational databases like <orange>MySQL</orange>.",
+    "SocialLinksHeader": "Social links",
+    "TechHeader": "Tech I know and use"
+  },
+
+  "Tech": {
+    "TypeScript": "Typesafe JavaScript",
+    "TailwindCSS": "Modern CSS framework",
+    "Cloudflare": "Hosting & Cloud infrastructure",
+    "Bun": "All-in-one JavaScript toolkit",
+    "React": "Web & native user interfaces library",
+    "MySQL": "Relational database management system",
+    "Vite": "Front-end build tool",
+    "NextJS": "Front-end React framework"
+  },
+
+  "Projects": {
+    "pinnedProjectsHeader": "Pinned Github projects",
+    "recentProjectsHeader": "Recent Github projects",
+    "pinnedProjectsSwitch": "Switch to pinned",
+    "recentProjectsSwitch": "Switch to recent",
+    "visitRepo": "Visit repo",
+    "commits": "Commits"
+  }
+}

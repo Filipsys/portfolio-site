@@ -6,6 +6,7 @@ import { ProjectContext } from "@/providers/ContextProvider";
 import { MicroArrowIcon } from "@/icons/dev-icons";
 import { LoadingSkeleton } from "@/components/LoadingSkeleton";
 import type { ProjectData, GithubResponseJSON } from "@/types/global";
+import { useTranslations } from "next-intl";
 
 const ProjectsComponent = memo(() => {
   const [isLoading, setIsLoading] = useState(true);
@@ -16,6 +17,8 @@ const ProjectsComponent = memo(() => {
     pinnedRepoListData,
     setPinnedRepoListData,
   } = useContext(ProjectContext);
+
+  const t = useTranslations("Projects");
 
   useEffect(() => {
     const fetchDataFromGithub = async () => {
@@ -74,7 +77,12 @@ const ProjectsComponent = memo(() => {
   return (
     <div className="w-full">
       <div className="flex justify-between">
-        <h1>- {categoryPinned ? "Pinned" : "Recent"} Github projects</h1>
+        <h1>
+          -{" "}
+          {categoryPinned
+            ? t("pinnedProjectsHeader")
+            : t("recentProjectsHeader")}
+        </h1>
 
         <button
           className="flex gap-1 items-center *:fill-gray-500 hover:underline underline-offset-4 decoration-gray-500 cursor-pointer"
@@ -82,7 +90,9 @@ const ProjectsComponent = memo(() => {
           type="button"
         >
           <p className="text-sm text-gray-500">
-            Switch to {categoryPinned ? "recent" : "pinned"}
+            {categoryPinned
+              ? t("recentProjectsSwitch")
+              : t("pinnedProjectsSwitch")}
           </p>
 
           <MicroArrowIcon />

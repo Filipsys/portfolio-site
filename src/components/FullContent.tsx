@@ -4,6 +4,7 @@ import { Navigation } from "@/components/Navigation";
 import { MainSection } from "@/components/MainSection";
 import { FunModeTeleporter } from "@/components/FunModeTeleporter";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { LanguageToggle } from "./LanguageToggle";
 
 export const FullContent = () => (
   <main
@@ -14,6 +15,10 @@ export const FullContent = () => (
 
     <div className="absolute top-2 left-2">
       <ThemeToggle />
+    </div>
+
+    <div className="absolute top-2 left-12">
+      <LanguageToggle />
     </div>
 
     <div className="absolute bottom-0 left-0">
