@@ -5,8 +5,9 @@ import { RepoCard } from "@/components/projects/RepoCard";
 import { ProjectContext } from "@/providers/ContextProvider";
 import { MicroArrowIcon } from "@/icons/dev-icons";
 import { LoadingSkeleton } from "@/components/LoadingSkeleton";
-import type { ProjectData, GithubResponseJSON } from "@/types/global";
 import { useTranslations } from "next-intl";
+
+import type { ProjectData, GithubResponseJSON } from "@/types/global";
 
 const ProjectsComponent = memo(() => {
   const [isLoading, setIsLoading] = useState(true);

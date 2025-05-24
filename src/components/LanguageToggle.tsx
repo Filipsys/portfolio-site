@@ -1,12 +1,6 @@
 "use client";
 
-import {
-  MicroSunIcon,
-  MicroMoonIcon,
-  MicroLanguageIcon,
-} from "@/icons/dev-icons";
 import { useEffect, useState } from "react";
-import { redirect } from "@/i18n/navigation";
 import { useRouter } from "@/i18n/navigation";
 
 export const LanguageToggle = () => {

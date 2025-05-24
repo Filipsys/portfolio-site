@@ -17,7 +17,7 @@ export const ThemeToggle = () => {
       className="group p-2 border-[1px] border-neutral-700/10 dark:border-neutral-300/10"
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
       onKeyUp={(e) => {
-        if (e.key === "Enter" || e.key === " ")
+        if (e.key === "Enter" || e.key === "Space")
           setTheme(theme === "dark" ? "light" : "dark");
       }}
     >
