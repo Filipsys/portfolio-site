@@ -8,6 +8,7 @@
 
   "Home": {
     "MainInfo": "Hallo, ich bin Filip, ein autodidaktischer Frontend-Entwickler aus Polen. Ich arbeite hauptsächlich mit <green>React</green>, <yellow>Next.js</yellow>, <darkBlue>Tailwind CSS</darkBlue>, <blue>TypeScript</blue> und relationalen Datenbanken wie <orange>MySQL</orange>.",
+    "SocialLinksHeader": "Soziale Links",
     "TechHeader": "Technologien, die ich kenne und nutze"
   },
 
