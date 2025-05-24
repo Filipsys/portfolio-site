@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { screenInfoContext } from "./providers/screenInfo";
+import { screenInfoContext } from "../providers/screenInfo";
 import {
   convertJSXTo2d,
   createBox,
