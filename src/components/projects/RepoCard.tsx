@@ -148,7 +148,7 @@ export const RepoCard = (props: {
 
         <div className="flex justify-between">
           <p className="text-neutral-700/50 dark:text-neutral-300/50">
-            Last updated: {new Date(props.lastUpdate).toDateString()}
+            {t("recentlyUpdated")}: {new Date(props.lastUpdate).toDateString()}
           </p>
 
           <div className="flex items-center gap-1">
