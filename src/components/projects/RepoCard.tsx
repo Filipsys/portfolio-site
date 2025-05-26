@@ -135,14 +135,8 @@ export const RepoCard = (props: {
         <div
           className={`flex flex-wrap gap-1 ${props.topics.length > 0 ? "pb-2" : null}`}
         >
-          {props.topics.map((topic, index) => (
-            <Topic
-              key={`${topic}-${
-                // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
-                index
-              }`}
-              name={topic}
-            />
+          {props.topics.map((topic) => (
+            <Topic key={`repo-${props.repoName}-topic-${topic}`} name={topic} />
           ))}
         </div>
 
