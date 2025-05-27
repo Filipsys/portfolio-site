@@ -1,8 +1,8 @@
 "use client";
 
 import { useRouter } from "@/i18n/navigation";
-import { LanguageIcon } from "@/icons/dev-icons";
 import { useEffect, useState } from "react";
+import { LanguageIcon } from "@/icons/dev-icons";
 
 type supportedLanguages = "en" | "de" | "pl";
 
@@ -10,6 +10,10 @@ const languages = {
   en: "english",
   de: "german",
   pl: "polish",
+};
+
+const checkLangPrefCookie = (): boolean => {
+  return document.cookie.includes("keepLangPref=true");
 };
 
 export const LanguageSwitch = () => {
@@ -25,19 +29,30 @@ export const LanguageSwitch = () => {
     setModalIsVisible(false);
   };
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies:
+  const handleDismiss = () => {
+    setModalIsVisible(false);
+
+    document.cookie = "keepLangPref=true; path=*; max-age=604800";
+  };
+
   useEffect(() => {
-    const lang = navigator.language.slice(0, 2);
+    if (checkLangPrefCookie()) return;
 
-    if (["en", "de", "pl"].includes(lang)) {
-      if (detectedLanguage !== lang) {
-        setModalIsVisible(true);
+    const browserLanguage = navigator.language.slice(0, 2);
+    if (!["en", "de", "pl"].includes(browserLanguage)) return;
 
-        setDetectedLanguage(lang as supportedLanguages);
-      } else {
-        setModalIsVisible(false);
-      }
+    const urlPath = window.document.URL.split("/").at(3);
+    const urlLanguage =
+      urlPath === "" || urlPath === undefined ? "en" : urlPath.slice(0, 2);
+
+    if (urlLanguage !== browserLanguage) {
+      setModalIsVisible(true);
+      setDetectedLanguage(browserLanguage as supportedLanguages);
+
+      return;
     }
+
+    setModalIsVisible(false);
   }, []);
 
   return modalIsVisible ? (
@@ -66,7 +81,7 @@ export const LanguageSwitch = () => {
 
           <button
             type="button"
-            onClick={() => setModalIsVisible(false)}
+            onClick={() => handleDismiss()}
             className="w-full p-2 px-14 bg-neutral-300 text-black border-[1px] border-black/10 dark:bg-neutral-900 dark:text-white dark:border-white/10 hover:bg-neutral-400 dark:hover:bg-neutral-800"
           >
             <p>Dismiss</p>
