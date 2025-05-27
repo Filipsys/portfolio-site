@@ -17,9 +17,11 @@ export const LanguageToggle = () => {
         name="language-select"
         id="languages"
         value={window.location.pathname.slice(1, 3) || "en"}
-        onChange={(event) =>
-          router.replace("/", { locale: event.currentTarget.value })
-        }
+        onChange={(event) => {
+          document.cookie = "keepLangPref=true; path=*; max-age=604800";
+
+          router.replace("/", { locale: event.currentTarget.value });
+        }}
       >
         <option value="en">English</option>
         <option value="pl">Polski</option>
