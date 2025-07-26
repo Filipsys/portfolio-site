@@ -1,4 +1,5 @@
 import {
+  RedirectIcon,
   SmallGithubIcon,
   SmallGmailIcon,
   SmallLinkedinIcon,
@@ -36,6 +37,7 @@ const DesktopLink = (props: {
 }) => (
   <div className="flex justify-between group z-50 transition-colors duration-200 hover:text-neutral-700 dark:hover:text-neutral-300">
     <a
+      className="flex gap-1 items-center"
       href={
         props.element.name === "Email"
           ? `mailto:${props.element.link}`
@@ -45,6 +47,10 @@ const DesktopLink = (props: {
       rel="noreferrer"
     >
       {props.element.link}
+
+      <div className="opacity-0 duration-200 transition-opacity group-hover:opacity-100">
+        <RedirectIcon />
+      </div>
     </a>
 
     <div className="flex items-center gap-2">
