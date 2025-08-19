@@ -5,6 +5,7 @@
   --animate-sidewaysGlitch: sidewaysGlitch 0.05s linear infinite;
   --animate-sidewaysMove: sidewaysMove 0.5s linear infinite;
   --animate-verticalMove: verticalMove 5s linear infinite;
+  --animate-delayedAppear: delayedAppear 5s linear;
 
   @keyframes sidewaysMove {
     0% {
@@ -112,5 +113,14 @@
     100% {
       transform: translateX(0vw);
     }
+  }
+}
+
+@keyframes delayedAppear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }

@@ -6,6 +6,8 @@ import { Suspense, useEffect } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 
 export function PostHogProvider({ children }: { children: React.ReactNode }) {
+  if (process.env.NODE_ENV !== "production") return children;
+
   useEffect(() => {
     posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY as string, {
       api_host: "/ingest",

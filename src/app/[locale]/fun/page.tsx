@@ -1,46 +1,57 @@
+"use client";
+
 import { MainPanel } from "@/components/fun/MainPanel";
 import { SidePanel } from "@/components/fun/SidePanel";
 import { ErrorPopup } from "@/components/fun/ErrorPopup";
 import { Cookies } from "@/components/fun/Cookies";
+import { Verification } from "@/components/fun/Verification";
+import { useState } from "react";
 
 export default function Fun() {
+  const [cookiesAccepted, setCookiesAccepted] = useState<boolean>(false);
+
   return (
-    <main
-      className="text-white h-full w-full flex justify-center"
-      id="main"
-      style={{
-        backgroundImage: "url(/background3.webp)",
-        backgroundSize: "10vw 10vw",
-      }}
-    >
-      <Cookies />
+    <>
+      <div className="absolute w-full h-12 bg-gradient-to-b from-zinc-700" />
 
-      <div className="bg-zinc-950 max-w-7xl [font-family:serif] flex flex-col h-dvh [box-shadow:_0px_0px_50px_30px_rgba(0,_0,_0,_1)]">
-        <div
-          className="w-full h-24 mb-12"
-          style={{
-            backgroundImage: "url(./sparkles.gif)",
-            backgroundSize: "12vw",
-            backgroundRepeat: "10",
-          }}
-        />
+      <main
+        className="text-white h-full w-full flex justify-center"
+        id="main"
+        style={{
+          backgroundImage: "url(/background3.webp)",
+          backgroundSize: "10vw 10vw",
+        }}
+      >
+        {cookiesAccepted ? <Verification /> : null}
+        <Cookies setCookiesAccepted={setCookiesAccepted} />
 
-        <div className="w-full h-dvh flex flex-row">
-          <div className="h-full w-2/3">
-            <div className="w-full flex justify-center">
-              <MainPanel />
+        <div className="bg-zinc-950 max-w-7xl [font-family:serif] flex flex-col h-dvh [box-shadow:_0px_0px_50px_30px_rgba(0,_0,_0,_1)]">
+          <div
+            className="w-full h-24 mb-12"
+            style={{
+              backgroundImage: "url(./sparkles.gif)",
+              backgroundSize: "12vw",
+              backgroundRepeat: "10",
+            }}
+          />
+
+          <div className="w-full h-dvh flex flex-row">
+            <div className="h-full w-2/3">
+              <div className="w-full flex justify-center">
+                <MainPanel />
+              </div>
+            </div>
+
+            <div className="h-full w-1/3">
+              <SidePanel />
             </div>
           </div>
-
-          <div className="h-full w-1/3">
-            <SidePanel />
-          </div>
         </div>
-      </div>
 
-      <div className="fixed top-4 left-4">
-        <ErrorPopup />
-      </div>
-    </main>
+        <div className="fixed top-4 left-4">
+          <ErrorPopup />
+        </div>
+      </main>
+    </>
   );
 }

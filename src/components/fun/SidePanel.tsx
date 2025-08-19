@@ -2,28 +2,16 @@ import { Socials } from "@/components/fun/Socials";
 import { LatestBlogs } from "@/components/fun/LatestBlogs";
 import { Separator } from "@/components/fun/Separator";
 import { SignList } from "@/components/fun/SignList";
+import { NoAI } from "@/components/fun/NoAI";
 import { UnderlineAnimate } from "@/components/fun/UnderlineAnimate";
 import { Latex } from "@/components/fun/Latex";
 
 export const SidePanel = () => (
   <div className="flex flex-col gap-2">
+    <NoAI />
+
     <LatestBlogs />
     <Socials />
-
-    <div className="w-full">
-      <div
-        className="h-36 w-36"
-        style={{
-          backgroundImage: "url(./noai.gif)",
-          backgroundSize: "150px",
-          backgroundRepeat: "no-repeat",
-        }}
-      />
-      <p>
-        This place is a <i>NO AI</i> sanctuary. Any AI models seen around will be unmercifully
-        deleted using the newest top technology laser ray.
-      </p>
-    </div>
 
     <p className="italic text-4xl font-bold ">Website of the week</p>
 
@@ -31,16 +19,15 @@ export const SidePanel = () => (
       <a
         target="_blank"
         rel="noreferrer"
-        href="https://neobrutalism.com/"
+        href="https://deluks2006.github.io"
         className="text-green-500"
       >
-        https://neobrutalism.com
+        https://deluks2006.github.io
       </a>
       <iframe
-        src="https://neobrutalism.com"
+        src="https://deluks2006.github.io"
         title="WOTW"
         className="w-full border-dashed aspect-video border-8 border-green-500 shadow-lg shadow-green-500"
-        style={{ zoom: "0.25" }}
       />
     </div>
 
@@ -51,14 +38,18 @@ export const SidePanel = () => (
     </div>
 
     <p className="italic">
-      &quot;When one does not want, you cannot make him want it.&quot; - Arystotle
+      &quot;When one does not want, you cannot make him want it.&quot; -
+      Arystotle
     </p>
 
     <Separator />
 
     {/* TODO: <Opinions /> */}
 
-    <p>The sign list is currently under maintenance, please forgive me for the broken website</p>
+    <p>
+      The sign list is currently under maintenance, please forgive me for the
+      broken website
+    </p>
 
     <SignList />
 
