@@ -33,11 +33,12 @@ export const Cookies = (props: {
           <button
             type="button"
             onClick={() => {
+              props.setCookiesAccepted(true);
+
               const div = cookiesWindowRef.current;
               if (!div) return;
 
-              props.setCookiesAccepted(true);
-              div.remove();
+              setTimeout(() => div.remove(), 10);
             }}
           >
             <p>🍪 Accept all the cookies (yummy)</p>
