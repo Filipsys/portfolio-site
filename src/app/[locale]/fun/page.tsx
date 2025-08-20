@@ -4,7 +4,7 @@ import { MainPanel } from "@/components/fun/MainPanel";
 import { SidePanel } from "@/components/fun/SidePanel";
 import { ErrorPopup } from "@/components/fun/ErrorPopup";
 import { Cookies } from "@/components/fun/Cookies";
-import { Verification } from "@/components/fun/Verification";
+import { Verification } from "@/components/fun/Verification/Verification";
 import { useState } from "react";
 
 export default function Fun() {

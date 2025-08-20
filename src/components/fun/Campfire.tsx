@@ -2,26 +2,9 @@
 
 import { useEffect, useState } from "react";
 
-const fireCursorsFolder = "./firecursor-frames";
-
 export const Campfire = () => {
   const [touched, setTouched] = useState(false);
   const [cursorIndex, setCursorIndex] = useState(1);
-
-  useEffect(() => {
-    const cursorImages = [];
-
-    const preloadImages = () => {
-      for (let i = 1; i <= 100; i++) {
-        const image = new Image();
-
-        image.src = `${fireCursorsFolder}/frame-${i}.webp`;
-        cursorImages.push(image);
-      }
-    };
-
-    preloadImages();
-  }, []);
 
   useEffect(() => {
     // Doing the unholy here, forgive me
@@ -31,23 +14,37 @@ export const Campfire = () => {
     const mainDiv = document.getElementById("main");
     if (!mainDiv) return;
 
-    const interval = setInterval(() => {
-      setCursorIndex((cursorIndex) => (cursorIndex < 100 ? cursorIndex + 1 : 1));
+    const image = new Image();
+    image.src = "./fire-cursor-tileset.webp";
 
-      if (touched) {
-        mainDiv.style.cursor = `url(${fireCursorsFolder}/frame-${cursorIndex}.webp), auto`;
-      }
-    }, 120);
+    const canvas = document.createElement("canvas");
+    const ctx = canvas.getContext("2d");
+    canvas.width = 32;
+    canvas.height = 32;
+
+    let cursorIndex = 0;
+    let interval: NodeJS.Timeout;
+
+    image.onload = () => {
+      interval = setInterval(() => {
+        cursorIndex = (cursorIndex + 1) % 100;
+
+        ctx?.clearRect(0, 0, 32, 32);
+        ctx?.drawImage(image, 32 * cursorIndex, 0, 32, 32, 0, 0, 32, 32);
+
+        const dataURL = canvas.toDataURL("image/png");
+        if (touched) mainDiv.style.cursor = `url(${dataURL}) 0 0, auto`;
+      }, 120);
+    };
 
     return () => clearInterval(interval);
-  }, [cursorIndex, touched]);
+  }, [touched]);
 
   return (
-    <button
-      type="button"
+    <div
       onMouseOver={() => setTouched(true)}
       onFocus={() => setTouched(true)}
-      className="h-32 w-32"
+      className="h-32 aspect-square"
       style={{
         backgroundImage: "url(./campfire.gif)",
         backgroundSize: "150px",
