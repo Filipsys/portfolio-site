@@ -13,12 +13,14 @@ export const HomeComponent = () => {
           {t.rich("MainInfo", {
             green: (chunks) => <span className="text-green-500">{chunks}</span>,
             yellow: (chunks) => (
-              <span className="text-yellow-500">{chunks}</span>
+              <span className="dark:text-yellow-400 text-yellow-700">
+                {chunks}
+              </span>
             ),
             darkBlue: (chunks) => (
               <span className="dark:text-blue-200 text-blue-500">{chunks}</span>
             ),
-            blue: (chunks) => <span className="text-blue-600">{chunks}</span>,
+            blue: (chunks) => <span className="text-blue-500">{chunks}</span>,
             orange: (chunks) => (
               <span className="text-orange-400">{chunks}</span>
             ),
