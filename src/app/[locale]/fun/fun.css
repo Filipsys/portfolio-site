@@ -118,12 +118,12 @@
 
 @keyframes delayedAppear {
   0% {
-    opacity: 0;
+    display: none;
   }
   99% {
-    opacity: 0;
+    display: none;
   }
   100% {
-    opacity: 1;
+    display: flex;
   }
 }
