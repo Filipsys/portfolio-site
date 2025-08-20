@@ -29,6 +29,7 @@
     "pinnedProjectsSwitch": "Przełącz na przypięte",
     "recentProjectsSwitch": "Przełącz na ostatnie",
     "recentlyUpdated": "Ostatnio zaaktualizowane",
+    "noDescription": "Brak podanego opisu.",
     "visitRepo": "Odwiedź repozytorium",
     "commits": "Commity"
   }

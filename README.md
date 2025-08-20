@@ -15,4 +15,4 @@
 - [x] Possibly add Posthog to track any parts of the site that could be improved on.
 - [x] Replace Eslint with [Biome](https://biomejs.dev) to improve DX.
 - [ ] Update site accessibility to include the ability of traversing without a mouse.
-- [ ] Fix light mode & add theme toggle.
+- [x] Fix light mode & add theme toggle.

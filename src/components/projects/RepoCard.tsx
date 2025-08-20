@@ -129,7 +129,7 @@ export const RepoCard = (props: {
 
       <div className="flex flex-col grow">
         <div className="grow">
-          <p>{props.repoDescription}</p>
+          <p>{props.repoDescription || t("noDescription")}</p>
         </div>
 
         <div

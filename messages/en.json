@@ -28,6 +28,7 @@
     "recentProjectsHeader": "Recent Github projects",
     "pinnedProjectsSwitch": "Switch to pinned",
     "recentProjectsSwitch": "Switch to recent",
+    "noDescription": "No description provided.",
     "recentlyUpdated": "Recently updated",
     "visitRepo": "Visit repo",
     "commits": "Commits"
