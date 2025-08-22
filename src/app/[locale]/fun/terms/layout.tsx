@@ -1,4 +1,4 @@
-import "./fun.css";
+import "../fun.css";
 
 export default function RootLayout({
   children,
