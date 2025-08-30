@@ -8,6 +8,13 @@ import { Latex } from "@/components/fun/Latex";
 
 export const SidePanel = () => (
   <div className="flex flex-col gap-2">
+    <a
+      href="https://filyys.dev"
+      className="border mb-4 flex justify-center items-center p-3"
+    >
+      Go back to my boring site clicking here
+    </a>
+
     <NoAI />
 
     <LatestBlogs />
