@@ -4,6 +4,7 @@ import { MainPanel } from "@/components/fun/MainPanel";
 import { SidePanel } from "@/components/fun/SidePanel";
 import { ErrorPopup } from "@/components/fun/ErrorPopup";
 import { Cookies } from "@/components/fun/Cookies";
+import { CAPTCHA } from "@/components/fun/CAPTCHA";
 import { Verification } from "@/components/fun/Verification/Verification";
 import { useState } from "react";
 
@@ -24,6 +25,8 @@ export default function Fun() {
       >
         {cookiesAccepted ? <Verification /> : null}
         <Cookies setCookiesAccepted={setCookiesAccepted} />
+
+        <CAPTCHA />
 
         <div className="bg-zinc-950 max-w-7xl [font-family:serif] flex flex-col h-dvh [box-shadow:_0px_0px_50px_30px_rgba(0,_0,_0,_1)]">
           <div

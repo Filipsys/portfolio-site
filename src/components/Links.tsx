@@ -53,13 +53,22 @@ const DesktopLink = (props: {
       </div>
     </a>
 
-    <div className="flex items-center gap-2">
-      <p className="hidden sm:block">{props.element.name}</p>
+    <a
+      href={
+        props.element.name === "Email"
+          ? `mailto:${props.element.link}`
+          : `https://${props.element.link}`
+      }
+      target="_blank"
+      rel="noreferrer"
+      className="flex items-center gap-2"
+    >
+      <span className="hidden sm:block">{props.element.name}</span>
 
       <div className="size-4 duration-200 fill-neutral-700/50 dark:fill-neutral-300/50 group-hover:fill-neutral-700 dark:group-hover:fill-neutral-300">
         <props.element.icon />
       </div>
-    </div>
+    </a>
   </div>
 );
 
