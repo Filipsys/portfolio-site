@@ -8,8 +8,30 @@ import { CAPTCHA } from "@/components/fun/CAPTCHA";
 import { Verification } from "@/components/fun/Verification/Verification";
 import { useState } from "react";
 
+const halloweenMode = true;
+
 export default function Fun() {
   const [cookiesAccepted, setCookiesAccepted] = useState<boolean>(false);
+
+  if (halloweenMode)
+    return (
+      <>
+        <div className="absolute w-full h-12 bg-gradient-to-b from-zinc-700" />
+
+        <main
+          className="text-white h-dvh w-full flex justify-center"
+          id="main"
+          style={{
+            backgroundImage: "url(/background3.webp)",
+            backgroundSize: "10vw 10vw",
+          }}
+        >
+          <div className="bg-zinc-950 max-w-7xl [font-family:serif] flex flex-col h-dvh [box-shadow:_0px_0px_50px_30px_rgba(0,_0,_0,_1)]">
+            <p>HelloHelloHelloHello HelloHelloHelloHello HelloHelloHelloHello HelloHelloHelloHello HelloHelloHelloHello HelloHelloHelloHello HelloHelloHelloHello HelloHelloHelloHello HelloHelloHelloHello HelloHelloHelloHello HelloHelloHelloHello HelloHelloHelloHello HelloHelloHelloHello HelloHelloHelloHello HelloHelloHelloHello</p>
+          </div>
+        </main>
+      </>
+    );
 
   return (
     <>
