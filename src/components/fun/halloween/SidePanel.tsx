@@ -1,12 +1,10 @@
 import { Socials } from "@/components/fun/Socials";
 import { LatestBlogs } from "@/components/fun/LatestBlogs";
 import { Separator } from "@/components/fun/Separator";
-import { SignList } from "@/components/fun/SignList";
-import { NoAI } from "@/components/fun/NoAI";
 import { UnderlineAnimate } from "@/components/fun/UnderlineAnimate";
 import { Latex } from "@/components/fun/Latex";
 
-export const SidePanel = () => (
+export const HalloweenSidePanel = () => (
   <div className="flex flex-col gap-2">
     <a
       href="https://filyys.dev"
@@ -15,12 +13,26 @@ export const SidePanel = () => (
       Go back to my boring site clicking here
     </a>
 
-    <NoAI />
+    <div className="w-full flex">
+      <div
+        className="h-36 aspect-square"
+        style={{
+          backgroundImage: "url(./pumpkins-stack.gif)",
+          backgroundSize: "130px",
+          backgroundRepeat: "no-repeat",
+        }}
+      />
+
+      <p className="text-xl">
+        This spooky place is a <i>NO AI</i> sanctuary. Any AI models seen around will be
+        unmercifully spooked away using the a very scary skeleton statue.
+      </p>
+    </div>
 
     <LatestBlogs />
     <Socials />
 
-    <p className="italic text-4xl font-bold ">Website of the week</p>
+    <p className="italic text-4xl font-bold ">Spooky site of the week</p>
 
     <div className="*:overflow-hidden">
       <a
@@ -40,25 +52,16 @@ export const SidePanel = () => (
 
     <Latex />
 
-    <div className="text-yellow-400 font-mono text-4xl">
-      <UnderlineAnimate text={"Quote of the day"} />
+    <div className="text-yellow-400 font-mono text-3xl">
+      <UnderlineAnimate text={"Scary quote of the day"} />
     </div>
 
     <p className="italic">
-      &quot;When one does not want, you cannot make him want it.&quot; -
+      &quot;Spooky season is very scary rahh are you scared yet&quot; -
       Arystotle
     </p>
 
     <Separator />
-
-    {/* TODO: <Opinions /> */}
-
-    <p>
-      The sign list is currently under maintenance, please forgive me for the
-      broken website
-    </p>
-
-    <SignList />
 
     <div className="w-full h-24" />
   </div>

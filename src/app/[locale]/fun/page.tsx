@@ -6,6 +6,9 @@ import { ErrorPopup } from "@/components/fun/ErrorPopup";
 import { Cookies } from "@/components/fun/Cookies";
 import { CAPTCHA } from "@/components/fun/CAPTCHA";
 import { Verification } from "@/components/fun/Verification/Verification";
+
+import { HalloweenSidePanel } from "@/components/fun/halloween/SidePanel";
+
 import { useState } from "react";
 
 const halloweenMode = true;
@@ -17,6 +20,15 @@ export default function Fun() {
     return (
       <>
         <div className="absolute w-full h-12 bg-gradient-to-b from-zinc-700" />
+
+        <img src="/halloween.gif" className="absolute -top-12 left-1/6" />
+        <img src="/halloween.gif" className="absolute top-0 left-1/8" />
+        <img src="/halloween.gif" className="absolute -top-14 left-1/2" />
+        <img src="/halloween.gif" className="absolute top-0 left-1/5" />
+
+        <img src="/bats.gif" className="absolute top-1/3 left-8" />
+        <img src="/bats.gif" className="absolute top-1/2 right-8" />
+        <img src="/bats.gif" className="absolute top-5/6 right-8" />
 
         <main
           className="text-white h-dvh w-full flex justify-center"
@@ -35,7 +47,7 @@ export default function Fun() {
               </div>
 
               <div className="h-full w-1/3">
-                <SidePanel />
+                <HalloweenSidePanel />
               </div>
             </div>
           </div>
