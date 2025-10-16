@@ -7,6 +7,7 @@ import { Cookies } from "@/components/fun/Cookies";
 import { CAPTCHA } from "@/components/fun/CAPTCHA";
 import { Verification } from "@/components/fun/Verification/Verification";
 
+import { HalloweenMainPanel } from "@/components/fun/halloween/MainPanel";
 import { HalloweenSidePanel } from "@/components/fun/halloween/SidePanel";
 
 import { useState } from "react";
@@ -19,7 +20,8 @@ export default function Fun() {
   if (halloweenMode)
     return (
       <>
-        <div className="absolute w-full h-12 bg-gradient-to-b from-zinc-700" />
+        <div className="absolute w-full h-24 bg-gradient-to-b from-black" />
+        <div className="absolute w-full bottom-0 h-24 bg-gradient-to-b to-black z-0" />
 
         <img src="/halloween.gif" className="absolute -top-12 left-1/6" />
         <img src="/halloween.gif" className="absolute top-0 left-1/8" />
@@ -38,11 +40,11 @@ export default function Fun() {
             backgroundSize: "30vw 30vw",
           }}
         >
-          <div className="bg-zinc-950 max-w-7xl [font-family:serif] flex flex-col h-dvh [box-shadow:_0px_0px_50px_30px_rgba(0,_0,_0,_1)]">
+          <div className="z-10 bg-zinc-950 max-w-7xl [font-family:serif] flex flex-col h-dvh [box-shadow:_0px_0px_50px_30px_rgba(0,_0,_0,_1)]">
             <div className="w-full h-dvh flex flex-row">
               <div className="h-full w-2/3">
-                <div className="w-full flex justify-center">
-                  <MainPanel />
+                <div className="w-full flex justify-center ">
+                  <HalloweenMainPanel />
                 </div>
               </div>
 

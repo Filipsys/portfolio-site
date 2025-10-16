@@ -1,29 +1,30 @@
 import { Separator } from "@/components/fun/Separator";
 import { TechList } from "@/components/fun/TechList";
 import { Campfire } from "@/components/fun/Campfire";
+import { ShakingText } from "../ShakingText";
 
-export const MainPanel = () => (
+export const HalloweenMainPanel = () => (
   <div className="flex flex-col">
-    <h1 className="py-8 italic text-8xl text-shadow-white font-bold text-transparent bg-clip-text [-webkit-text-stroke:2px_red] bg-gradient-to-b from-green-400 to-green-900 text-center">
-      Welcome to my site
+    <h1 className="py-8 italic text-7xl text-shadow-white font-bold text-transparent bg-clip-text [-webkit-text-stroke:2px_red] bg-gradient-to-b from-green-400 to-green-900 text-center">
+      Welcome to my spooky site
     </h1>
 
     <div className="w-full flex justify-center">
       <Campfire />
     </div>
 
-    <p>
-      Welcome to my hidden part of the internet. You have been through a lot,
-      take a rest, relax, sip some coffee and sit down next to the campfire.
-    </p>
-    <div className="animate-sidewaysGlitch">
-      Don&apos;t worry, it won&apos;t bite :)
-    </div>
+    <span>
+      🎃🎃🎃 Welcome to my hidden part of the internet. 🍬🍬🍬 You have been through a lot,
+      take a rest, relax, sip some coffee and sit down next to the campfire. 👻👻👻 
+      <span className="pl-1 inline-block animate-sidewaysGlitch">
+        Don&apos;t worry, it won&apos;t bite :)
+      </span>
+    </span>
 
     <Separator />
 
     <div className="w-full flex justify-center">
-      <p className="text-3xl text-red-700 text-center">About Me Section</p>
+      <p className="text-3xl text-red-700 text-center flex gap-1"><ShakingText text="Scary" /><ShakingText text="me" /></p>
     </div>
 
     <Separator />

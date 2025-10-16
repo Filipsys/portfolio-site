@@ -1,8 +1,10 @@
-import { Socials } from "@/components/fun/Socials";
-import { LatestBlogs } from "@/components/fun/LatestBlogs";
 import { Separator } from "@/components/fun/Separator";
 import { UnderlineAnimate } from "@/components/fun/UnderlineAnimate";
 import { Latex } from "@/components/fun/Latex";
+
+import { HalloweenLatestBlogs } from "@/components/fun/halloween/LatestBlogs";
+import { HalloweenSocials } from "@/components/fun/halloween/Socials";
+import { ShakingText } from "../ShakingText";
 
 export const HalloweenSidePanel = () => (
   <div className="flex flex-col gap-2">
@@ -24,13 +26,13 @@ export const HalloweenSidePanel = () => (
       />
 
       <p className="text-xl">
-        This spooky place is a <i>NO AI</i> sanctuary. Any AI models seen around will be
+        This <ShakingText text="spooky" /> place is a <i>NO AI</i> sanctuary. Any AI models seen around will be
         unmercifully spooked away using the a very scary skeleton statue.
       </p>
     </div>
 
-    <LatestBlogs />
-    <Socials />
+    <HalloweenLatestBlogs />
+    <HalloweenSocials />
 
     <p className="italic text-4xl font-bold ">Spooky site of the week</p>
 
@@ -57,7 +59,7 @@ export const HalloweenSidePanel = () => (
     </div>
 
     <p className="italic">
-      &quot;Spooky season is very scary rahh are you scared yet&quot; -
+      &quot;<ShakingText text="Spooky" /> season is very scary rahh are you scared yet&quot; -
       Arystotle
     </p>
 

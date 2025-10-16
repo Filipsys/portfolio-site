@@ -17,6 +17,8 @@ export const metadata: Metadata = {
   },
 };
 
+const halloweenMode = true;
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
@@ -38,7 +40,7 @@ export default function RootLayout({
         <title>fun site!!! @ filyys</title>
       </head>
 
-      <body className="antialiased">{children}</body>
+      <body className={`antialiased ${halloweenMode ? "bg-black" : null}`}>{children}</body>
     </html>
   );
 }
