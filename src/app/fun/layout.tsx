@@ -2,18 +2,32 @@ import "./fun.css";
 
 import type { Metadata } from "next";
 
+// export const metadata: Metadata = {
+//   title: "fun site!!! @ filyys",
+//   description:
+//     "Get on and rock over cause this is a massive journey. Let the fun begin!!!",
+//   openGraph: {
+//     type: "website",
+//     title: "fun site!!! @ filyys",
+//     siteName: "fun site!!! @ filyys",
+//     description:
+//       "Get on and rock over cause this is a massive journey. Let the fun begin!!!",
+//     url: "https://filyys.dev/fun",
+//     images: [{ url: "https://filyys.dev/fire.gif" }],
+//   },
+// };
+
 export const metadata: Metadata = {
-  title: "fun site!!! @ filyys",
+  title: "👻🎃 spooky site!!! @ filyys",
   description:
-    "Get on and rock over cause this is a massive journey. Let the fun begin!!!",
+    "This is so scary. I am so scared. Halloween is so scary. Scary skeletons and scary pumpkins haunt my dreams in October",
   openGraph: {
     type: "website",
-    title: "fun site!!! @ filyys",
-    siteName: "fun site!!! @ filyys",
+    title: "👻🎃 spooky site!!! @ filyys",
     description:
-      "Get on and rock over cause this is a massive journey. Let the fun begin!!!",
+      "This is so scary. I am so scared. Halloween is so scary. Scary skeletons and scary pumpkins haunt my dreams in October",
     url: "https://filyys.dev/fun",
-    images: [{ url: "https://filyys.dev/fire.gif" }],
+    images: [{ url: "https://filyys.dev/glitch.webp" }],
   },
 };
 
