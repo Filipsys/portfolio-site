@@ -23,10 +23,10 @@ export default function Fun() {
         <div className="absolute w-full h-24 bg-gradient-to-b from-black" />
         <div className="absolute w-full bottom-0 h-24 bg-gradient-to-b to-black z-0" />
 
-        <img src="/halloween.gif" className="absolute -top-12 left-1/6" />
-        <img src="/halloween.gif" className="absolute top-0 left-1/8" />
-        <img src="/halloween.gif" className="absolute -top-14 left-1/2" />
-        <img src="/halloween.gif" className="absolute top-0 left-1/5" />
+        <img src="/halloween.gif" className="z-20 absolute -top-12 left-1/6" />
+        <img src="/halloween.gif" className="z-20 absolute top-0 left-1/8" />
+        <img src="/halloween.gif" className="z-20 absolute -top-14 left-1/2" />
+        <img src="/halloween.gif" className="z-20 absolute top-0 left-1/5" />
 
         <img src="/bats.gif" className="absolute top-1/3 left-8" />
         <img src="/bats.gif" className="absolute top-1/2 right-8" />
