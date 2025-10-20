@@ -1,3 +1,5 @@
+import "./fun.css";
+
 import { MainPanel } from "@/components/halloween/MainPanel";
 import { SidePanel } from "@/components/halloween/SidePanel";
 
@@ -6,7 +8,7 @@ export const HalloweenFunPage = () => {
 
   return isHalloween ? (
     <>
-      <div className="absolute w-full h-24 bg-gradient-to-b from-black" />
+      <div className="absolute w-full h-24 bg-gradient-to-b from-black z-20" />
       <div className="absolute w-full bottom-0 h-24 bg-gradient-to-b to-black z-0" />
 
       <img src="/halloween.gif" className="z-20 absolute -top-12 left-1/6" />
