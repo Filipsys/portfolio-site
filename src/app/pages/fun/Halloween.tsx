@@ -1,5 +1,3 @@
-import "./fun.css";
-
 import { MainPanel } from "@/components/halloween/MainPanel";
 import { SidePanel } from "@/components/halloween/SidePanel";
 
