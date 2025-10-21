@@ -12,7 +12,7 @@ export const Document: React.FC<{ children: React.ReactNode }> = ({
       <link rel="modulepreload" href="/src/client.tsx" />
       <link rel="stylesheet" href={styles} />
     </head>
-    <body>
+    <body style={{ backgroundColor: "black" }}>
       <div id="root">{children}</div>
 
       <script>import("/src/client.tsx")</script>

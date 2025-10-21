@@ -2,7 +2,8 @@ import { MainPanel } from "@/components/halloween/MainPanel";
 import { SidePanel } from "@/components/halloween/SidePanel";
 
 export const HalloweenFunPage = () => {
-  const isHalloween = new Date().getMonth() + 1 === 10;
+  // const isHalloween = new Date().getMonth() + 1 === 10;
+  const isHalloween = false;
 
   return isHalloween ? (
     <>
