@@ -8,7 +8,7 @@ export const GlitchingText = (props: { frequency?: number; text: string }) => (
           className={`inline-block ${Math.random() < 0.5 ? "animate-horizontalGlitch" : "animate-verticalGlitch"}`}
           style={{
             animationDelay: Math.round(Math.random() * 5000) + "ms",
-            animationDuration: Math.round(Math.random() * 10000) + "ms"
+            animationDuration: Math.round(Math.random() * 5000) + "ms"
           }}
         >{char}</span>
       }
