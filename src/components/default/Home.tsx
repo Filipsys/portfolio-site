@@ -1,16 +1,17 @@
-import { Separator } from "@/components/Separator";
-import { TechCards } from "@/components/TechCards";
-import { Links } from "@/components/Links";
-import { useTranslations } from "next-intl";
+import { Separator } from "@/components/default/Separator";
+import { TechCards } from "@/components/default/TechCards";
+import { Links } from "@/components/default/Links";
+
+import { useTranslation } from "react-i18next";
 
 export const HomeComponent = () => {
-  const t = useTranslations("Home");
+  const { t, i18n } = useTranslation();
 
   return (
     <div>
       <div>
         <h1 className="text-xl font-light tracking-wide xs:text-2xl sm:text-3xl">
-          {t.rich("MainInfo", {
+          {/* {t.rich("MainInfo", {
             green: (chunks) => <span className="text-green-500">{chunks}</span>,
             yellow: (chunks) => (
               <span className="dark:text-yellow-400 text-yellow-700">
@@ -24,7 +25,7 @@ export const HomeComponent = () => {
             orange: (chunks) => (
               <span className="text-orange-400">{chunks}</span>
             ),
-          })}
+          })} */}
         </h1>
       </div>
 

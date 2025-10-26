@@ -1,12 +1,18 @@
+import i18next from "i18next";
+import en from "@/locales/en.json";
+import pl from "@/locales/pl.json";
+import de from "@/locales/de.json";
+
 import { Separator } from "@/components/default/Separator";
 import { Navigation } from "@/components/default/Navigation";
-// import { MainSection } from "@/components/default/MainSection";
 import { HomeComponent } from "@/components/default/Home";
 import { FunModeTeleporter } from "@/components/default/FunModeTeleporter";
 
-// import { ChristmasLights } from "@/components/default/ChristmasLights";
-// import { ThemeToggle } from "@/components/default/ThemeToggle";
-// import { LanguageToggle } from "./LanguageToggle";
+i18next.init({
+  resources: {
+    en, pl, de
+  },
+});
 
 export const Home = () => (
   <main

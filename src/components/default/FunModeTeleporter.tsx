@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+// import Image from "next/image";
 
 export const FunModeTeleporter = () => (
   <button
@@ -12,6 +12,6 @@ export const FunModeTeleporter = () => (
   >
     <p className="px-1 text-red-600 dark:text-red-300 absolute top-0 font-serif opacity-0">Enter fun mode...</p>
 
-    <Image className="opacity-0" src="/cat.svg" width={200} height={200} alt="cat-image" />
+    {/* <Image className="opacity-0" src="/cat.svg" width={200} height={200} alt="cat-image" /> */}
   </button>
 );

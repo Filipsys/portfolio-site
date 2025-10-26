@@ -8,6 +8,8 @@ import { Home } from "@/app/pages/Home";
 import { DefaultFunPage } from "@/app/pages/fun/Default";
 import { HalloweenFunPage } from "@/app/pages/fun/Halloween";
 
+import "./i18n";
+
 export type AppContext = {};
 
 export default defineApp([
