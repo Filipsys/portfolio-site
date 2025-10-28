@@ -1,18 +1,7 @@
-import i18next from "i18next";
-import en from "@/locales/en.json";
-import pl from "@/locales/pl.json";
-import de from "@/locales/de.json";
-
 import { Separator } from "@/components/default/Separator";
 import { Navigation } from "@/components/default/Navigation";
 import { HomeComponent } from "@/components/default/Home";
 import { FunModeTeleporter } from "@/components/default/FunModeTeleporter";
-
-i18next.init({
-  resources: {
-    en, pl, de
-  },
-});
 
 export const Home = () => (
   <main
@@ -21,13 +10,13 @@ export const Home = () => (
   >
     {/* <ChristmasLights />
 
-    <div className="absolute top-2 left-2">
-      <ThemeToggle />
-    </div>
+      <div className="absolute top-2 left-2">
+        <ThemeToggle />
+      </div>
 
-    <div className="absolute top-2 left-12">
-      <LanguageToggle />
-    </div> */}
+      <div className="absolute top-2 left-12">
+        <LanguageToggle />
+      </div> */}
 
     <div className="absolute bottom-0 left-0">
       <FunModeTeleporter />

@@ -28,7 +28,7 @@ const TechCard = (props: {
   name: string;
   translationID: string;
 }) => {
-  const t = useTranslation("Tech");
+  // const t = useTranslation("Tech");
 
   return (
     <div className="h-fit w-full border-[1px] border-neutral-700/10 dark:border-neutral-300/10 flex items-center">

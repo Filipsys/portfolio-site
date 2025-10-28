@@ -1,3 +1,5 @@
+"use client";
+
 import { Separator } from "@/components/default/Separator";
 import { TechCards } from "@/components/default/TechCards";
 import { Links } from "@/components/default/Links";
@@ -34,7 +36,7 @@ export const HomeComponent = () => {
       </div>
 
       <div>
-        <h1>- {t("SocialLinksHeader")}</h1>
+        <h1>- {t($ => $["SocialLinksHeader"])}</h1>
 
         <Links />
       </div>
@@ -42,10 +44,10 @@ export const HomeComponent = () => {
       <div className="py-3" />
 
       <div>
-        <h1>- {t("TechHeader")}</h1>
+        <h1>- {t($ => $["TechHeader"])}</h1>
 
         <div className="mb-8 grid w-full grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 lg:mb-0">
-          <TechCards />
+          {/* <TechCards /> */}
         </div>
       </div>
     </div>
