@@ -28,7 +28,7 @@ const TechCard = (props: {
   name: string;
   translationID: string;
 }) => {
-  // const t = useTranslation("Tech");
+  const { t } = useTranslation("Tech");
 
   return (
     <div className="h-fit w-full border-[1px] border-neutral-700/10 dark:border-neutral-300/10 flex items-center">
@@ -39,7 +39,7 @@ const TechCard = (props: {
       <div>
         <p className="text-sm">{props.name}</p>
         <p className="font-extralight text-xs pr-1 [line-height:0.7rem]">
-          {t(props.translationID)}
+          {t($ => $[props.translationID])}
         </p>
       </div>
     </div>
