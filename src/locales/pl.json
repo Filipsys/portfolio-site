@@ -7,7 +7,7 @@
   },
 
   "Home": {
-    "MainInfo": "Cześć, jestem Filip, samoukiem front-end deweloperem z Polski. Głównie pracuję z <green>React</green>, <yellow>Next.js</yellow>, <darkBlue>Tailwind CSS</darkBlue>, <blue>TypeScript</blue> oraz relacyjnymi bazami danych, takimi jak <orange>MySQL</orange>.",
+    "MainInfo": "Cześć, jestem Filip, samoukiem front-end deweloperem z Polski. Głównie pracuję z React, Next.js, Tailwind CSS, TypeScript oraz relacyjnymi bazami danych, takimi jak MySQL.",
     "SocialLinksHeader": "Linki społeczności",
     "TechHeader": "Technologie, które znam i stosuję"
   },

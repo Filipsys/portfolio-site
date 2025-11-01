@@ -31,7 +31,7 @@ export const HomeComponent = () => {
         <h1>- {t($ => $["Home.TechHeader"])}</h1>
 
         <div className="mb-8 grid w-full grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 lg:mb-0">
-          {/* <TechCards /> */}
+          <TechCards />
         </div>
       </div>
     </div>
