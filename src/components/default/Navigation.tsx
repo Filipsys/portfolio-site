@@ -1,30 +1,37 @@
 "use client";
 
 import { useTranslation } from "react-i18next";
-// import { ProjectContext } from "@/providers/ContextProvider";
-// import { useContext } from "react";
+
+type Pages = "home" | "projects";
+
+const getPageCookie = async (): Promise<Pages | null> => {
+  return browser.cookies.get({ name: "current_page" });
+};
+
+const setPageCookie = (page: Pages) => {
+  browser.cookies.set({
+    name: "current_page",
+    value: page,
+    expirationDate: 60
+  });
+};
 
 export const Navigation = () => {
-  // const { setCurrentPage } = useContext(ProjectContext);
   const { t } = useTranslation("Navigation");
-
-  // const handlePageState = (page: "home" | "projects") => {
-  //   setCurrentPage(page);
-  // };
 
   return (
     <nav className="block w-full lg:w-fit pt-8 lg:pt-0 lg:pr-8">
       <div className="flex justify-center gap-x-8 text-xl tracking-tight *:z-50 sm:gap-x-16 sm:text-2xl lg:flex-col lg:items-end lg:text-3xl">
         <button
           className="cursor-pointer"
-          // onClick={() => handlePageState("home")}
+          onClick={() => setPageCookie("home")}
           type="button"
         >
           {t("Home")}
         </button>
         <button
           className="cursor-pointer"
-          // onClick={() => handlePageState("projects")}
+          onClick={() => setPageCookie("projects")}
           type="button"
         >
           {t("Projects")}
