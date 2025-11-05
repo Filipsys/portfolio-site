@@ -1,4 +1,4 @@
-import { withTranslation } from 'react-i18next';
+import { withSSR } from 'react-i18next';
 
 import { Separator } from "@/components/default/Separator";
 import { Navigation } from "@/components/default/Navigation";
@@ -38,4 +38,4 @@ const Home = () => (
   </main>
 );
 
-export default withTranslation()(Home);
+export default withSSR()(Home);
