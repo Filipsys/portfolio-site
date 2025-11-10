@@ -1,11 +1,22 @@
-import { withSSR } from 'react-i18next';
+// import { withSSR } from 'react-i18next';
 
 import { Separator } from "@/components/default/Separator";
 import { Navigation } from "@/components/default/Navigation";
 import { HomeComponent } from "@/components/default/Home";
 import { FunModeTeleporter } from "@/components/default/FunModeTeleporter";
+import { Projects } from "@/components/default/Projects";
 
-const Home = () => (
+import { Suspense } from "react";
+
+type Pages = "home" | "projects";
+
+const getPageCookie = async (): Promise<Pages | null> => {
+  "use client";
+
+  return browser.cookies.get({ name: "current_page" });
+};
+
+const Home = async () => (
   <main
     className="min-h-screen h-full flex justify-center bg-neutral-200 dark:bg-neutral-900 font-DMSans text-neutral-700 dark:text-neutral-300 fill-neutral-700 dark:fill-neutral-300"
     id="hover-div"
@@ -32,10 +43,15 @@ const Home = () => (
       </div>
 
       <main className="flex z-50 items-center justify-center p-8 text-xl lg:h-dvh lg:w-4/5">
-        <HomeComponent />
+        {/* <HomeComponent /> */}
+
+        <Suspense fallback=<HomeComponent />>
+          {<Projects /> ? await getPageCookie() === "projects" : null}
+        </Suspense>
       </main>
     </div>
   </main>
 );
 
-export default withSSR()(Home);
+// export default withSSR()(Home);
+export default Home;
