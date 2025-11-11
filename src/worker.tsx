@@ -9,6 +9,7 @@ import { DefaultFunPage } from "@/app/pages/fun/Default";
 import { HalloweenFunPage } from "@/app/pages/fun/Halloween";
 
 import i18n from "@/i18n";
+import { ProjectsPage } from "./app/pages/Projects";
 
 export type AppContext = {};
 
@@ -18,9 +19,8 @@ export default defineApp([
   async ({ ctx }) => { },
 
   render(Document, [
-    route("/", ({ ctx }) => (
-      <Home />
-    )),
+    route("/", Home),
+    route("/projects", ProjectsPage),
     route("/fun", [HalloweenFunPage, DefaultFunPage]),
   ]),
 ]);

@@ -10,11 +10,11 @@ import { Suspense } from "react";
 
 type Pages = "home" | "projects";
 
-const getPageCookie = async (): Promise<Pages | null> => {
-  "use client";
-
-  return browser.cookies.get({ name: "current_page" });
-};
+// const getPageCookie = async (): Promise<Pages | null> => {
+//   "use client";
+//
+//   return browser.cookies.get({ name: "current_page" });
+// };
 
 const Home = async () => (
   <main
@@ -43,11 +43,11 @@ const Home = async () => (
       </div>
 
       <main className="flex z-50 items-center justify-center p-8 text-xl lg:h-dvh lg:w-4/5">
-        {/* <HomeComponent /> */}
+        <HomeComponent />
 
-        <Suspense fallback=<HomeComponent />>
+        {/* <Suspense fallback=<HomeComponent />>
           {<Projects /> ? await getPageCookie() === "projects" : null}
-        </Suspense>
+        </Suspense> */}
       </main>
     </div>
   </main>

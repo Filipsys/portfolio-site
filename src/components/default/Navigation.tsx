@@ -1,20 +1,21 @@
 "use client";
 
 import { useTranslation } from "react-i18next";
+import { navigate } from "rwsdk/client";
 
 type Pages = "home" | "projects";
 
-const getPageCookie = async (): Promise<Pages | null> => {
-  return browser.cookies.get({ name: "current_page" });
-};
-
-const setPageCookie = (page: Pages) => {
-  browser.cookies.set({
-    name: "current_page",
-    value: page,
-    expirationDate: 60
-  });
-};
+// const getPageCookie = async (): Promise<Pages | null> => {
+//   return browser.cookies.get({ name: "current_page" });
+// };
+//
+// const setPageCookie = (page: Pages) => {
+//   browser.cookies.set({
+//     name: "current_page",
+//     value: page,
+//     expirationDate: 60
+//   });
+// };
 
 export const Navigation = () => {
   const { t } = useTranslation("Navigation");
@@ -24,14 +25,14 @@ export const Navigation = () => {
       <div className="flex justify-center gap-x-8 text-xl tracking-tight *:z-50 sm:gap-x-16 sm:text-2xl lg:flex-col lg:items-end lg:text-3xl">
         <button
           className="cursor-pointer"
-          onClick={() => setPageCookie("home")}
+          onClick={() => navigate("/")}
           type="button"
         >
           {t("Home")}
         </button>
         <button
           className="cursor-pointer"
-          onClick={() => setPageCookie("projects")}
+          onClick={() => navigate("/projects")}
           type="button"
         >
           {t("Projects")}
