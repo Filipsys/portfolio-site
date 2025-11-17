@@ -63,7 +63,10 @@ export const Projects = memo(() => {
 
         <button
           className="flex gap-1 items-center *:fill-gray-500 hover:underline underline-offset-4 decoration-gray-500 cursor-pointer"
-          onClick={() => setCategoryPinned(!categoryPinned)}
+          onClick={() => {
+            setCategoryPinned(!categoryPinned)
+            setRepos([]);
+          }}
           type="button"
         >
           <p className="text-sm text-gray-500">
