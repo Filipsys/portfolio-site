@@ -8,6 +8,14 @@ import { useTranslation } from "react-i18next";
 
 import type { ProjectData, GithubResponseJSON } from "@/../types/global";
 
+const getPinnedCookie = async (repos: ProjectData) => {
+  await browser.cookies.set({
+    url: "http://localhost:5173/projects",
+    name: "pinnes-repos",
+    value: JSON.stringify(repos)
+  });
+};
+
 export const Projects = memo(() => {
   const [isLoading, setIsLoading] = useState(true);
   const [categoryPinned, setCategoryPinned] = useState<boolean>(true);
@@ -16,6 +24,7 @@ export const Projects = memo(() => {
   const { t } = useTranslation();
 
   useEffect(() => {
+
     const fetchDataFromGithub = async () => {
       setIsLoading(true);
 
@@ -26,7 +35,6 @@ export const Projects = memo(() => {
       const res = await fetch(link);
       const data = await res.json() as ProjectData | GithubResponseJSON;
 
-      console.log("data: ", data);
 
       if (!categoryPinned) {
         for (const project of data as GithubResponseJSON) {
@@ -42,6 +50,7 @@ export const Projects = memo(() => {
           }]);
         }
       } else {
+        // getPinnedCookie(data);
         setRepos(data);
       }
 
