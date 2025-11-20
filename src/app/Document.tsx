@@ -9,6 +9,7 @@ export const Document: React.FC<{ children: React.ReactNode }> = ({
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <title>portfolio site @ filyys</title>
 
+      <link rel="manifest" href="/manifest.json" />
       <link rel="modulepreload" href="/src/client.tsx" />
       <link rel="stylesheet" href={styles} />
     </head>
