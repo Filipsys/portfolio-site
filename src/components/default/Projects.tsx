@@ -8,13 +8,7 @@ import { useTranslation } from "react-i18next";
 
 import type { ProjectData, GithubResponseJSON } from "@/../types/global";
 
-const getPinnedCookie = async (repos: ProjectData) => {
-  await browser.cookies.set({
-    url: "http://localhost:5173/projects",
-    name: "pinnes-repos",
-    value: JSON.stringify(repos)
-  });
-};
+
 
 export const Projects = memo(() => {
   const [isLoading, setIsLoading] = useState(true);
@@ -23,8 +17,15 @@ export const Projects = memo(() => {
 
   const { t } = useTranslation();
 
-  useEffect(() => {
+  const getPinnedCookie = async (repos: ProjectData) => {
+    browser.cookies.set({
+      url: "http://localhost:5173/projects",
+      name: "pinnes-repos",
+      value: JSON.stringify(repos)
+    });
+  };
 
+  useEffect(() => {
     const fetchDataFromGithub = async () => {
       setIsLoading(true);
 
@@ -51,6 +52,11 @@ export const Projects = memo(() => {
         }
       } else {
         // getPinnedCookie(data);
+        // browser.cookies.set({
+        //   url: "http://localhost:5173/projects",
+        //   name: "pinnes-repos",
+        //   value: JSON.stringify(data)
+        // });
         setRepos(data);
       }
 
