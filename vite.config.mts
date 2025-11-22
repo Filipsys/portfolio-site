@@ -3,6 +3,7 @@ import { redwood } from "rwsdk/vite";
 import { cloudflare } from "@cloudflare/vite-plugin";
 
 import tailwindcss from "@tailwindcss/vite";
+import basicSsl from "@vitejs/plugin-basic-ssl";
 
 export default defineConfig({
   environments: {
@@ -14,5 +15,6 @@ export default defineConfig({
     }),
     redwood(),
     tailwindcss(),
+    basicSsl(),
   ],
 });
