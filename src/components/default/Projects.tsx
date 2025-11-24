@@ -17,12 +17,16 @@ export const Projects = memo(() => {
 
   const { t } = useTranslation();
 
-  const getPinnedCookie = async (repos: ProjectData) => {
-    browser.cookies.set({
-      url: "http://localhost:5173/projects",
-      name: "pinnes-repos",
-      value: JSON.stringify(repos)
-    });
+  const getPinnedCookie = () => {
+    const cookie = document.cookie.split("; ").find((row) => row.startsWith("pinned-repos"));
+
+    if (!cookie) return {};
+
+    return (cookie.split("pinned-repos=")[1]);
+  };
+
+  const setPinnedCookie = (repos: ProjectData) => {
+    document.cookie = `pinned-repos=${JSON.stringify(repos)}; SameSite=None; Secure`;
   };
 
   useEffect(() => {
@@ -51,7 +55,8 @@ export const Projects = memo(() => {
           }]);
         }
       } else {
-        // getPinnedCookie(data);
+        console.log("getPinnedCookie(): ", getPinnedCookie());
+
         // browser.cookies.set({
         //   url: "http://localhost:5173/projects",
         //   name: "pinnes-repos",
