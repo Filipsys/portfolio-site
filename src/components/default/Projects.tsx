@@ -8,8 +8,6 @@ import { useTranslation } from "react-i18next";
 
 import type { ProjectData, GithubResponseJSON } from "@/../types/global";
 
-
-
 export const Projects = memo(() => {
   const [isLoading, setIsLoading] = useState(true);
   const [categoryPinned, setCategoryPinned] = useState<boolean>(true);
@@ -17,20 +15,38 @@ export const Projects = memo(() => {
 
   const { t } = useTranslation();
 
-  const getPinnedCookie = () => {
-    const cookie = document.cookie.split("; ").find((row) => row.startsWith("pinned-repos"));
+  const getPinnedLocal = () => {
+    const repos = localStorage.getItem("pinned-repos");
 
-    if (!cookie) return {};
-
-    return (cookie.split("pinned-repos=")[1]);
+    return repos ? JSON.parse(repos) : {};
   };
 
-  const setPinnedCookie = (repos: ProjectData) => {
-    document.cookie = `pinned-repos=${JSON.stringify(repos)}; SameSite=None; Secure`;
+  const getRecentLocal = () => {
+    const repos = localStorage.getItem("recent-repos");
+
+    return repos ? JSON.parse(repos) : {};
+  };
+
+  const setPinnedLocal = (repos: ProjectData[]) => {
+    localStorage.setItem("pinned-repos", JSON.stringify(repos));
+  };
+
+  const setRecentLocal = (repos: ProjectData[]) => {
+    localStorage.setItem("recent-repos", JSON.stringify(repos));
   };
 
   useEffect(() => {
     const fetchDataFromGithub = async () => {
+      // Local storage repos
+      const LSRepos = categoryPinned ? getPinnedLocal() : getRecentLocal();
+
+      if (LSRepos.length !== 0) {
+        setRepos(LSRepos);
+        setIsLoading(false);
+
+        return;
+      }
+
       setIsLoading(true);
 
       const link = categoryPinned ?
@@ -42,8 +58,9 @@ export const Projects = memo(() => {
 
 
       if (!categoryPinned) {
+        const items: ProjectData[] = [];
         for (const project of data as GithubResponseJSON) {
-          setRepos((prev) => [...prev, {
+          items.push({
             repoName: project.name,
             repoLink: project.html_url,
             repoDescription: project.description,
@@ -52,17 +69,14 @@ export const Projects = memo(() => {
             lastUpdate: project.updated_at,
             mainLanguage: project.language,
             topics: project.topics,
-          }]);
+          });
         }
-      } else {
-        console.log("getPinnedCookie(): ", getPinnedCookie());
 
-        // browser.cookies.set({
-        //   url: "http://localhost:5173/projects",
-        //   name: "pinnes-repos",
-        //   value: JSON.stringify(data)
-        // });
+        setRepos(items);
+        setRecentLocal(items);
+      } else {
         setRepos(data);
+        setPinnedLocal(data);
       }
 
       setIsLoading(false);
@@ -103,6 +117,7 @@ export const Projects = memo(() => {
         {isLoading
           ? <LoadingSkeleton />
           : (
+            console.log(repos),
             repos.map((project, index) => (
               <RepoCard
                 key={`${project.repoName}-${index}`}
