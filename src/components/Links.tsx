@@ -1,6 +1,7 @@
 import {
   RedirectIcon,
   SmallGithubIcon,
+  SmallCodebergIcon,
   SmallGmailIcon,
   SmallLinkedinIcon,
 } from "@/icons/dev-icons";
@@ -20,12 +21,18 @@ const links: {
   },
   {
     id: 2,
+    name: "Codeberg",
+    link: "codeberg.org/filyys",
+    icon: SmallCodebergIcon,
+  },
+  {
+    id: 3,
     name: "LinkedIn",
     link: "linkedin.com/in/filipsysak",
     icon: SmallLinkedinIcon,
   },
   {
-    id: 3,
+    id: 4,
     name: "Email",
     link: "mail@filyys.dev",
     icon: SmallGmailIcon,
